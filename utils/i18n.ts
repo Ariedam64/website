@@ -16,8 +16,7 @@ const nextI18NextConfig = {
   },
 };
 
-const siteUrlFromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? '';
-const loadPathBase = siteUrlFromEnv || '';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 i18n
   .use(HttpBackend) // Pour charger les fichiers de traduction
@@ -30,7 +29,7 @@ i18n
     defaultNS: 'common', // Assurez-vous que vos traductions se trouvent dans common.json
     ns: ['common'],
     backend: {
-      loadPath: `${loadPathBase}/locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${basePath}/locales/{{lng}}/{{ns}}.json`,
     },
     detection: {
       order: ['localStorage', 'cookie', 'navigator'],
