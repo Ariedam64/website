@@ -1,6 +1,5 @@
 "use client";
 
-import NextImage from 'next/image';
 import React, { FC, useEffect, ReactNode } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Navigation,Pagination,} from 'swiper/modules';
@@ -83,12 +82,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
     images.forEach((src) => {
-      const img = new window.Image();
+      const img = new Image();
       img.src = src;
     });
   }, [images]);
@@ -116,12 +111,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             
           {images.map((src, i) => (
             <SwiperSlide key={i} className="w-full">
-              <NextImage
+              <img
                 src={src}
-                alt={`${title} screenshot ${i + 1}`}
-                width={960}
-                height={540}
-                className="h-full w-full rounded-2xl object-cover"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
               />
             </SwiperSlide>
           ))}

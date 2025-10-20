@@ -43,15 +43,12 @@ i18n
 // Utilitaire pour récupérer un tableau de chaînes depuis les traductions
 export function tList(t: TFunction, key: string): string[] {
   const result = t(key, { returnObjects: true });
-
   if (Array.isArray(result)) {
     return result.map((value) => String(value));
   }
-
   if (typeof result === 'string') {
     return [result];
   }
-
   return [];
 }
 
