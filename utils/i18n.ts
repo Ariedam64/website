@@ -4,6 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 // Configuration centralisée
 const nextI18NextConfig = {
   i18n: {
@@ -26,7 +28,7 @@ i18n
     defaultNS: 'common', // Assurez-vous que vos traductions se trouvent dans common.json
     ns: ['common'],
     backend: {
-      loadPath: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${basePath}/locales/{{lng}}/{{ns}}.json`,
     },
     detection: {
       order: ['localStorage', 'cookie', 'navigator'],
