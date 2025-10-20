@@ -50,14 +50,18 @@ if (!i18n.isInitialized) {
   });
 }
 
-// Utilitaire pour récupérer un tableau de chaînes depuis les traductions
-export function tList(t: TFunction, key: string): string[] {
+// Utilitaire pour récupérer un tableau typé depuis les traductions
+export function tList<T = string>(t: TFunction, key: string): T[] {
   const result = t(key, { returnObjects: true });
   if (Array.isArray(result)) {
-    return result.map((value) => String(value));
+    return result as T[];
   }
-  if (typeof result === 'string') {
-    return [result];
+  if (
+    typeof result === 'string' ||
+    typeof result === 'number' ||
+    typeof result === 'boolean'
+  ) {
+    return [result as unknown as T];
   }
   return [];
 }
