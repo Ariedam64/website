@@ -4,44 +4,51 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
+import enCommon from '../public/locales/en/common.json';
+import frCommon from '../public/locales/fr/common.json';
 
-// Configuration centralisée
-const nextI18NextConfig = {
-  i18n: {
-    defaultLocale: 'fr',
-    locales: ['en', 'fr'],
-  },
-  backend: {
-    loadPath: '/locales/{{lng}}/{{ns}}.json', // Assurez-vous que vos fichiers sont dans public/locales/...
-  },
-};
+const resources = {
+  en: { common: enCommon },
+  fr: { common: frCommon },
+} as const;
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const defaultLocale: keyof typeof resources = 'fr';
+const supportedLngs = Object.keys(resources);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const isBrowser = typeof window !== 'undefined';
 
-i18n
-  .use(HttpBackend) // Pour charger les fichiers de traduction
-  .use(LanguageDetector) // Pour détecter la langue et la mémoriser (optionnel)
-  .use(initReactI18next) // Pour intégrer i18next à React
-  .init({
+if (!i18n.isInitialized) {
+  if (isBrowser) {
+    i18n.use(HttpBackend).use(LanguageDetector);
+  }
+
+  i18n.use(initReactI18next).init({
     debug: process.env.NODE_ENV === 'development',
-    fallbackLng: nextI18NextConfig.i18n.defaultLocale,
-    supportedLngs: nextI18NextConfig.i18n.locales,
-    defaultNS: 'common', // Assurez-vous que vos traductions se trouvent dans common.json
+    fallbackLng: defaultLocale,
+    supportedLngs,
+    defaultNS: 'common',
     ns: ['common'],
-    backend: {
-      loadPath: `${basePath}/locales/{{lng}}/{{ns}}.json`,
-    },
-    detection: {
-      order: ['localStorage', 'cookie', 'navigator'],
-      caches: ['localStorage', 'cookie'],
-    },
+    initImmediate: false,
+    resources: isBrowser ? undefined : resources,
+    backend: isBrowser
+      ? {
+          loadPath: `${basePath}/locales/{{lng}}/{{ns}}.json`,
+        }
+      : undefined,
+    detection: isBrowser
+      ? {
+          order: ['localStorage', 'cookie', 'navigator'],
+          caches: ['localStorage', 'cookie'],
+        }
+      : undefined,
     react: {
-      useSuspense: true, // Vous pouvez le mettre à true si vous gérez un fallback via Suspense
+      useSuspense: false,
     },
     interpolation: {
-      escapeValue: false, // React s'occupe de l'échappement
+      escapeValue: false,
     },
   });
+}
 
 // Utilitaire pour récupérer un tableau de chaînes depuis les traductions
 export function tList(t: TFunction, key: string): string[] {
