@@ -33,7 +33,7 @@ export default function TranslateAnimation({
       }, duration);
       return () => clearTimeout(timeout);
     }
-  }, [text, i18n.language, duration]);
+  }, [text, i18n.language, duration, displayedText, prevLang]);
 
   return (
     <span

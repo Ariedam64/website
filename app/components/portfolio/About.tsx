@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FiExternalLink } from "react-icons/fi";
 import React from "react";
@@ -31,9 +32,11 @@ export default function About() {
         {/* Photo */}
         <span className="relative inline-block group mb-6
                         w-40 h-40 md:w-56 md:h-56">
-          <img
+          <Image
             src="/img/avatar.png"
-            alt="Avatar"
+            alt={t("portfolio.about.name")}
+            width={224}
+            height={224}
             className="
               block
               w-full h-full
@@ -42,6 +45,7 @@ export default function About() {
               transition-transform duration-300 ease-out
               group-hover:scale-105
             "
+            priority
           />
           {/* cercle animé */}
           <span className="

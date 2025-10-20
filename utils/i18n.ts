@@ -42,7 +42,17 @@ i18n
 
 // Utilitaire pour récupérer un tableau de chaînes depuis les traductions
 export function tList(t: TFunction, key: string): string[] {
-  return t<string[]>(key, { returnObjects: true });
+  const result = t(key, { returnObjects: true });
+
+  if (Array.isArray(result)) {
+    return result.map((value) => String(value));
+  }
+
+  if (typeof result === 'string') {
+    return [result];
+  }
+
+  return [];
 }
 
 export function getAlternateLang(current: 'fr' | 'en'): 'fr' | 'en' {

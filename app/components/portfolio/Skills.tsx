@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import TranslateAnimation from "../TranslateAnimation";
 import { skillsData } from "@/app/data/skillsData";
@@ -24,7 +25,13 @@ return (
             aria-label={`${titleKey} Logo`}
             className="inline-flex items-center justify-center w-24 h-16 mr-4 p-2 bg-[#27272C] rounded-2xl pointer-events-none"
           >
-            <img src={icon} alt={titleKey} width="40" height="40" className="object-contain" />
+            <Image
+              src={icon}
+              alt={t(titleKey)}
+              width={64}
+              height={64}
+              className="object-contain"
+            />
           </button>
 
           <div className="flex-1">

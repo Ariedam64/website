@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import styles from "../../styles/portfolio/portfolio.module.css";
 import { motion } from "framer-motion";
@@ -10,7 +11,13 @@ export default function TimelineItem({ item, t, variants }) {
         variants={variants} 
       >
         <div className={styles.timelineLogo}>
-          <img src={item.logo} alt={t(item.companyKey)} width="48" height="48" />
+          <Image
+            src={item.logo}
+            alt={t(item.companyKey)}
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain"
+          />
         </div>
         <div className={styles.timelineContent}>
           <time className={styles.timelineDate}><TranslateAnimation text={t(item.dateKey)}/></time>
