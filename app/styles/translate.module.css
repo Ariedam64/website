@@ -1,0 +1,100 @@
+.translateWrapper {
+    background: #18181be1;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: fit-content;
+    z-index: 20;
+    margin: 0 1rem; 
+    box-shadow: 0 0px 10px rgba(158, 10, 187, 0.3);
+    border: 1px solid #3E304F; 
+  }
+  
+  .translateContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    pointer-events: auto;
+  }
+  
+  .translateLabel {
+    color: #fff;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 700 !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+    gap: 2rem;
+    width: 2rem;
+  }
+
+    
+  .labelAnimating {
+    animation: labelChange 0.5s ease-in-out;
+  }
+
+  .swapButton {
+    background-color: #24242400;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 30px;    
+    height: 30px;
+    transition: transform 0.2s
+  }
+
+  .swapButton:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+  }
+  
+  .swapButton img {
+    width: 100%;          
+    height: 100%;
+    object-fit: contain;  
+    border: none;
+    outline: none;
+  }
+
+  .swapIcon {
+    width: 1.7rem;
+    height: 1.7rem;
+    color: azure;
+  }
+
+  @keyframes labelChange {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  @keyframes arrowRotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotating {
+    animation: arrowRotation 0.5s ease-in-out forwards;
+  }

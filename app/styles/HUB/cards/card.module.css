@@ -1,0 +1,100 @@
+
+.card {
+  width: 250px;
+  height: 250px;
+  background: #303030;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h2 {
+  z-index: 3;
+  color: white;
+  font-size: 2em;
+}
+
+/* Pseudo-élément caché par défaut */
+.card::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 150%;
+  background-image: linear-gradient(180deg, #0f5ec7, #b313a5);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  pointer-events: none;
+  z-index: 0;
+  animation: rotBGimg 3s linear infinite;
+}
+
+
+/* Au survol, l'opacité passe à 1 et l'animation démarre */
+.card:hover::before {
+  opacity: 1;
+  animation: rotBGimg 3s linear infinite;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  background: #1a1a1a;
+  inset: 5px;
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cardIcon {
+  padding-top: 15%;
+  width: 100px;
+  height: 50px;
+  display: flex;   
+  justify-content: center; 
+  align-items: center;
+  z-index: 2;
+}
+
+.cardIcon img {
+  margin: auto;
+}
+
+.cardTitle {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 4rem;  
+  font-weight: 900;           
+  letter-spacing: 0.1em; 
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  margin-top: 40%;
+}
+
+.card,
+.card * {
+  color: #fff !important;
+  fill: currentColor;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@keyframes diagonalWave {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Conteneur de la grille avec gaps et fond animé en dégradé diagonal */
+.gridContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  grid-auto-rows: 40px;
+  gap: 1px; /* Traits fins */
+  /* On garde un fond de base pour le cas où l'animation ne serait pas visible */
+  background: #404040;
+  z-index: 0;
+}
+
+/* Pseudo-élément qui affiche le dégradé animé sous forme d'onde diagonale */
+.gridContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* On utilise ici un dégradé radial pour obtenir un effet subtil ;
+     il sera animé pour donner l'impression que la couleur se déplace en diagonale */
+  background: radial-gradient(circle, #8b006d, #071c96);
+  background-size: 300% 300%;
+  animation: diagonalWave 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Chaque carré de la grille en noir avec transition et effet sur survol */
+.gridItem {
+  position: relative;
+  background: #111111e7;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  /* Pas de filter ici */
+}
+
+/* Pseudo-élément overlay pour l'effet de luminosité */
+.gridItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.281); /* Couleur blanche avec une opacité pour éclaircir */
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  pointer-events: none; /* L'overlay n'interfère pas avec les interactions */
+}
+
+.gridItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.gridItem:hover::before {
+  opacity: 1;
+  transition: opacity 0.15s ease-out;
+}

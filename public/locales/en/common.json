@@ -1,0 +1,394 @@
+{
+  "hub": {
+    "welcome": "Romann",
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Collection of information about my projects and myself"
+    },
+    "tools": {
+      "title": "Tools",
+      "description": "Explore the tools I use daily"
+    }
+  },
+  "portfolio": {
+    "navigation": {
+      "about": "About",
+      "career": "Career",
+      "skills": "Skills",
+      "projects": "Projects"
+    },
+    "about": {
+      "name": "MADEIRA Romann",
+      "role": "Developer Analyst",
+      "cvLink": "View Resume",
+      "description": "23-year-old developer based in France, passionate about coding for 8 years. What I love most? Automating, optimizing, and building projects that excite me."
+    },
+    "experiences": {
+      "work_title": "Experiences",
+      "work": [
+        {
+          "date": "2024 - present",
+          "company": "Freelance",
+          "role": "Independent",
+          "desc": "Client-side development (JS & C#), web automation (Puppeteer, Selenium, Tampermonkey), reverse engineering"
+        },
+        {
+          "date": "2024 - 2025",
+          "company": "Samsic",
+          "role": "Temporary Worker",
+          "desc": "Warehouse operative, farm worker, seasonal laborer"
+        },
+        {
+          "date": "2021 - 2022",
+          "company": "Burographic",
+          "role": "Apprentice Developer",
+          "desc": "Client-side development (Python) with extensive use of the SNMP protocol, technical support, project management, on-site assistance"
+        },
+        {
+          "date": "2021",
+          "company": "Burographic",
+          "role": "Intern Developer",
+          "desc": "VBA development, business process automation, technical documentation"
+        }
+      ],
+      "studies_title": "Education",
+      "studies": [
+        {
+          "date": "2021 - 2022",
+          "degree": "Advanced Programming Bachelor's Degree",
+          "school": "IUT of Bayonne and the Basque Country",
+          "location": "Anglet, 64600 FRANCE"
+        },
+        {
+          "date": "2019 - 2021",
+          "degree": "Computer Science Associate Degree",
+          "school": "IUT of Bayonne and the Basque Country",
+          "location": "Anglet, 64600 FRANCE"
+        },
+        {
+          "date": "2016 - 2019",
+          "degree": "Technological Baccalaureate (Mechanical Option)",
+          "school": "Louis-de-Foix High School",
+          "location": "Bayonne, 64100 FRANCE"
+        }
+      ]
+    },
+    "skills": [
+      { "key": "html",        "title": "HTML",         "desc": "Markup language for web pages" },
+      { "key": "css",         "title": "CSS",          "desc": "Style and layout of web pages" },
+      { "key": "javascript",  "title": "JavaScript",   "desc": "Programming language for the Web" },
+      { "key": "reactjs",     "title": "React.js",     "desc": "Library for building web interfaces" },
+      { "key": "nextjs",      "title": "Next.js",      "desc": "Framework for server-rendered React apps" },
+      { "key": "nodejs",      "title": "Node.js",      "desc": "JavaScript runtime for server-side" },
+      { "key": "python",      "title": "Python",       "desc": "High-level, interpreted programming language" },
+      { "key": "csharp",      "title": "C#",            "desc": "Object-oriented programming language" },
+      { "key": "tampermonkey","title": "Tampermonkey", "desc": "User scripts for web automation" },
+      { "key": "vba",         "title": "Excel VBA",    "desc": "Task automation and macros in Excel" },
+      { "key": "powershell",  "title": "PowerShell",   "desc": "Windows administration and automation with PowerShell scripts" },
+      { "key": "dnSpy",       "title": "dnSpy",        "desc": "Debugger and .NET assembly editor for reverse engineering" },
+      { "key": "mongodb",     "title": "MongoDB",      "desc": "NoSQL database for modern applications" },
+      { "key": "postgresql",  "title": "PostgreSQL",   "desc": "Relational database management system" },
+      { "key": "git",         "title": "Git",          "desc": "Distributed version control system" },
+      { "key": "trello",      "title": "Trello",       "desc": "Kanban project management tool" }
+    ],
+    "projects": {
+      "mayaya": {
+        "title": "Mayaya — From a personal idea to an essential tool",
+        "description": "AI bot capable of learning to play autonomously, providing statistics, a competition mode, and an in-game overlay",
+        "subtitle": "How a simple basic bot became the BombParty community’s favorite companion",
+        "game_title": "About BombParty",
+        "game_desc": "BombParty is an online game where speed and vocabulary go hand in hand. Each round, a syllable appears (e.g., \"tra\"); players have a few seconds to type a word containing it (\"travel\", \"contract\", etc.) before the virtual bomb explodes. Easy to pick up, the real challenge lies in the pressure of the clock!",
+        "origin": {
+          "title": "Origin of Mayaya",
+          "description": "It all started with a simple observation: on BombParty, you couldn’t play solo or practice. No single-player mode, just public matches with random opponents. Frustrated by these limits (and admittedly a bit bored), I launched a little bot for fun",
+          "steps": [
+            { "icon": "😂", "title": "A prank",     "desc": "Originally it was just a joke: a bot that replied “feur” whenever someone typed “quoi” in chat" },
+            { "icon": "💾", "title": "The .exe tool", "desc": "The bot gained traction, so I added fun features. When a friend wanted to try it, I packaged everything into a Python app with a simple GUI" },
+            { "icon": "🤖", "title": "Then the 24/7 bot", "desc": "Running the bot locally was nice… but inconvenient. So I migrated to a Node.js bot hosted online around the clock, with over 30 commands and advanced training modes" },
+            { "icon": "🖥️", "title": "Finally, the overlay", "desc": "The last hurdle was switching to chat to see scores and stats. So I added a visual overlay: a clean, responsive, modular interface" }
+          ],
+          "conclusion": "This journey—from simple prank to full overlay—inspired the BombParty devs to adopt many of these ideas natively!"
+        },
+        "modules": {
+          "python": {
+            "label": "Python Bot",
+            "objective": "Provide a simple solution allowing any player to add a bot to a channel, without complex setup or technical dependencies.",
+            "tech": [
+              "Python 3",
+              "customTkinter (UI)",
+              "pyInstaller (.exe)",
+              "WebSocket (reverse engineering)",
+              "OpenAI API"
+            ],
+            "features": [
+              "Intuitive visual interface for managing bots and joining channels",
+              "Reads syllables via WebSocket and responds automatically using a local dictionary",
+              "Various options: autojoin, easter eggs, conversational AI replies"
+            ],
+            "limits": [
+              "No data persistence",
+              "Manual reconnection after crashes",
+              "Lack of error handling",
+              "Unsigned executable, blocked by some antivirus software",
+              "Heavy maintenance: manual recompilation after each change"
+            ]
+          },
+          "node": {
+            "label": "Mayaya Bot",
+            "objective": "Develop a centralized, continuously hosted bot capable of interacting with players, learning automatically, retaining statistics, helping new players, and offering advanced features.",
+            "tech": [
+              "Node.js",
+              "PostgreSQL",
+              "JSON",
+              "WebSocket (reverse engineering)",
+              "OpenAI API"
+            ],
+            "features": [
+              "Main channel accessible at all times",
+              "Over 30 commands available: statistics, help, moderation…",
+              "Competitive training mode tracking WPM, reaction time, and accuracy",
+              "Automatic learning of new words by observing ongoing games",
+              "Interactive real-time dialogue with the bot",
+              "Contextual reactions to recognized players (via GPT embed)",
+              "Automatic reconnection if disconnected",
+              "Secondary instances without impacting the main room"
+            ],
+            "limits": [
+              "No visual dashboard: everything managed via in-game chat",
+              "PostgreSQL database access limited to text interface"
+            ]
+          },
+          "overlay": {
+            "label": "Overlay",
+            "objective": "Display performance data in real time, accessible to all players, without relying on a bot. Designed as a complement to the game’s UX.",
+            "tech": [
+              "JavaScript",
+              "Tampermonkey",
+              "DOM API",
+              "jQuery",
+              "CSS"
+            ],
+            "features": [
+              "Customizable stats table (WPM, reaction time, error rate…)",
+              "Filterable training module (random, occurrences, regex…) with dynamic highlighting",
+              "Integrated practice and personal bots directly in-game",
+              "Persistence of user preferences (GM_setValue)",
+              "Keyboard-first, modular, accessible interface",
+              "Enhanced player profile",
+              "100% client-side, with no server requests"
+            ],
+            "limits": [
+              "Abandoned before final release: BombParty integrated main ideas natively",
+              "Highly sensitive to DOM changes",
+              "No mobile support"
+            ]
+          }
+        },
+        "funFact": {
+          "title": "Fun Fact: The war of attrition against Maca",
+          "intro": "When I launched Mayaya, Maca—the BombParty staff’s enforcer—became a real blockade:",
+          "items": [
+            { "icon": "🔒", "text": "Only one bot was tolerated; all others were wiped out" },
+            { "icon": "🚫", "text": "Every “fun” feature (profile GIFs, birthday alerts…) was removed in a hotfix" },
+            { "icon": "🛡️", "text": "A stealth reCAPTCHA and WebSocket encryption to stifle any initiative" }
+          ],
+          "war_intro": "Rather than giving up, we launched a real war of attrition:",
+          "warSteps": [
+            { "icon": "🤖", "text": "Bypassing the reCAPTCHA by simulating HTTP requests and user interactions" },
+            { "icon": "🔍", "text": "Intensive reverse-engineering of WebSocket traffic at every patch" },
+            { "icon": "🛠️", "text": "Auto-adaptive scripts capable of keeping pace with real-time updates" }
+          ],
+          "conclusion": "After a year-long tug-of-war against Maca (already widely despised by the community), he finally gave up. Before disappearing, he lifted all anti-bot protections (reCAPTCHA, obfuscation). A wave of innovative bots and new overlays swept in, and BombParty has never been more alive."
+        },
+        "remark": "Note",
+        "remark_label": " After two years of 24/7 operation, I stopped continuously hosting the bot due to lack of motivation to maintain the service. Other newer bots have emerged and taken up the torch, but the code remains available for local use."
+      },
+      "arie": {
+        "title": "Arie — Personal Multifunction Discord Bot",
+        "description": "Discord bot offering a wide range of features: engaging mini-games, music streaming, customizable alerts, data storage, and much more",
+        "subtitle": "One single bot to replace an entire army of bots on our Discord server",
+        "discord_title": "What is Discord?",
+        "discord_desc": "Discord is a free chat platform (voice, video, and text) extremely popular with gaming communities, students, and project teams. Each space is called a server, composed of text and voice channels. Discord bots are automated accounts capable of responding to commands and enriching the user experience (games, moderation, music, etc.).",
+        "origin": {
+          "title": "Origin of Arie",
+          "description": "Within our Discord server, the proliferation of specialized bots (music, mini-games, GPT, giveaways, etc.) became unmanageable: tedious maintenance, scattered permissions, and frequent outages (e.g., music bots relying on YouTube getting blocked). So we created Arie, guided by three principles:",
+          "steps": [
+            { "icon": "🗂️", "title": "Centralization",   "desc": "Gather all truly useful features into a single bot." },
+            { "icon": "🎨", "title": "Customization",    "desc": "Offer a tailor-made experience (GPT personalities, inside-joke commands, etc.)." },
+            { "icon": "🛡️", "title": "Reliability",      "desc": "Ensure 24/7 availability and a polished UX (slash commands + buttons)." }
+          ],
+          "conclusion": ""
+        },
+        "modules": {
+          "node": {
+            "label": "Discord Bot",
+            "objective": "Create and maintain a single, scalable, open-source bot that covers 100% of our daily Discord needs (games, music, AI, utilities) while remaining lightweight to deploy and easy to evolve.",
+            "tech": [
+              "Node.js",
+              "Express",
+              "PostgreSQL",
+              "YTDL-Core",
+              "OpenAI API",
+              "DALL·E",
+              "Heroku"
+            ],
+            "features": [
+              "Built-in mini-games: multiplayer Connect 4 via embeds/buttons + Minimax AI",
+              "Conversational AI: GPT-3.5/4 with interchangeable personalities and DALL·E image generation",
+              "Music player: full controls, synchronized lyrics, persistent playlists, multi-platform search",
+              "Utilities: Caesar cipher, free Epic/Steam game announcements, other in-house tools",
+              "DevOps: automated Heroku deployment, 24/7 uptime ensured by UptimeRobot"
+            ],
+            "limits": [
+              "Audio depends on YTDL-Core (risk of future blocking)",
+              "GPT costs can skyrocket with heavy usage",
+              "Mobile interface could optimize button ergonomics on small screens"
+            ]
+          }
+        },
+        "enhancement": "Enhancements",
+        "enhancements": [
+          "Add other interactive mini-games such as hangman, quizzes",
+          "Integrate new commands connected to external APIs (anime, weather, news, etc.)",
+          "Develop a web interface to more easily manage playlists and bot preferences"
+        ]
+      },
+      "snapscore": {
+        "title": "Snapscore +",
+        "description": "",
+        "subtitle": "From Tampermonkey injection to Node.js/Puppeteer automation to boost your Snapchat score",
+        "snap_title": "What is Snapchat?",
+        "snap_description": "Snapchat is an ephemeral messaging app where each photo or video sent and opened ('snap') increases the user's score by one point, reflecting their social activity.",
+        "origin": {
+          "description": "It all started with a simple observation: I saw a friend with an 800,000-point Snapchat score, which seemed enormous to me, and I immediately set out to surpass that and reach one million.",
+          "steps": [
+            {
+              "icon": "👀",
+              "title": "Discovering the score",
+              "desc": "When I saw that my friend already had 800,000 points, I realized how time-consuming Snapchat progression could be if done manually."
+            },
+            {
+              "icon": "💡",
+              "title": "The idea of automation",
+              "desc": "I wondered if it was possible to speed up the process: instead of sending and opening hundreds of snaps per day manually, why not automate it?"
+            },
+            {
+              "icon": "🛠️",
+              "title": "The Tampermonkey prototype",
+              "desc": "I started by injecting a script into the Snapchat web version to add buttons that would open all unread snaps or send multiple snaps with a single click."
+            },
+            {
+              "icon": "🚀",
+              "title": "Scaling up with Node.js",
+              "desc": "Once the prototype was validated and seeing my friends' enthusiasm, I decided to move to a more robust solution: controlling multiple accounts in parallel with Node.js and Puppeteer."
+            }
+          ],
+          "conclusion": "This journey, from the simple desire to exceed 800,000 points to setting up a multi-account Node.js infrastructure, not only helped me reach one million points faster but also gave my friends an easy way to boost their own scores."
+        },
+        "modules": {
+          "tampermonkey": {
+            "label": "Tampermonkey Version",
+            "objective": "Add buttons to the Snapchat web interface to, with a single click, open all unread snaps at once or send multiple snaps in a row.",
+            "tech": [
+              "Tampermonkey",
+              "jQuery",
+              "JavaScript"
+            ],
+            "features": [
+              "Open all unread snaps automatically in a single action",
+              "Send multiple snaps in a row to your own account or a group in a single action"
+            ],
+            "limits": [
+              "Limited performance by a single browser tab, slowing down each action",
+              "Fragile when the web interface changes (new CSS classes, HTML structure)",
+              "No parallelization possible (everything runs in a single context)",
+              "Camera is disabled when the tab loses focus, interrupting automation"
+            ]
+          },
+          "node": {
+            "label": "Node.js Version",
+            "objective": "Build a robust solution capable of controlling multiple accounts simultaneously, measuring performance in real time, and automatically restarting blocked sessions.",
+            "tech": [
+              "Node.js",
+              "Puppeteer",
+              "JavaScript"
+            ],
+            "features": [
+              "Simultaneous management of multiple accounts",
+              "Real-time monitoring of snaps and automatic restart in case of blockage",
+              "Headless automation via Chromium with injected front-end scripts",
+              "Console interface with detailed logs"
+            ],
+            "limits": [
+              "Approximately 7 concurrent sessions for optimal performance",
+              "Snapchat may impose a captcha or permanently ban a session, despite automatic restarts",
+              "Any update to Snapchat’s web interface requires immediate adjustment of selectors",
+              "Automation violates Snapchat’s terms of service and exposes accounts to permanent bans"
+            ]
+          }
+        },
+        "perf": {
+          "title": "Performance",
+          "items": [
+            {
+              "icon": "⚡",
+              "text": "About 25,000 points/hour (≈ 417 snaps/minute) continuously"
+            },
+            {
+              "icon": "📈",
+              "text": "Personal score of 10,000,000 reached in 6–7 days of continuous operation"
+            },
+            {
+              "icon": "⏱️",
+              "text": "Monitoring every 500 ms to detect blockages and automatically restart sessions"
+            }
+          ]
+        },
+        "commercial": {
+          "title": "Commercial Aspect",
+          "description": "When my friends saw how quickly I was increasing my score, they immediately wanted to do the same. So I decided to offer this service on Fiverr.",
+          "steps": [
+            {
+              "icon": "🤝",
+              "title": "Friends’ requests",
+              "desc": "My friends saw my score rising and asked how to boost theirs."
+            },
+            {
+              "icon": "🌐",
+              "title": "Creating the Fiverr offer",
+              "desc": "I wrote a listing 'Boost your Snapchat score by 100,000 points in 24 hours' with details, screenshots, and guarantees."
+            },
+            {
+              "icon": "💸",
+              "title": "First orders",
+              "desc": "12 orders in 7 days, without paid advertising, proving real demand."
+            },
+            {
+              "icon": "⛔",
+              "title": "Service suspension",
+              "desc": "Fiverr closed the listing after one week for violating their terms, and some client accounts were banned by Snapchat."
+            }
+          ],
+          "conclusion": "This experience proved the market’s interest while highlighting the importance of complying with platform rules."
+        }
+      }
+
+    },
+    "sections": {
+      "objective": "Project Objective",
+      "features": "Main Features",
+      "limits": "Limitations",
+      "viewCode": "View Code",
+      "architecture": "🔧 Technical architecture of the project"
+    }
+  },
+  "sidebar": {
+    "home": "Home",
+    "translate": "Translate [FR]",
+    "chatbot": "Chatbot"
+  },
+  "assistant":{
+    "welcome":"Welcome to my portfolio!",
+	  "input":"Write a message..."
+  }
+}
