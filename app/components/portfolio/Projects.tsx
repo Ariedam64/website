@@ -32,12 +32,12 @@ export default function Projects() {
     sourceUrl: 'https://github.com/Ariedam64/Discord-Bot'
   },
   {
-    images: ['https://i.imgur.com/FZFjoxR.jpeg','https://i.imgur.com/lA6ksli.jpeg', 'https://i.imgur.com/a1sAejB.jpeg', 'https://i.imgur.com/2ewg9PU.jpeg','https://i.imgur.com/00zeDe1.jpeg', 'https://i.imgur.com/WeYJQID.jpeg', 'https://i.imgur.com/h20nCh1.jpeg', 'https://i.imgur.com/KkISaCy.jpeg' ],
-    title: 'BAH',
-    description: t("portfolio_project3_description"),
-    technologies: ['Next.js','Next UI','Tailwind','React Query','TipTap Editor','Prism.js','MongoDB','NextAuth.js'],
-    detailsUrl: 'https://dev-blog-chi.vercel.app/',
-    sourceUrl: 'https://github.com/DeepsEffect/DevBlog'
+    images: ['/img/snapchat2.png','/img/snapchat1.png'],
+    title: 'SnapScore+',
+    description: t("portfolio.projects.snapscore.description"),
+    technologies: ['JavaScript','Node.js','Puppeteer','Tampermonkey'],
+    detailsUrl: 'portfolio/projects/snapchat',
+    sourceUrl: 'https://github.com/Ariedam64/SnapScore-V2'
   },
   {
     images: ['https://i.imgur.com/FZFjoxR.jpeg','https://i.imgur.com/lA6ksli.jpeg', 'https://i.imgur.com/a1sAejB.jpeg', 'https://i.imgur.com/2ewg9PU.jpeg','https://i.imgur.com/00zeDe1.jpeg', 'https://i.imgur.com/WeYJQID.jpeg', 'https://i.imgur.com/h20nCh1.jpeg', 'https://i.imgur.com/KkISaCy.jpeg' ],

@@ -252,7 +252,95 @@
 			"Développer une interface web pour gérer les playlists et les préférences du bot plus facilement"
 		  ]
 		},
-		"snapscore":{
+		"snapscore": {
+		  "title": "SnapScore Engine — De l'idée à l'orchestration locale",
+		  "description": "Orchestrateur local multi-comptes Snapchat utilisant Puppeteer, conçu pour augmenter le Snap Score d’un compte spécifique.",
+		  "subtitle": "Comment une simple curiosité sur le Snap Score s'est transformée en expérimentation à 10 M de points",
+		  "snapchat": {
+			"title": "À propos de Snapchat",
+			"description": "Snapchat est un réseau social centré sur l'envoi de photos et de vidéos éphémères. Son Snap Score récompense deux actions toutes simples :",
+			"rules": [
+			  "Ouvrir un snap reçu : +1",
+			  "Quelqu'un ouvre votre snap : +1"
+			],
+			"context": "La plupart des comptes actifs depuis des années restent dans les centaines ou les quelques milliers de points. Les millions existent mais demeurent rares."
+		  },
+		  "origin": {
+			"title": "Origine du projet",
+			"intro": "Je me suis demandé jusqu'où on pouvait pousser un Snap Score en automatisant l'interface comme un humain, sur une seule machine et sans serveur.",
+			"steps": [
+			  { "icon": "📱", "title": "Prototype mobile", "desc": "Deux téléphones et de petites macros ont fixé une base à ~30 pts/min. Cela m'a donné un point de départ et a montré que multiplier les appareils n'était pas viable." },
+			  { "icon": "🌐", "title": "Userscript web", "desc": "Un script Tampermonkey cliquant l'interface web a validé la faisabilité et doublé le débit (~60 pts/min), mais il fallait laisser les fenêtres visibles en permanence." },
+			  { "icon": "🤖", "title": "Orchestrateur Node.js/Puppeteer", "desc": "Pilotage multi-fenêtres (double instance du principal + assistants) avec verrous, micro-pauses et règles de redémarrage. Le PC reste utilisable tout en montant à ≈460 pts/min avec neuf fenêtres." }
+			],
+			"focus": "L'orchestrateur fait la différence : il gère la visibilité, évite les collisions et se remet d'équerre automatiquement."
+		  },
+		  "architecture": {
+			"title": "Architecture technique",
+			"objective": "Maximiser le score du compte principal en coordonnant des comptes assistants en local, avec un débit stable et sans infrastructure distante.",
+			"components": [
+			  "Orchestrateur local (Node.js + Puppeteer) qui ouvre, pilote et surveille chaque fenêtre.",
+			  "Compte principal en double instance afin de maximiser les envois utiles.",
+			  "Comptes assistants dédiés à la lecture des snaps pour alimenter le backlog.",
+			  "Scheduler qui cadence les envois/lectures, assigne les rôles et suit la santé des sessions."
+			],
+			"resourceManagement": [
+			  "Verrou caméra : un seul envoi à la fois sur le compte principal pour éviter les collisions.",
+			  "Backlog contrôlé : dès qu'une fenêtre dépasse 25 snaps en attente de lecture, pause globale, rattrapage, puis reprise.",
+			  "Redémarrage sur seuil : si lire/envoyer dépasse ~1 s, la fenêtre redémarre et retombe à ~500 ms en lecture et ~700 ms en envoi.",
+			  "Attente de visibilité : chaque action patiente jusqu'à ce que l'élément visé soit présent et visible, plus rapide en moyenne qu'un timer arbitraire."
+			],
+			"observability": [
+			  "Compteurs par fenêtre : envois/lectures réussis, taille de file, latences p50/p95.",
+			  "Boucle startCheckingIssues : agrège les moyennes, calcule le débit par minute et déclenche des redémarrages ciblés (principal, assistants ou global).",
+			  "Logs structurés (startLog) : durée de session, moyennes d'envoi/lecture, backlog restant, liste des comptes bloqués ou sains.",
+			  "Ralentissement ou restart automatique dès que le p95 dérive vers le haut."
+			],
+			"stack": [
+			  "JavaScript",
+			  "Node.js",
+			  "Puppeteer",
+			  "Prototype initial écrit en userscript Tampermonkey"
+			]
+		  },
+		  "code": {
+			"title": "Base de code",
+			"structure": "src/\n|- DOM/\n|- Snapchat/\n|- macros/\n|- scripts/\n|- utils/\n\\- index.js",
+			"modules": [
+			  { "title": "src/index.js", "desc": "Démarre l'orchestrateur et configure le cycle de vie des fenêtres." },
+			  { "title": "src/Snapchat/manager.js", "desc": "Coordonne l'exécution multi-comptes et équilibre les rôles." },
+			  { "title": "src/Snapchat/account.js", "desc": "Décrit le comportement et les métriques d'une session de compte." },
+			  { "title": "src/macros/", "desc": "Primitives d'automatisation pour ouvrir, envoyer et acquitter les snaps." },
+			  { "title": "src/DOM/", "desc": "Utilitaires pour repérer et manipuler les éléments de l'interface Snapchat Web." },
+			  { "title": "src/scripts/", "desc": "Scripts injectés dans Snapchat Web pour observer états et files d'attente." },
+			  { "title": "src/utils/cameraMutex.js", "desc": "Mutex caméra qui contrôle l'accès à la vidéo partagée." }
+			],
+			"workflow": [
+			  "Lecture des snaps : boucle tant qu'il reste des non lus, mesure du temps d'ouverture et mode bouchon dès qu'une file dépasse 25 snaps.",
+			  "Envoi des snaps : lots de 50 dès que le pipeline d'envoi est libre.",
+			  "Boucle de santé : surveille latences, backlog et décisions de l'orchestrateur (pause, reprise, restart)."
+			]
+		  },
+		  "performance": {
+			"title": "Performances mesurées",
+			"items": [
+			  "Point d'équilibre : neuf fenêtres au total (deux pour le principal, sept assistants).",
+			  "Débit stable : ≈460 points/min avec cette configuration.",
+			  "Run expérimental : ~10 000 000 points sur le compte principal en environ 14 jours ; ~1 000 000 par compte assistant."
+			]
+		  },
+		  "remark": {
+			"title": "Remarque",
+			"description": "Projet expérimental et personnel. Automatiser l'interface peut aller à l'encontre des conditions d'utilisation de la plateforme. Je n'ai touché ni au réseau ni à des API privées : uniquement des interactions UI scriptées, locales et réversibles."
+		  },
+		  "learnings": {
+			"title": "Ce que ça démontre",
+			"items": [
+			  "La stabilité (verrous, seuils, resets) pèse plus que la vitesse brute.",
+			  "Un orchestrateur local bien réglé peut atteindre de gros volumes sans serveur.",
+			  "Des règles simples rendent le système prévisible et facile à corriger vite."
+			]
+		  }
 		}
     },
     "sections": {

@@ -253,7 +253,95 @@
           "Develop a web interface to more easily manage playlists and bot preferences"
         ]
       },
-      "snapscore":{
+      "snapscore": {
+        "title": "SnapScore Engine — From idea to local orchestration",
+        "description": "Local multi-account Snapchat orchestrator using Puppeteer, designed to increase a specific account’s Snap Score.",
+        "subtitle": "How I turned a curiosity about Snap Scores into a 10M-point orchestration experiment",
+        "snapchat": {
+          "title": "About Snapchat",
+          "description": "Snapchat is a social network built around ephemeral photos and videos. Its Snap Score rewards a handful of simple actions:",
+          "rules": [
+            "Open a received Snap: +1",
+            "Someone opens one of your Snaps: +1"
+          ],
+          "context": "Most long-standing accounts remain in the hundreds or a few thousands of points. Hitting the millions is rare."
+        },
+        "origin": {
+          "title": "Project origin",
+          "intro": "I wanted to see how far a Snap Score could go by automating the interface like a human would, on a single machine and without servers.",
+          "steps": [
+            { "icon": "📱", "title": "Mobile prototype", "desc": "Two phones with small macros established a ~30 pts/min baseline. It set expectations and showed that scaling with more devices would not be sustainable." },
+            { "icon": "🌐", "title": "Web userscript", "desc": "A Tampermonkey script clicking through the web interface proved feasibility and doubled throughput to ~60 pts/min, but the computer had to stay focused on the visible windows." },
+            { "icon": "🤖", "title": "Node.js/Puppeteer orchestrator", "desc": "Multi-window driving (dual main instance plus assistants) with locks, short pauses, and restart rules kept the desktop usable while climbing to ≈460 pts/min across nine windows." }
+          ],
+          "focus": "The orchestrator is the differentiator: it coordinates visibility, avoids collisions, and recovers automatically."
+        },
+        "architecture": {
+          "title": "Technical architecture",
+          "objective": "Maximize the main account's score by coordinating assistant accounts locally, keeping throughput stable without any remote infrastructure.",
+          "components": [
+            "Local orchestrator (Node.js + Puppeteer) that opens, drives, and supervises every browser window.",
+            "Main account running in two parallel windows to maximize useful sends.",
+            "Assistant accounts dedicated to reading Snaps and feeding the backlog.",
+            "Scheduler assigning roles, pacing sends/reads, and watching session health."
+          ],
+          "resourceManagement": [
+            "Camera lock ensuring only one send happens at a time on the main account.",
+            "Controlled backlog: if any window queues more than 25 unread Snaps, the system pauses, catches up, then resumes.",
+            "Threshold-based restarts: windows restart when send/read latency exceeds ~1 s, dropping back to ~500 ms reads and ~700 ms sends after reset.",
+            "Visibility guards: every action waits for the target element to exist and be visible before interacting—faster on average and timer-free."
+          ],
+          "observability": [
+            "Per-window counters for successful sends/reads, queue size, and p50/p95 latencies.",
+            "startCheckingIssues loop aggregating averages, computing points per minute, and triggering targeted restarts (main, assistants, or global).",
+            "Structured console logs (startLog) with session duration, send/read averages, backlog levels, and blocked/healthy account lists.",
+            "Automatic slowdowns or restarts when the p95 drifts upward."
+          ],
+          "stack": [
+            "JavaScript",
+            "Node.js",
+            "Puppeteer",
+            "Initial prototype written as a Tampermonkey userscript"
+          ]
+        },
+        "code": {
+          "title": "Code base",
+          "structure": "src/\n|- DOM/\n|- Snapchat/\n|- macros/\n|- scripts/\n|- utils/\n\\- index.js",
+          "modules": [
+            { "title": "src/index.js", "desc": "Launches the orchestrator and configures window lifecycles." },
+            { "title": "src/Snapchat/manager.js", "desc": "Coordinates multi-account execution and balances roles." },
+            { "title": "src/Snapchat/account.js", "desc": "Encapsulates the behaviour and metrics of a single account session." },
+            { "title": "src/macros/", "desc": "Reusable automation primitives for opening, sending, and acknowledging Snaps." },
+            { "title": "src/DOM/", "desc": "Helpers to locate and interact with Snapchat Web UI elements." },
+            { "title": "src/scripts/", "desc": "Scripts injected directly into Snapchat Web to observe states and queues." },
+            { "title": "src/utils/cameraMutex.js", "desc": "Camera mutex controlling access to the shared video input." }
+          ],
+          "workflow": [
+            "Snap reading: loop while unread items remain, measure open time, and enable congestion mode when any queue exceeds 25 Snaps.",
+            "Snap sending: dispatches batches of 50 when the send pipeline is clear.",
+            "Health loop monitors latencies, backlog, and orchestrator decisions (pause, resume, restart)."
+          ]
+        },
+        "performance": {
+          "title": "Measured performance",
+          "items": [
+            "Sweet spot: nine windows in total (two for the main account, seven assistants).",
+            "Sustained throughput: ≈460 points per minute with that configuration.",
+            "Experimental run: ~10,000,000 points on the main account in about 14 days; ~1,000,000 per assistant account."
+          ]
+        },
+        "remark": {
+          "title": "Note",
+          "description": "This is an experimental, personal project. Automating the interface can violate the platform's Terms of Service. I never touched the network layer or private APIs—only scripted UI interactions, locally and reversibly."
+        },
+        "learnings": {
+          "title": "What it demonstrates",
+          "items": [
+            "Stability (locks, thresholds, restarts) matters more than raw speed.",
+            "A well-tuned local orchestrator can reach large volumes without servers.",
+            "Simple rules keep the system predictable and easy to fix quickly."
+          ]
+        }
       }
     },
     "sections": {
