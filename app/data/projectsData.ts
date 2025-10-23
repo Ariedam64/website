@@ -78,3 +78,36 @@ export const arieModule: ModuleData[] = [
     repoUrl: "https://github.com/Ariedam64/Discord-Bot",
   }
 ];
+
+export const snapscoreModule: ModuleData[] = [
+  {
+    key: "mobile",
+    labelKey: "portfolio.projects.snapscore.modules.mobile.label",
+    objectiveKey: "portfolio.projects.snapscore.modules.mobile.objective",
+    techKey: "portfolio.projects.snapscore.modules.mobile.tech",
+    featuresKey: "portfolio.projects.snapscore.modules.mobile.objectives",
+    limitsKey: "portfolio.projects.snapscore.modules.mobile.limits",
+    images: [],
+    repoUrl: "",
+  },
+    {
+    key: "web",
+    labelKey: "portfolio.projects.snapscore.modules.web.label",
+    objectiveKey: "portfolio.projects.snapscore.modules.web.objective",
+    techKey: "portfolio.projects.snapscore.modules.web.tech",
+    featuresKey: "portfolio.projects.snapscore.modules.web.objectives",
+    limitsKey: "portfolio.projects.snapscore.modules.web.limits",
+    images: [],
+    repoUrl: "",
+  },
+    {
+    key: "puppeteer",
+    labelKey: "portfolio.projects.snapscore.modules.puppeteer.label",
+    objectiveKey: "portfolio.projects.snapscore.modules.puppeteer.objective",
+    techKey: "portfolio.projects.snapscore.modules.puppeteer.tech",
+    featuresKey: "portfolio.projects.snapscore.modules.puppeteer.objectives",
+    limitsKey: "portfolio.projects.snapscore.modules.puppeteer.limits",
+    images: ["/img/snapchat2.png","/img/snapchat1.png"],
+    repoUrl: "https://github.com/Ariedam64/SnapScore-V2",
+  },
+];

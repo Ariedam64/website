@@ -279,24 +279,28 @@
         "architecture": {
           "title": "Technical architecture",
           "objective": "Maximize the main account's score by coordinating assistant accounts locally, keeping throughput stable without any remote infrastructure.",
+          "componentsTitle": "Core components",
           "components": [
             "Local orchestrator (Node.js + Puppeteer) that opens, drives, and supervises every browser window.",
             "Main account running in two parallel windows to maximize useful sends.",
             "Assistant accounts dedicated to reading Snaps and feeding the backlog.",
             "Scheduler assigning roles, pacing sends/reads, and watching session health."
           ],
+          "resourceManagementTitle": "Resource management rules",
           "resourceManagement": [
             "Camera lock ensuring only one send happens at a time on the main account.",
             "Controlled backlog: if any window queues more than 25 unread Snaps, the system pauses, catches up, then resumes.",
             "Threshold-based restarts: windows restart when send/read latency exceeds ~1 s, dropping back to ~500 ms reads and ~700 ms sends after reset.",
             "Visibility guards: every action waits for the target element to exist and be visible before interacting—faster on average and timer-free."
           ],
+          "observabilityTitle": "Observability & health checks",
           "observability": [
             "Per-window counters for successful sends/reads, queue size, and p50/p95 latencies.",
             "startCheckingIssues loop aggregating averages, computing points per minute, and triggering targeted restarts (main, assistants, or global).",
             "Structured console logs (startLog) with session duration, send/read averages, backlog levels, and blocked/healthy account lists.",
             "Automatic slowdowns or restarts when the p95 drifts upward."
           ],
+          "stackTitle": "Stack & tools",
           "stack": [
             "JavaScript",
             "Node.js",
@@ -306,7 +310,9 @@
         },
         "code": {
           "title": "Code base",
+          "structureTitle": "Folder structure",
           "structure": "src/\n|- DOM/\n|- Snapchat/\n|- macros/\n|- scripts/\n|- utils/\n\\- index.js",
+          "modulesTitle": "Key modules",
           "modules": [
             { "title": "src/index.js", "desc": "Launches the orchestrator and configures window lifecycles." },
             { "title": "src/Snapchat/manager.js", "desc": "Coordinates multi-account execution and balances roles." },
@@ -316,6 +322,7 @@
             { "title": "src/scripts/", "desc": "Scripts injected directly into Snapchat Web to observe states and queues." },
             { "title": "src/utils/cameraMutex.js", "desc": "Camera mutex controlling access to the shared video input." }
           ],
+          "workflowTitle": "Execution loops",
           "workflow": [
             "Snap reading: loop while unread items remain, measure open time, and enable congestion mode when any queue exceeds 25 Snaps.",
             "Snap sending: dispatches batches of 50 when the send pipeline is clear.",

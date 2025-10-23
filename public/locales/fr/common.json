@@ -252,96 +252,186 @@
 			"Développer une interface web pour gérer les playlists et les préférences du bot plus facilement"
 		  ]
 		},
-		"snapscore": {
-		  "title": "SnapScore Engine — De l'idée à l'orchestration locale",
-		  "description": "Orchestrateur local multi-comptes Snapchat utilisant Puppeteer, conçu pour augmenter le Snap Score d’un compte spécifique.",
-		  "subtitle": "Comment une simple curiosité sur le Snap Score s'est transformée en expérimentation à 10 M de points",
-		  "snapchat": {
-			"title": "À propos de Snapchat",
-			"description": "Snapchat est un réseau social centré sur l'envoi de photos et de vidéos éphémères. Son Snap Score récompense deux actions toutes simples :",
-			"rules": [
-			  "Ouvrir un snap reçu : +1",
-			  "Quelqu'un ouvre votre snap : +1"
+"snapscore": {
+    "title": "SnapScore+ — Orchestration multi-compte local",
+    "description": "Orchestrateur local multi-comptes basé sur Node.js et Puppeteer. Il pilote plusieurs profils Chrome pour envoyer et ouvrir des snaps en boucle au moyen de macros spécialisées",
+    "subtitle": "Automatiser l'interface web pour faire monter un Snap Score depuis une seule machine",
+    "snapchat": {
+      "title": "À propos de Snapchat",
+      "description": "Snapchat est un réseau social centré sur l'envoi de photos et de vidéos éphémères. Le Snap Score augmente en reproduisant deux gestes simples :",
+      "rules": [
+        "Ouvrir un snap reçu : +1",
+        "Quelqu'un ouvre votre snap : +1"
+      ],
+      "context": "Dans un usage manuel, la plupart des comptes restent dans les centaines ou milliers de points. Le projet exploite l'interface web pour démultiplier la progression, sans appels d'API privés"
+    },
+    "origin": {
+      "title": "Origine du projet",
+      "intro": "Un jour, je découvre qu’un ami affiche 850 000 de Snap Score. Challenge accepté. Est-ce que je peux atteindre le million rapidement, uniquement avec de l’astuce et de la rigueur, sans tricherie obscure ni accès caché ? J’ai donc avancé par étapes, en testant, en mesurant et en simplifiant ce qui marche",
+      "steps": [
+        {
+          "icon": "📱",
+          "title": "Version Mobile",
+          "desc": "Je pars du plus simple: deux téléphones, des gestes répétés, un compte qui envoie et un autre qui ouvre. Ça fonctionne, mais la vitesse plafonne vite et l’organisation devient fatigante. C’est la preuve de concept"
+        },
+        {
+          "icon": "🌐",
+          "title": "Version Web",
+          "desc": "Je passe ensuite par l’interface web. L’idée est d’automatiser ce que ferait une personne, mais sans toucher à des zones sensibles. Résultat: c’est plus rapide, plus contrôlable, on voit mieux ce qui se passe, mais la stabilité sur de longues sessions reste un défi"
+        },
+        {
+          "icon": "🕹️",
+          "title": "Version Puppeteer",
+          "desc": "Dernière étape: la même logique, mais orchestrée proprement. Je pilote plusieurs comptes sur la même machine, je donne des priorités, je gère les pauses, les redémarrages, la caméra, et je surveille tout en continu. Le système devient à la fois rapide et prévisible"
+        }
+      ]
+    },
+    "modules": {
+		"mobile":{
+			"label":"Version Mobile",
+			"objective":"Valider l’idée: synchroniser un téléphone qui envoie et un autre qui ouvre, pour mesurer le gain réel",
+            "tech":[
 			],
-			"context": "La plupart des comptes actifs depuis des années restent dans les centaines ou les quelques milliers de points. Les millions existent mais demeurent rares."
-		  },
-		  "origin": {
-			"title": "Origine du projet",
-			"intro": "Je me suis demandé jusqu'où on pouvait pousser un Snap Score en automatisant l'interface comme un humain, sur une seule machine et sans serveur.",
-			"steps": [
-			  { "icon": "📱", "title": "Prototype mobile", "desc": "Deux téléphones et de petites macros ont fixé une base à ~30 pts/min. Cela m'a donné un point de départ et a montré que multiplier les appareils n'était pas viable." },
-			  { "icon": "🌐", "title": "Userscript web", "desc": "Un script Tampermonkey cliquant l'interface web a validé la faisabilité et doublé le débit (~60 pts/min), mais il fallait laisser les fenêtres visibles en permanence." },
-			  { "icon": "🤖", "title": "Orchestrateur Node.js/Puppeteer", "desc": "Pilotage multi-fenêtres (double instance du principal + assistants) avec verrous, micro-pauses et règles de redémarrage. Le PC reste utilisable tout en montant à ≈460 pts/min avec neuf fenêtres." }
+			"advantages":[
+				"Mise en place rapide avec deux téléphones",
+				"Proche de l’usage normal de l’app, donc peu de risque de casse"
 			],
-			"focus": "L'orchestrateur fait la différence : il gère la visibilité, évite les collisions et se remet d'équerre automatiquement."
-		  },
-		  "architecture": {
-			"title": "Architecture technique",
-			"objective": "Maximiser le score du compte principal en coordonnant des comptes assistants en local, avec un débit stable et sans infrastructure distante.",
-			"components": [
-			  "Orchestrateur local (Node.js + Puppeteer) qui ouvre, pilote et surveille chaque fenêtre.",
-			  "Compte principal en double instance afin de maximiser les envois utiles.",
-			  "Comptes assistants dédiés à la lecture des snaps pour alimenter le backlog.",
-			  "Scheduler qui cadence les envois/lectures, assigne les rôles et suit la santé des sessions."
+			"limits":[
+				"Besoin de plusieurs téléphones branchés en continu",
+				"Caméra et autres applis indisponibles pendant la session",
+				"Paramétrage précis compliqué"
 			],
-			"resourceManagement": [
-			  "Verrou caméra : un seul envoi à la fois sur le compte principal pour éviter les collisions.",
-			  "Backlog contrôlé : dès qu'une fenêtre dépasse 25 snaps en attente de lecture, pause globale, rattrapage, puis reprise.",
-			  "Redémarrage sur seuil : si lire/envoyer dépasse ~1 s, la fenêtre redémarre et retombe à ~500 ms en lecture et ~700 ms en envoi.",
-			  "Attente de visibilité : chaque action patiente jusqu'à ce que l'élément visé soit présent et visible, plus rapide en moyenne qu'un timer arbitraire."
+			"perf":"~25 score/min"
+		},
+		"web":{
+			"label":"Version Web",
+			"objective":"Accélérer proprement: automatiser via le navigateur pour enchaîner envois/ouvertures et garder une visibilité en direct",
+            "tech":[
 			],
-			"observability": [
-			  "Compteurs par fenêtre : envois/lectures réussis, taille de file, latences p50/p95.",
-			  "Boucle startCheckingIssues : agrège les moyennes, calcule le débit par minute et déclenche des redémarrages ciblés (principal, assistants ou global).",
-			  "Logs structurés (startLog) : durée de session, moyennes d'envoi/lecture, backlog restant, liste des comptes bloqués ou sains.",
-			  "Ralentissement ou restart automatique dès que le p95 dérive vers le haut."
+			"advantages":[
+				"Réglages clairs, tests rapides, itérations faciles",
+				"Outils du navigateur disponible pour comprendre et corriger les problèmes (DevTools)"
 			],
-			"stack": [
-			  "JavaScript",
-			  "Node.js",
-			  "Puppeteer",
-			  "Prototype initial écrit en userscript Tampermonkey"
-			]
-		  },
-		  "code": {
-			"title": "Base de code",
-			"structure": "src/\n|- DOM/\n|- Snapchat/\n|- macros/\n|- scripts/\n|- utils/\n\\- index.js",
-			"modules": [
-			  { "title": "src/index.js", "desc": "Démarre l'orchestrateur et configure le cycle de vie des fenêtres." },
-			  { "title": "src/Snapchat/manager.js", "desc": "Coordonne l'exécution multi-comptes et équilibre les rôles." },
-			  { "title": "src/Snapchat/account.js", "desc": "Décrit le comportement et les métriques d'une session de compte." },
-			  { "title": "src/macros/", "desc": "Primitives d'automatisation pour ouvrir, envoyer et acquitter les snaps." },
-			  { "title": "src/DOM/", "desc": "Utilitaires pour repérer et manipuler les éléments de l'interface Snapchat Web." },
-			  { "title": "src/scripts/", "desc": "Scripts injectés dans Snapchat Web pour observer états et files d'attente." },
-			  { "title": "src/utils/cameraMutex.js", "desc": "Mutex caméra qui contrôle l'accès à la vidéo partagée." }
+			"limits":[
+				"PC monopolisé sans second écran",
+				"Si la page Snapchat change, l’automatisation casse",
+				"Défenses côté plateforme : rythme bridé, sessions qui sautent",
+				"Caméra et micro occupés par le navigateur, conflits possibles",
+				"Sur longues sessions : ralentissements et mémoire qui gonfle"
 			],
-			"workflow": [
-			  "Lecture des snaps : boucle tant qu'il reste des non lus, mesure du temps d'ouverture et mode bouchon dès qu'une file dépasse 25 snaps.",
-			  "Envoi des snaps : lots de 50 dès que le pipeline d'envoi est libre.",
-			  "Boucle de santé : surveille latences, backlog et décisions de l'orchestrateur (pause, reprise, restart)."
-			]
-		  },
-		  "performance": {
-			"title": "Performances mesurées",
-			"items": [
-			  "Point d'équilibre : neuf fenêtres au total (deux pour le principal, sept assistants).",
-			  "Débit stable : ≈460 points/min avec cette configuration.",
-			  "Run expérimental : ~10 000 000 points sur le compte principal en environ 14 jours ; ~1 000 000 par compte assistant."
-			]
-		  },
-		  "remark": {
-			"title": "Remarque",
-			"description": "Projet expérimental et personnel. Automatiser l'interface peut aller à l'encontre des conditions d'utilisation de la plateforme. Je n'ai touché ni au réseau ni à des API privées : uniquement des interactions UI scriptées, locales et réversibles."
-		  },
-		  "learnings": {
-			"title": "Ce que ça démontre",
-			"items": [
-			  "La stabilité (verrous, seuils, resets) pèse plus que la vitesse brute.",
-			  "Un orchestrateur local bien réglé peut atteindre de gros volumes sans serveur.",
-			  "Des règles simples rendent le système prévisible et facile à corriger vite."
-			]
-		  }
+			"perf":"~60 score/min"
+		},
+		"puppeteer":{
+			"label":"Version Puppeteer",
+			"objective":"Maximiser le score: faire tourner plusieurs comptes en parallèle sur une même machine, avec règles simples, priorités et surveillance continue",
+            "tech":[
+			],
+			"advantages":[
+				"Chaque compte isolé, reconnexion automatique",
+				"Fenêtres visibles ou discrètes, lancement planifié, contrôles réguliers",
+				"Gestion fine des ressources : qui prend la caméra, quand redémarrer, éviter les bouchons",
+				"Suivi centralisé avec indicateurs clairs, mis à jour régulièrement",
+				"Peut tourner sur d’autres machines si besoin"
+			],
+			"limits":[
+				"Performances dépendantes du matériel : CPU, RAM, disque, encodage vidéo",
+				"Mémoire qui grimpe avec le nombre d’instances"
+			],
+			"perf":" ~430 score/min sur ma config, meilleur équilibre à 2 comptes principaux + 7 comptes assistants"
 		}
+    },
+	"observation":{
+		"title":"Ce que j’ai appris avant la version finale",
+		"items":[
+			"Un compte Snapchat peut être connecté en deux endroits en même temps",
+			"Laisser une session ouverte trop longtemps finit par ralentir tout le monde",
+			"La caméra ne peut pas être utilisée par deux instances en même temps"
+		],
+		"conclusion":"Ces constats ont guidé les règles: limiter la durée des sessions, séquencer l’accès à la caméra, redémarrer dès que ça dérive"
+	},
+	"management":{
+		"title":"Gestion des instances",
+		"items":[
+			"Un AccountManager supervise les comptes: il connecte, vérifie leur état, et attribue les rôles",
+			"Chaque compte a son propre profil de navigateur avec des cookies enregistrés pour revenir en ligne tout seul",
+			"Les comptes principaux envoient les snaps. Les assistants les ouvrent"
+		]
+	},
+	"monitoring":{
+		"title":"Surveillance en continu",
+		"items":[
+			"Chaque fenêtre surveille sa conversation pour réagir au bon moment (pas de temporisations arbitraires)",
+			"Je rassemble les totaux envoyés/ouverts et des moyennes qui bougent en temps réel",
+			"Ces chiffres sont rafraîchis dans la console toutes les 500 ms pour garder la main sur le système"
+		]
+	},
+	"rules":{
+		"title":"Règles de gestion des ressources",
+		"items":[
+			"Caméra en file d’attente: un seul ouvre la caméra à la fois",
+			"Au-delà de 25 snaps non lus, on met en pause les envois pour résorber la file",
+			"Relance ciblée: si les moyennes d’ouverture ou d’envoi dérapent, on redémarre uniquement l’instance concernée",
+			"Auto-reconnexion: si une fenêtre se ferme ou si les chiffres partent en vrille, on coupe et on repart proprement"
+		]
+	},
+    "code": {
+      "title": "Base de code",
+      "structureTitle": "Structure des dossiers",
+      "structure": "src/\\n|- DOM/\\n|- Snapchat/\\n|- macros/\\n|- scripts/\\n|- utils/\\n\\\\- index.js",
+      "modulesTitle": "Modules clés",
+      "modules": [
+        {
+          "title": "src/index.js",
+          "desc": "Configure les constantes de runtime, instancie AccountManager et lance les boucles de surveillance"
+        },
+        {
+          "title": "src/Snapchat/manager.js",
+          "desc": "Coordonne les comptes, calcule les métriques globales et pilote les redémarrages ciblés"
+        },
+        {
+          "title": "src/Snapchat/account.js",
+          "desc": "Définit la session Puppeteer : profil utilisateur, connexion, injection des scripts et état individuel"
+        },
+        {
+          "title": "src/macros/",
+          "desc": "Scripts côté client pour envoyer ou ouvrir des snaps via l’interface web"
+        },
+        {
+          "title": "src/DOM/",
+          "desc": "Sélecteurs et observateurs pour suivre discussions, messages et déclencheurs"
+        },
+        {
+          "title": "src/scripts/focus.js",
+          "desc": "Désactive quelques protections de focus/screenshot pour stabiliser Snapchat Web"
+        },
+        {
+          "title": "src/utils/cameraMutex.js",
+          "desc": "“Tour de contrôle” de la caméra pour que tout le monde passe à son tour"
+        }
+      ]
+    },
+    "performance": {
+      "title": "Comportement par défaut sur ma machine",
+      "items": [
+        "Le meilleur équilibre s’est trouvé avec 2 comptes principaux et 7 comptes assistants",
+        "Au-delà, les performances se dégradent. Avec ce réglage, j’atteins environ 430 points/min",
+        "Bilan: 10 millions de score en 2 semaines, avec environ 1 million sur chaque compte assistant"
+      ]
+    },
+	"learnings": {
+      "title": "Ce que ça démontre",
+      "items": [
+        "La surveillance continue (métriques, redémarrages, seuils) prime sur la vitesse brute pour rester stable",
+        "Un orchestrateur local bien réglé suffit pour coordonner plusieurs comptes sans infrastructure distante",
+        "Des règles simples comme le verrou caméra, un seuil de backlog, et une latence maximale rendent le système prévisible et facile à corriger"
+      ]
+    },
+    "remark": {
+      "title": "Remarque",
+      "description": "Projet expérimental et personnel. Automatiser l'interface peut aller à l'encontre des conditions d'utilisation de la plateforme. Le code se limite à l'automatisation locale d'une interface publique"
+    }
+  }
+
     },
     "sections": {
   		"objective":"Objectif du projet",
