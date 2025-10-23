@@ -8,24 +8,28 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 interface CarousselProps {
-  images: string[];
+  images?: readonly string[];
   className?: string;
 }
 
-export default function Caroussel({ images, className }: CarousselProps) {
+export default function Caroussel({ images = [], className = "" }: CarousselProps) {
+  if (images.length === 0) {
+    return <div className={`w-full rounded-xl flex justify-center ${className}`} />;
+  }
+
   return (
     <div className={`w-full rounded-xl flex justify-center ${className}`}>
-      <Swiper 
+      <Swiper
         modules={[Navigation, Pagination]}
-        navigation={true}
-        rewind={true}
-        pagination= {{dynamicBullets: true, clickable: true}}
-        observer={true}
-        observeParents={true}
-        autoHeight={true}  
-        centeredSlides={true}
-        grabCursor={true}
-        className=" w-full rounded-2xl"
+        navigation
+        rewind
+        pagination={{ dynamicBullets: true, clickable: true }}
+        observer
+        observeParents
+        autoHeight
+        centeredSlides
+        grabCursor
+        className="w-full rounded-2xl"
         style={{
           "--swiper-navigation-color": "#BB86FC",
           "--swiper-pagination-color": "#BB86FC",

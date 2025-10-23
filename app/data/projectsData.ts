@@ -2,11 +2,11 @@ export interface ModuleData {
   key: string;
   labelKey: string;
   objectiveKey: string;
-  techKey: string;   
-  featuresKey: string; 
-  limitsKey: string;   
-  images: string[];
-  repoUrl: string;
+  techKey: string;
+  featuresKey: string;
+  limitsKey: string;
+  images?: string[];
+  repoUrl?: string;
 }
 
 export const mayayaModule: ModuleData[] = [

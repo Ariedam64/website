@@ -35,7 +35,7 @@ export default function Projects() {
     images: ['/img/snapchat2.png','/img/snapchat1.png'],
     title: 'SnapScore+',
     description: t("portfolio.projects.snapscore.description"),
-    technologies: ['JavaScript','Node.js','Puppeteer','Tampermonkey'],
+    technologies: ['JavaScript','Node.js','Puppeteer','Tampermonkey','MacroDroid'],
     detailsUrl: 'portfolio/projects/snapscore',
     sourceUrl: 'https://github.com/Ariedam64/SnapScore-V2'
   },

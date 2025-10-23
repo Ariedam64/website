@@ -9,7 +9,6 @@ import TechPills from "@/app/components/portfolio/projects/TechPills";
 import ListSection from "@/app/components/portfolio/projects/ListSection";
 import TranslateAnimation from "@/app/components/TranslateAnimation"
 import Header from "@/app/components/portfolio/projects/Header";
-import {Tabs,TabsContent,TabsList,TabsTrigger} from "../../../components/ui/Tabs";
 import Section from "@/app/components/portfolio/projects/Section";
 import StepsList from "@/app/components/portfolio/projects/StepsList";
 import { tList } from "@/utils/i18n";

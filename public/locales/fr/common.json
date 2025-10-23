@@ -21,10 +21,8 @@
       "name": "MADEIRA Romann",
       "role": "Analyste Développeur",
       "cvLink": "Consulter le CV",
-      "description": "Développeur de 23 ans situé en France, passionné de code depuis 8 ans. Mon kiff ? Automatiser, optimiser, et coder des projets qui me passionnent"
-    },
-    "experiences": {
-	  "work_title": "Expériences",
+      "description": "Développeur de 23 ans situé en France, passionné de code depuis 8 ans. Mon kiff ? Automatiser, optimiser, et coder des projets qui me passionnent",
+      "work_title": "Expériences",
       "work": [
         {
           "date": "2024 - présent",
@@ -35,7 +33,7 @@
         {
           "date": "2024 - 2025",
           "company": "Samsic",
-		  "role":"Intérimaire",
+          "role": "Intérimaire",
           "desc": "Manutentionnaire, ouvrier agricole, ouvrier saisonnier"
         },
         {
@@ -51,7 +49,7 @@
           "desc": "Développement VBA, automatisation de tâches métier, documentation technique"
         }
       ],
-	  "studies_title": "Formations",
+      "studies_title": "Formations",
       "studies": [
         {
           "date": "2021 - 2022",
@@ -74,378 +72,525 @@
       ]
     },
     "skills": [
-      { "key": "html",       "title": "HTML",        "desc": "Langage de balisage pour les pages Web" },
-      { "key": "css",        "title": "CSS",         "desc": "Style et mise en page des pages Web" },
-      { "key": "javascript", "title": "JavaScript",  "desc": "Langage de programmation pour le Web" },
-      { "key": "reactjs",    "title": "React.js",    "desc": "Bibliothèque pour créer des interfaces web" },
-      { "key": "nextjs",     "title": "Next.js",     "desc": "Framework pour applications React rendues côté serveur" },
-      { "key": "nodejs",     "title": "Node.js",     "desc": "Environnement d’exécution JavaScript côté serveur" },
-      { "key": "python",     "title": "Python",      "desc": "Langage de programmation interprété de haut niveau" },
-      { "key": "csharp",     "title": "C#",           "desc": "Langage de programmation orienté objet" },
-      { "key": "tampermonkey","title": "Tampermonkey","desc": "Scripts utilisateurs pour automatisation web" },
-      { "key": "vba",        "title": "Excel VBA",   "desc": "Automatisation de tâches et macros dans Excel" },
-      { "key": "powershell", "title": "PowerShell",  "desc": "Automatisation et administration Windows via scripts PowerShell" },
-      { "key": "dnSpy",      "title": "dnSpy",       "desc": "Débogueur et éditeur d'assemblages .NET pour le reverse engineering" },
-      { "key": "mongodb",    "title": "MongoDB",     "desc": "Base de données NoSQL pour applications modernes" },
-      { "key": "postgresql", "title": "PostgreSQL",  "desc": "Système de gestion de base de données relationnelle" },
-      { "key": "git",        "title": "Git",         "desc": "Système de gestion de versions distribué" },
-      { "key": "trello",     "title": "Trello",      "desc": "Outil de gestion de projet Kanban" }
+      {
+        "key": "html",
+        "title": "HTML",
+        "desc": "Langage de balisage pour les pages Web"
+      },
+      {
+        "key": "css",
+        "title": "CSS",
+        "desc": "Style et mise en page des pages Web"
+      },
+      {
+        "key": "javascript",
+        "title": "JavaScript",
+        "desc": "Langage de programmation pour le Web"
+      },
+      {
+        "key": "reactjs",
+        "title": "React.js",
+        "desc": "Bibliothèque pour créer des interfaces web"
+      },
+      {
+        "key": "nextjs",
+        "title": "Next.js",
+        "desc": "Framework pour applications React rendues côté serveur"
+      },
+      {
+        "key": "nodejs",
+        "title": "Node.js",
+        "desc": "Environnement d’exécution JavaScript côté serveur"
+      },
+      {
+        "key": "python",
+        "title": "Python",
+        "desc": "Langage de programmation interprété de haut niveau"
+      },
+      {
+        "key": "csharp",
+        "title": "C#",
+        "desc": "Langage de programmation orienté objet"
+      },
+      {
+        "key": "tampermonkey",
+        "title": "Tampermonkey",
+        "desc": "Scripts utilisateurs pour automatisation web"
+      },
+      {
+        "key": "vba",
+        "title": "Excel VBA",
+        "desc": "Automatisation de tâches et macros dans Excel"
+      },
+      {
+        "key": "powershell",
+        "title": "PowerShell",
+        "desc": "Automatisation et administration Windows via scripts PowerShell"
+      },
+      {
+        "key": "dnSpy",
+        "title": "dnSpy",
+        "desc": "Débogueur et éditeur d'assemblages .NET pour le reverse engineering"
+      },
+      {
+        "key": "mongodb",
+        "title": "MongoDB",
+        "desc": "Base de données NoSQL pour applications modernes"
+      },
+      {
+        "key": "postgresql",
+        "title": "PostgreSQL",
+        "desc": "Système de gestion de base de données relationnelle"
+      },
+      {
+        "key": "git",
+        "title": "Git",
+        "desc": "Système de gestion de versions distribué"
+      },
+      {
+        "key": "trello",
+        "title": "Trello",
+        "desc": "Outil de gestion de projet Kanban"
+      }
     ],
     "projects": {
-		"mayaya":{
-		  "title":"Mayaya — De l'idée perso à l'outil incontournable",
-      	  "description":"Bot IA capable d’apprendre à jouer de façon autonome, offrant des statistiques, un mode compétition et un overlay en jeu",
-		  "subtitle":"Comment un simple bot basique est devenu le compagnon préféré de la communauté BombParty",
-		  "game_title":"À propos de BombParty",
-		  "game_desc":"BombParty est un jeu en ligne où rapidité et vocabulaire font la paire. À chaque tour, une syllabe s’affiche (exemple : \"tra\");les joueurs ont quelques secondes pour taper un mot la contenant (\"travail\", \"contrat\", etc.) avant que la bombe virtuelle n’explose.Simple à prendre en main, le défi réside dans la pression du chrono !",
-		  "origin": {
-			"title": "Origine de Mayaya",
-			"description": "Tout est parti d’un constat simple : sur BombParty, impossible de jouer seul ou de s’entraîner. Pas de mode solo, juste des parties publiques, avec des joueurs aléatoires. Frustré par ces limites (et un peu par ennui, soyons honnête), j’ai lancé un petit bot pour m’amuser",
-			"steps": [
-			  { "icon": "😂", "title": "Un troll", "desc": "À l’origine, c’était juste une blague : un bot qui balançait “feur” dès que quelqu’un écrivait “quoi” dans le chat" },
-			  { "icon": "💾", "title": "Ensuite l’outil .exe", "desc": "Le bot a commencé à prendre un peu d’ampleur, alors j’ai rajouté plein de p’tites features marrantes. Quand un ami m’a demandé pour le tester, j’ai tout empaqueté dans une application Python avec une interface simple à configurer" },
-			  { "icon": "🤖", "title": "Puis le bot 24/7", "desc": " Tourner le bot en local, c'était cool… mais pas pratique. Du coup, j’ai tout migré vers un bot Node.js en ligne H24, avec plus de 30 commandes et des modes d'entraînement bien plus poussés" },
-			  { "icon": "🖥️", "title": "Enfin l’overlay", "desc": "Le dernier souci ? Devoir passer par le tchat pour voir les scores et statistiques. Alors j’ai rajouté une surcouche visuelle: un vrai overlay propre, responsive et modulaire" }
-			],
-			"conclusion": "Cette progression, du simple troll à l’overlay, a poussé les devs de BombParty à reprendre plusieurs idées pour leur propre version ingame !"
-		  },
-		  "modules": {
-			"python": {
-			  "label": "Bot Python",
-			  "objective": "Proposer une solution simple permettant à n’importe quel joueur d’ajouter un bot dans un salon, sans configuration complexe ni dépendance technique.",
-			  "tech": [
-						"Python 3",
-						"customTkinter (UI)",
-						"pyInstaller (.exe)",
-						"WebSocket (reverse engineering)",
-						"OpenAI API"
-					  ],
-			  "features": [
-							"Interface visuelle intuitive pour gérer les bots et rejoindre un salon",
-							"Lecture des syllabes via WebSocket et réponse automatique via un dictionnaire local",
-							"Options diverses : autojoin, easter eggs, réponses IA conversationnelles"
-						  ],
-			  "limits": [
-						  "Pas de persistance des données",
-						  "Reconnexion manuelle en cas de crash",
-						  "Absence de gestion des erreurs",
-						  "Exécutable non signé, bloqué par certains antivirus",
-						  "Maintenance lourde : recompile manuelle à chaque modifications"
-						]
-			},
-			"node": {
-			  "label": "Bot Mayaya",
-			  "objective": "Développer une version centralisée du bot, hébergée en continu, capable d’interagir avec les joueurs, d’apprendre automatiquement, de conserver des statistiques, d’aider les nouveaux joueurs, et d’offrir des fonctionnalités avancées.",
-			  "tech": ["Node.js",
-						"PostgreSQL",
-						"JSON",
-						"WebSocket (reverse engineering)",
-						"OpenAI API"
-					  ],
-			  "features": [
-							"Salon principal accessible en permanence",
-							"Plus de 30 commandes disponibles : statistiques, aide, modération…",
-							"Mode d'entraînement compétitif avec suivi du WPM, du temps de réaction et de la précision",
-							"Apprentissage automatique de nouveaux mots en observant les parties en cours",
-							"Dialogue interactif en temps réel avec le bot",
-							"Réactions contextuelles aux joueurs reconnus (via embed GPT)",
-							"Reconnexion automatique en cas de déconnexion",
-							"Instances secondaires sans impacter la room principale"
-						  ],
-			  "limits": [
-						  "Absence de dashboard visuel : tout se gère via le chat du jeu",
-						  "Accès à la base PostgreSQL limité à l’interface textuelle"
-						]
-			},
-			"overlay": {
-			  "label": "Overlay",
-			  "objective": "Afficher en temps réel des données de performance, accessibles à tous les joueurs, sans dépendre d’un bot. Ce module est pensé comme un complément à l’UX du jeu.",
-			  "tech": [
-						"JavaScript",
-						"Tampermonkey",
-						"DOM API",
-						"jQuery",
-						"CSS"
-					  ],
-			  "features": [
-							"Tableau de stats personnalisable (WPM, temps de réaction, taux d’erreur…)​",
-							"Module d’entraînement filtrable (aléatoire, occurrences, regex…) avec surlignage dynamique",
-							"Bots intégrés : entraînement et personnel, directement en jeu",
-							"Persistance des préférences utilisateur (GM_setValue)",
-							"Interface clavier-first, modulaire et accessible",
-							"Profil joueur enrichi",
-							"100 % client-side, sans aucune requête serveur"
-						  ],
-			  "limits": [
-						  "Abandonné avant version finale : l’équipe de BombParty a intégré les principales idées en natif",
-						  "Très sensible aux changements DOM",
-						  "Pas de prise en charge mobile"
-						]
-			}
-		  },
-		  "funFact": {
-			"title": "Fun Fact : La guerre d’usure contre Maca",
-			"intro": "Quand j’ai lancé Mayaya, Maca, le bras armé du staff BombParty, est devenu un véritable barrage :",
-			"items": [
-			  { "icon": "🔒", "text": "Un seul bot toléré ; tous les autres rayés de la carte" },
-			  { "icon": "🚫", "text": "Chaque feature « fun » (GIF de profil, alertes d’anniv…) disparaissait en hotfix" },
-			  { "icon": "🛡️", "text": "Un reCAPTCHA furtif et un chiffrement WebSocket pour étouffer toute initiative" }
-			],
-			"war_intro":"Plutôt que de craquer, on a lancé une véritable guerre d’usure :",
-			"warSteps": [
-			  { "icon": "🤖", "text": "Contournement du reCAPTCHA : en simulant des requêtes HTTP et des interactions utilisateur" },
-			  { "icon": "🔍", "text": "Reverse-engineering intensif du trafic WebSocket à chaque patch" },
-			  { "icon": "🛠️", "text": "Scripts auto-adaptatifs, capables de tenir tête aux mises à jour en temps réel" }
-			],
-			"conclusion": "Après une année de bras de fer contre Maca (déjà largement détesté par la communauté) il a finalement lâché prise. Avant de disparaître, il a levé toutes les protections anti-bot (reCAPTCHA, obfuscation). Une vague de bots innovants et d’overlays inédits a déferlé et BombParty n’a jamais été aussi vivant."
-		  },
-		  "remark":"Remarque",
-		  "remark_label":" Après 2 ans de fonctionnement 24/7, j’ai arrêté l’hébergement continu du bot par manque de motivation à maintenir ce service. D’autres bots plus récents ont émergé et repris le flambeau, mais le code demeure disponible pour un usage local."
-		},
-		"arie":{
-		  "title":"Arie — Bot Discord Multifonction Personnel",
-      	  "description":"Bot Discord proposant une multitude de fonctionnalités: mini-jeux, musique, alertes, stockage de données et bien plus",
-		  "subtitle":"Un seul bot pour remplacer toute une armée de bots sur notre serveur Discord",
-		  "discord_title":"Qu’est‑ce que Discord ?",
-		  "discord_desc":"Discord est une plateforme de discussion gratuite (voix, vidéo et texte) très populaire auprès des communautés de joueurs, étudiants et équipes projet. Chaque espace s’appelle un serveur, composé de salons textuels et vocaux. Les bots Discord sont des comptes automatisés capables de réagir à des commandes et d’enrichir l’expérience utilisateur (jeux, modération, musique…).",
-		  "origin": {
-			"title": "Origine de Arie",
-			"description": "Au sein de notre serveur discord, la prolifération de bots spécialisés (musique, mini‑jeux, GPT, giveaways…) devenait ingérable : maintenance pénible, permissions dispersées, et pannes fréquentes (ex. le blocage des bots musicaux reposant sur YouTube). Nous avons donc créé Arie, guidé par trois axes :",
-			"steps": [
-			  { "icon": "🗂️", "title": "Centralisation", "desc": "Regrouper toutes les fonctionnalités réellement utiles dans un seul bot." },
-			  { "icon": "🎨", "title": "Personnalisation", "desc": "Offrir une expérience sur‑mesure (personnalités GPT, commandes inside‑jokes…)" },
-			  { "icon": "🛡️", "title": "Fiabilité", "desc": "Assurer une disponibilité 24/7 et une UX soignée (slash commands + boutons)" }
-			],
-			"conclusion": ""
-		  },
-		  "modules": {
-			"node": {
-			  "label": "Bot Discord",
-			  "objective": "Créer et maintenir un bot unique, évolutif et open‑source qui couvre 100 % de nos besoins quotidiens sur Discord (jeux, musique, IA, utilitaires) tout en restant léger à déployer et simple à faire évoluer.",
-			  "tech": [
-						"Node.js",
-						"Express",
-						"PostgreSQL",
-						"YTDL‑Core",
-						"OpenAI API",
-						"DALL·E",
-						"Heroku"
-					  ],
-			  "features": [
-							"Mini-jeux intégrés: Puissance 4 multijoueur via embeds/boutons + IA Minimax",
-							"IA conversationnelle: GPT‑3.5/4 avec personnalités interchangeables et génération d’images DALL·E",
-							"Lecteur musique: contrôles complets, paroles synchronisées, playlists persistantes, recherche multi‑plateforme",
-							"Utilitaires: chiffrement César, annonces jeux gratuits Epic/Steam, autres outils maison",
-							"DevOps: déploiement Heroku automatisé, uptime 24 / 7 assuré par UptimeRobot"
-						  ],
-			  "limits": [
-						  "L'audio dépend de YTDL‑Core (risque de blocage futur)",
-						  "Les coûts GPT peuvent grimper avec un usage intensif",
-						  "L'interface mobile gagnerait à optimiser l’ergonomie des boutons sur petits écrans"
-						]
-			}
-		  },
-		  "enhancement": "Évolutions",
-		  "enhancements":[
-			"Ajouter d'autres mini-jeux interactifs comme le pendu, quizz",
-			"Intégrer de nouvelles commandes connectées à des API externes (animes, météo, actu, etc.)",
-			"Développer une interface web pour gérer les playlists et les préférences du bot plus facilement"
-		  ]
-		},
-"snapscore": {
-    "title": "SnapScore+ — Orchestration multi-compte local",
-    "description": "Orchestrateur local multi-comptes basé sur Node.js et Puppeteer. Il pilote plusieurs profils Chrome pour envoyer et ouvrir des snaps en boucle au moyen de macros spécialisées",
-    "subtitle": "Automatiser l'interface web pour faire monter un Snap Score depuis une seule machine",
-    "snapchat": {
-      "title": "À propos de Snapchat",
-      "description": "Snapchat est un réseau social centré sur l'envoi de photos et de vidéos éphémères. Le Snap Score augmente en reproduisant deux gestes simples :",
-      "rules": [
-        "Ouvrir un snap reçu : +1",
-        "Quelqu'un ouvre votre snap : +1"
-      ],
-      "context": "Dans un usage manuel, la plupart des comptes restent dans les centaines ou milliers de points. Le projet exploite l'interface web pour démultiplier la progression, sans appels d'API privés"
-    },
-    "origin": {
-      "title": "Origine du projet",
-      "intro": "Un jour, je découvre qu’un ami affiche 850 000 de Snap Score. Challenge accepté. Est-ce que je peux atteindre le million rapidement, uniquement avec de l’astuce et de la rigueur, sans tricherie obscure ni accès caché ? J’ai donc avancé par étapes, en testant, en mesurant et en simplifiant ce qui marche",
-      "steps": [
-        {
-          "icon": "📱",
-          "title": "Version Mobile",
-          "desc": "Je pars du plus simple: deux téléphones, des gestes répétés, un compte qui envoie et un autre qui ouvre. Ça fonctionne, mais la vitesse plafonne vite et l’organisation devient fatigante. C’est la preuve de concept"
+      "mayaya": {
+        "title": "Mayaya — De l'idée perso à l'outil incontournable",
+        "description": "Bot IA capable d’apprendre à jouer de façon autonome, offrant des statistiques, un mode compétition et un overlay en jeu",
+        "subtitle": "Comment un simple bot basique est devenu le compagnon préféré de la communauté BombParty",
+        "game_title": "À propos de BombParty",
+        "game_desc": "BombParty est un jeu en ligne où rapidité et vocabulaire font la paire. À chaque tour, une syllabe s’affiche (exemple : \"tra\");les joueurs ont quelques secondes pour taper un mot la contenant (\"travail\", \"contrat\", etc.) avant que la bombe virtuelle n’explose.Simple à prendre en main, le défi réside dans la pression du chrono !",
+        "origin": {
+          "title": "Origine de Mayaya",
+          "description": "Tout est parti d’un constat simple : sur BombParty, impossible de jouer seul ou de s’entraîner. Pas de mode solo, juste des parties publiques, avec des joueurs aléatoires. Frustré par ces limites (et un peu par ennui, soyons honnête), j’ai lancé un petit bot pour m’amuser",
+          "steps": [
+            {
+              "icon": "😂",
+              "title": "Un troll",
+              "desc": "À l’origine, c’était juste une blague : un bot qui balançait “feur” dès que quelqu’un écrivait “quoi” dans le chat"
+            },
+            {
+              "icon": "💾",
+              "title": "Ensuite l’outil .exe",
+              "desc": "Le bot a commencé à prendre un peu d’ampleur, alors j’ai rajouté plein de p’tites features marrantes. Quand un ami m’a demandé pour le tester, j’ai tout empaqueté dans une application Python avec une interface simple à configurer"
+            },
+            {
+              "icon": "🤖",
+              "title": "Puis le bot 24/7",
+              "desc": " Tourner le bot en local, c'était cool… mais pas pratique. Du coup, j’ai tout migré vers un bot Node.js en ligne H24, avec plus de 30 commandes et des modes d'entraînement bien plus poussés"
+            },
+            {
+              "icon": "🖥️",
+              "title": "Enfin l’overlay",
+              "desc": "Le dernier souci ? Devoir passer par le tchat pour voir les scores et statistiques. Alors j’ai rajouté une surcouche visuelle: un vrai overlay propre, responsive et modulaire"
+            }
+          ],
+          "conclusion": "Cette progression, du simple troll à l’overlay, a poussé les devs de BombParty à reprendre plusieurs idées pour leur propre version ingame !"
         },
-        {
-          "icon": "🌐",
-          "title": "Version Web",
-          "desc": "Je passe ensuite par l’interface web. L’idée est d’automatiser ce que ferait une personne, mais sans toucher à des zones sensibles. Résultat: c’est plus rapide, plus contrôlable, on voit mieux ce qui se passe, mais la stabilité sur de longues sessions reste un défi"
+        "modules": {
+          "python": {
+            "label": "Bot Python",
+            "objective": "Proposer une solution simple permettant à n’importe quel joueur d’ajouter un bot dans un salon, sans configuration complexe ni dépendance technique.",
+            "tech": [
+              "Python 3",
+              "customTkinter (UI)",
+              "pyInstaller (.exe)",
+              "WebSocket (reverse engineering)",
+              "OpenAI API"
+            ],
+            "features": [
+              "Interface visuelle intuitive pour gérer les bots et rejoindre un salon",
+              "Lecture des syllabes via WebSocket et réponse automatique via un dictionnaire local",
+              "Options diverses : autojoin, easter eggs, réponses IA conversationnelles"
+            ],
+            "limits": [
+              "Pas de persistance des données",
+              "Reconnexion manuelle en cas de crash",
+              "Absence de gestion des erreurs",
+              "Exécutable non signé, bloqué par certains antivirus",
+              "Maintenance lourde : recompile manuelle à chaque modifications"
+            ]
+          },
+          "node": {
+            "label": "Bot Mayaya",
+            "objective": "Développer une version centralisée du bot, hébergée en continu, capable d’interagir avec les joueurs, d’apprendre automatiquement, de conserver des statistiques, d’aider les nouveaux joueurs, et d’offrir des fonctionnalités avancées.",
+            "tech": [
+              "Node.js",
+              "PostgreSQL",
+              "JSON",
+              "WebSocket (reverse engineering)",
+              "OpenAI API"
+            ],
+            "features": [
+              "Salon principal accessible en permanence",
+              "Plus de 30 commandes disponibles : statistiques, aide, modération…",
+              "Mode d'entraînement compétitif avec suivi du WPM, du temps de réaction et de la précision",
+              "Apprentissage automatique de nouveaux mots en observant les parties en cours",
+              "Dialogue interactif en temps réel avec le bot",
+              "Réactions contextuelles aux joueurs reconnus (via embed GPT)",
+              "Reconnexion automatique en cas de déconnexion",
+              "Instances secondaires sans impacter la room principale"
+            ],
+            "limits": [
+              "Absence de dashboard visuel : tout se gère via le chat du jeu",
+              "Accès à la base PostgreSQL limité à l’interface textuelle"
+            ]
+          },
+          "overlay": {
+            "label": "Overlay",
+            "objective": "Afficher en temps réel des données de performance, accessibles à tous les joueurs, sans dépendre d’un bot. Ce module est pensé comme un complément à l’UX du jeu.",
+            "tech": [
+              "JavaScript",
+              "Tampermonkey",
+              "DOM API",
+              "jQuery",
+              "CSS"
+            ],
+            "features": [
+              "Tableau de stats personnalisable (WPM, temps de réaction, taux d’erreur…)​",
+              "Module d’entraînement filtrable (aléatoire, occurrences, regex…) avec surlignage dynamique",
+              "Bots intégrés : entraînement et personnel, directement en jeu",
+              "Persistance des préférences utilisateur (GM_setValue)",
+              "Interface clavier-first, modulaire et accessible",
+              "Profil joueur enrichi",
+              "100 % client-side, sans aucune requête serveur"
+            ],
+            "limits": [
+              "Abandonné avant version finale : l’équipe de BombParty a intégré les principales idées en natif",
+              "Très sensible aux changements DOM",
+              "Pas de prise en charge mobile"
+            ]
+          }
         },
-        {
-          "icon": "🕹️",
-          "title": "Version Puppeteer",
-          "desc": "Dernière étape: la même logique, mais orchestrée proprement. Je pilote plusieurs comptes sur la même machine, je donne des priorités, je gère les pauses, les redémarrages, la caméra, et je surveille tout en continu. Le système devient à la fois rapide et prévisible"
+        "funFact": {
+          "title": "Fun Fact : La guerre d’usure contre Maca",
+          "intro": "Quand j’ai lancé Mayaya, Maca, le bras armé du staff BombParty, est devenu un véritable barrage :",
+          "items": [
+            {
+              "icon": "🔒",
+              "text": "Un seul bot toléré ; tous les autres rayés de la carte"
+            },
+            {
+              "icon": "🚫",
+              "text": "Chaque feature « fun » (GIF de profil, alertes d’anniv…) disparaissait en hotfix"
+            },
+            {
+              "icon": "🛡️",
+              "text": "Un reCAPTCHA furtif et un chiffrement WebSocket pour étouffer toute initiative"
+            }
+          ],
+          "war_intro": "Plutôt que de craquer, on a lancé une véritable guerre d’usure :",
+          "warSteps": [
+            {
+              "icon": "🤖",
+              "text": "Contournement du reCAPTCHA : en simulant des requêtes HTTP et des interactions utilisateur"
+            },
+            {
+              "icon": "🔍",
+              "text": "Reverse-engineering intensif du trafic WebSocket à chaque patch"
+            },
+            {
+              "icon": "🛠️",
+              "text": "Scripts auto-adaptatifs, capables de tenir tête aux mises à jour en temps réel"
+            }
+          ],
+          "conclusion": "Après une année de bras de fer contre Maca (déjà largement détesté par la communauté) il a finalement lâché prise. Avant de disparaître, il a levé toutes les protections anti-bot (reCAPTCHA, obfuscation). Une vague de bots innovants et d’overlays inédits a déferlé et BombParty n’a jamais été aussi vivant."
+        },
+        "remark": "Remarque",
+        "remark_label": " Après 2 ans de fonctionnement 24/7, j’ai arrêté l’hébergement continu du bot par manque de motivation à maintenir ce service. D’autres bots plus récents ont émergé et repris le flambeau, mais le code demeure disponible pour un usage local."
+      },
+      "arie": {
+        "title": "Arie — Bot Discord Multifonction Personnel",
+        "description": "Bot Discord proposant une multitude de fonctionnalités: mini-jeux, musique, alertes, stockage de données et bien plus",
+        "subtitle": "Un seul bot pour remplacer toute une armée de bots sur notre serveur Discord",
+        "discord_title": "Qu’est‑ce que Discord ?",
+        "discord_desc": "Discord est une plateforme de discussion gratuite (voix, vidéo et texte) très populaire auprès des communautés de joueurs, étudiants et équipes projet. Chaque espace s’appelle un serveur, composé de salons textuels et vocaux. Les bots Discord sont des comptes automatisés capables de réagir à des commandes et d’enrichir l’expérience utilisateur (jeux, modération, musique…).",
+        "origin": {
+          "title": "Origine de Arie",
+          "description": "Au sein de notre serveur discord, la prolifération de bots spécialisés (musique, mini‑jeux, GPT, giveaways…) devenait ingérable : maintenance pénible, permissions dispersées, et pannes fréquentes (ex. le blocage des bots musicaux reposant sur YouTube). Nous avons donc créé Arie, guidé par trois axes :",
+          "steps": [
+            {
+              "icon": "🗂️",
+              "title": "Centralisation",
+              "desc": "Regrouper toutes les fonctionnalités réellement utiles dans un seul bot."
+            },
+            {
+              "icon": "🎨",
+              "title": "Personnalisation",
+              "desc": "Offrir une expérience sur‑mesure (personnalités GPT, commandes inside‑jokes…)"
+            },
+            {
+              "icon": "🛡️",
+              "title": "Fiabilité",
+              "desc": "Assurer une disponibilité 24/7 et une UX soignée (slash commands + boutons)"
+            }
+          ],
+          "conclusion": ""
+        },
+        "modules": {
+          "node": {
+            "label": "Bot Discord",
+            "objective": "Créer et maintenir un bot unique, évolutif et open‑source qui couvre 100 % de nos besoins quotidiens sur Discord (jeux, musique, IA, utilitaires) tout en restant léger à déployer et simple à faire évoluer.",
+            "tech": [
+              "Node.js",
+              "Express",
+              "PostgreSQL",
+              "YTDL‑Core",
+              "OpenAI API",
+              "DALL·E",
+              "Heroku"
+            ],
+            "features": [
+              "Mini-jeux intégrés: Puissance 4 multijoueur via embeds/boutons + IA Minimax",
+              "IA conversationnelle: GPT‑3.5/4 avec personnalités interchangeables et génération d’images DALL·E",
+              "Lecteur musique: contrôles complets, paroles synchronisées, playlists persistantes, recherche multi‑plateforme",
+              "Utilitaires: chiffrement César, annonces jeux gratuits Epic/Steam, autres outils maison",
+              "DevOps: déploiement Heroku automatisé, uptime 24 / 7 assuré par UptimeRobot"
+            ],
+            "limits": [
+              "L'audio dépend de YTDL‑Core (risque de blocage futur)",
+              "Les coûts GPT peuvent grimper avec un usage intensif",
+              "L'interface mobile gagnerait à optimiser l’ergonomie des boutons sur petits écrans"
+            ]
+          }
+        },
+        "enhancement": "Évolutions",
+        "enhancements": [
+          "Ajouter d'autres mini-jeux interactifs comme le pendu, quizz",
+          "Intégrer de nouvelles commandes connectées à des API externes (animes, météo, actu, etc.)",
+          "Développer une interface web pour gérer les playlists et les préférences du bot plus facilement"
+        ]
+      },
+      "snapscore": {
+        "title": "SnapScore+ - Orchestration multi-compte locale",
+        "description": "Orchestrateur local multi-comptes basé sur Node.js et Puppeteer. Il pilote plusieurs profils Chrome pour envoyer et ouvrir des snaps en boucle avec des macros dédiées.",
+        "subtitle": "Automatiser l'interface web pour faire grimper un Snap Score depuis une seule machine",
+        "snapchat": {
+          "title": "À propos de Snapchat",
+          "description": "Snapchat est un réseau social centré sur l'envoi de photos et de vidéos éphémères. Le Snap Score augmente en reproduisant deux gestes simples :",
+          "rules": [
+            "Ouvrir un snap reçu : +1",
+            "Quelqu'un ouvre votre snap : +1"
+          ],
+          "context": "Dans un usage manuel, la plupart des comptes restent dans les centaines ou quelques milliers de points. Dépasser les millions reste rare."
+        },
+        "origin": {
+          "title": "Origine du projet",
+          "intro": "Je voulais mesurer jusqu'où un Snap Score pouvait monter en automatisant l'interface comme le ferait un humain, sur une seule machine et sans serveurs.",
+          "steps": [
+            {
+              "title": "Prototype mobile",
+              "desc": "Deux téléphones avec des macros simples posent une base de ~30 points/min. C'est suffisant pour valider l'idée et montrer que multiplier les appareils n'est pas tenable."
+            },
+            {
+              "title": "Userscript web",
+              "desc": "Un script Tampermonkey qui clique dans l'interface web prouve la faisabilité et double le débit à ~60 points/min, mais l'ordinateur doit rester concentré sur les fenêtres visibles."
+            },
+            {
+              "title": "Orchestrateur Node.js/Puppeteer",
+              "desc": "Pilotage multi-fenêtres (double session principale + assistants) avec verrous, pauses courtes et règles de redémarrage : le bureau reste utilisable tout en montant à ~460 points/min sur neuf fenêtres."
+            }
+          ],
+          "focus": "L'orchestrateur change tout : il coordonne la visibilité, évite les collisions et se rétablit automatiquement."
+        },
+        "architecture": {
+          "title": "Architecture technique",
+          "objective": "Maximiser le score du compte principal en coordonnant des comptes assistants en local, pour garder un débit stable sans infrastructure distante.",
+          "componentsTitle": "Composants clés",
+          "components": [
+            "Orchestrateur local (Node.js + Puppeteer) qui ouvre, pilote et supervise chaque fenêtre.",
+            "Compte principal réparti sur deux fenêtres parallèles pour maximiser les envois utiles.",
+            "Comptes assistants dédiés à l'ouverture des Snaps et à l'alimentation du backlog.",
+            "Planificateur qui attribue les rôles, cadence les envois/lectures et surveille l'état des sessions."
+          ],
+          "resourceManagementTitle": "Règles de gestion des ressources",
+          "resourceManagement": [
+            "Verrou caméra : un seul envoi à la fois sur le compte principal.",
+            "Backlog contrôlé : pause automatique au-delà de 25 snaps non lus pour résorber la file.",
+            "Redémarrages seuils : une fenêtre repart quand la latence envoi/lecture dépasse ~1 s, ce qui ramène les lectures à ~500 ms et les envois à ~700 ms après reset.",
+            "Garde-fous de visibilité : chaque action attend que l'élément ciblé existe et soit visible, plus rapide en moyenne et sans temporisateurs arbitraires."
+          ],
+          "observabilityTitle": "Observabilité et contrôles",
+          "observability": [
+            "Compteurs par fenêtre : envois/lectures réussis, taille de file et latences p50/p95.",
+            "Boucle startCheckingIssues : agrège les moyennes, calcule les points/min et déclenche les redémarrages ciblés (principal, assistants ou global).",
+            "Logs structurés (startLog) avec durée de session, moyennes envoi/lecture, backlog et états bloqués/sains.",
+            "Ralentissements automatiques ou redémarrages dès que la p95 dérive."
+          ],
+          "stackTitle": "Stack et outils",
+          "stack": [
+            "JavaScript",
+            "Node.js",
+            "Puppeteer",
+            "Prototype initial en userscript Tampermonkey"
+          ]
+        },
+        "modules": {
+          "mobile": {
+            "label": "Prototype mobile",
+            "objective": "Valider l'idée : synchroniser un téléphone qui envoie et un autre qui ouvre pour mesurer le gain réel.",
+            "tech": [
+              "MacroDroid"
+            ],
+            "advantages": [
+              "Mise en place rapide avec deux téléphones.",
+              "Proche de l'usage normal de l'app, donc très peu de risques."
+            ],
+            "limits": [
+              "Plusieurs téléphones branchés en continu.",
+              "Caméra et applis indisponibles pendant la session.",
+              "Réglages précis des macros fastidieux."
+            ],
+            "perf": "~25 points/min"
+          },
+          "web": {
+            "label": "Userscript web",
+            "objective": "Accélérer proprement : automatiser via le navigateur pour enchaîner les envois/lectures tout en gardant une visibilité en direct.",
+            "tech": [
+              "JavaScript",
+              "Tampermonkey"
+            ],
+            "advantages": [
+              "Réglages clairs, tests rapides, itérations faciles.",
+              "Les outils du navigateur aident à comprendre et corriger vite."
+            ],
+            "limits": [
+              "PC monopolisé sans second écran.",
+              "Au moindre changement d'interface Snapchat, l'automatisation casse.",
+              "Défenses côté plateforme : rythme bridé, sessions qui sautent.",
+              "Caméra et micro monopolisés par le navigateur, conflits possibles.",
+              "Sur de longues sessions : ralentissements et mémoire qui gonfle."
+            ],
+            "perf": "~60 points/min"
+          },
+          "puppeteer": {
+            "label": "Orchestrateur Puppeteer",
+            "objective": "Maximiser le score : faire tourner plusieurs comptes en parallèle sur une même machine avec des règles simples, des priorités et un suivi continu.",
+            "tech": [
+              "Node.js",
+              "JavaScript",
+              "Puppeteer"
+            ],
+            "advantages": [
+              "Chaque compte est isolé avec reconnexion automatique.",
+              "Fenêtres visibles ou discrètes, lancements planifiés et contrôles réguliers.",
+              "Gestion fine des ressources : qui prend la caméra, quand redémarrer, comment éviter les bouchons.",
+              "Suivi centralisé avec indicateurs clairs mis à jour toutes les secondes.",
+              "Peut se déployer sur d'autres machines si besoin."
+            ],
+            "limits": [
+              "Performances dépendantes du matériel : CPU, RAM, disque, encodage vidéo.",
+              "La mémoire grimpe avec le nombre d'instances."
+            ],
+            "perf": "~430 points/min sur ma configuration avec 2 comptes principaux et 7 assistants"
+          }
+        },
+        "observation": {
+          "title": "Constats avant la version finale",
+          "items": [
+            "Un compte Snapchat peut être connecté à deux endroits en même temps.",
+            "Laisser une session ouverte trop longtemps finit par ralentir tout le monde.",
+            "La caméra ne peut pas être utilisée par deux instances simultanément."
+          ],
+          "conclusion": "Ces constats ont guidé les règles : limiter la durée des sessions, mettre la caméra en file d'attente et redémarrer dès que les métriques dérivent."
+        },
+		"operating_title":"Logique de fonctionnement",
+        "management": {
+          "title": "Gestion des instances",
+          "items": [
+            "Un AccountManager supervise les comptes : connexion, vérification d'état et attribution des rôles.",
+            "Chaque compte possède son profil navigateur avec cookies sauvegardés pour se reconnecter automatiquement.",
+            "Les comptes principaux envoient les snaps, les assistants les ouvrent."
+          ]
+        },
+        "monitoring": {
+          "title": "Surveillance en continu",
+          "items": [
+            "Chaque compte observe directement sa conversation pour agir au bon moment, sans temporisateurs arbitraires.",
+            "Des compteurs agrégés suivent en temps réel envois, lectures, moyennes et taille de backlog.",
+            "Ces métriques sont rafraîchies dans la console toutes les 500 ms pour garder la main sur le système."
+          ]
+        },
+        "rules": {
+          "title": "Règles de ressources",
+          "items": [
+            "Verrou caméra : un seul compte a accès à la caméra à la fois.",
+            "File d'attente contrôlée : pause dès que plus de 25 snaps restent non lus.",
+            "Redémarrages ciblés quand les moyennes d'envoi ou d'ouverture dérivent.",
+            "Auto-reconnexion : si une fenêtre se ferme ou si les chiffres partent en vrille, on coupe et on relance proprement."
+          ]
+        },
+        "code": {
+          "title": "Base du code",
+          "structureTitle": "Structure des dossiers",
+          "structure": "src/\n  DOM/\n    observers.js\n    selectors.js\n  macros/\n    discussion.js\n    openSnaps.js\n    sendSnaps.js\n  scripts/\n    focus.js\n    injection.js\n  Snapchat/\n    account.js\n    manager.js\n  utils/\n    cameraMutex.js\n    index.js",
+          "modulesTitle": "Modules clés",
+          "modules": [
+            {
+              "title": "src/index.js",
+              "desc": "Configure les constantes de runtime, instancie AccountManager et lance les boucles de supervision."
+            },
+            {
+              "title": "src/Snapchat/manager.js",
+              "desc": "Coordonne les comptes, agrège les métriques et pilote les redémarrages ciblés."
+            },
+            {
+              "title": "src/Snapchat/account.js",
+              "desc": "Définit la session Puppeteer : profil, connexion, injection des scripts et état individuel."
+            },
+            {
+              "title": "src/macros/",
+              "desc": "Scripts côté client pour envoyer ou ouvrir des snaps via l'interface web."
+            },
+            {
+              "title": "src/DOM/",
+              "desc": "Sélecteurs et observateurs pour suivre discussions, messages et déclencheurs."
+            },
+            {
+              "title": "src/scripts/focus.js",
+              "desc": "Désactive quelques protections de focus/screenshot pour stabiliser Snapchat Web."
+            },
+            {
+              "title": "src/utils/cameraMutex.js",
+              "desc": "Tour de contrôle de la caméra pour que chacun passe à son tour."
+            }
+          ],
+          "workflowTitle": "Boucles d'exécution",
+          "workflow": [
+            "Lecture des snaps : tant qu'il reste des non lus, on mesure le temps d'ouverture et on active le mode congestion au-delà de 25 snaps de backlog.",
+            "Envoi des snaps : envoi par lots de 50 dès que le pipeline est libre.",
+            "Boucle de santé : surveille les latences, le backlog et les décisions de l'orchestrateur (pause, reprise, redémarrage)."
+          ]
+        },
+        "performance": {
+          "title": "Comportement mesuré",
+          "items": [
+            "Le meilleur équilibre se situe avec 9 fenêtres (2 comptes principaux, 7 assistants).",
+            "Débit soutenu : environ 460 points/min avec cette configuration.",
+            "Expérience : ~10 000 000 points sur le compte principal en 14 jours et ~1 000 000 par compte assistant."
+          ]
+        },
+        "remark": {
+          "title": "Remarque",
+          "description": "Projet expérimental et personnel. Automatiser l'interface peut aller à l'encontre des conditions d'utilisation. Le code se limite à l'automatisation locale d'une interface publique."
+        },
+        "learnings": {
+          "title": "Ce que cela démontre",
+          "items": [
+            "La stabilité (verrous, seuils, redémarrages) compte plus que la vitesse brute.",
+            "Un orchestrateur local bien réglé suffit pour gérer plusieurs comptes sans infrastructure distante.",
+            "Des règles simples comme le verrou caméra, la limite de backlog et la garde sur la latence rendent le système prévisible et facile à corriger."
+          ]
         }
-      ]
-    },
-    "modules": {
-		"mobile":{
-			"label":"Version Mobile",
-			"objective":"Valider l’idée: synchroniser un téléphone qui envoie et un autre qui ouvre, pour mesurer le gain réel",
-            "tech":[
-				"MacroDroid"
-			],
-			"advantages":[
-				"Mise en place rapide avec deux téléphones",
-				"Proche de l’usage normal de l’app, donc peu de risque de casse"
-			],
-			"limits":[
-				"Besoin de plusieurs téléphones branchés en continu",
-				"Caméra et autres applis indisponibles pendant la session",
-				"Paramétrage précis compliqué"
-			],
-			"perf":"~25 score/min"
-		},
-		"web":{
-			"label":"Version Web",
-			"objective":"Accélérer proprement: automatiser via le navigateur pour enchaîner envois/ouvertures et garder une visibilité en direct",
-            "tech":[
-				"JavaScript",
-				"Tampermonkey"
-			],
-			"advantages":[
-				"Réglages clairs, tests rapides, itérations faciles",
-				"Outils du navigateur disponible pour comprendre et corriger les problèmes (DevTools)"
-			],
-			"limits":[
-				"PC monopolisé sans second écran",
-				"Si la page Snapchat change, l’automatisation casse",
-				"Défenses côté plateforme : rythme bridé, sessions qui sautent",
-				"Caméra et micro occupés par le navigateur, conflits possibles",
-				"Sur longues sessions : ralentissements et mémoire qui gonfle"
-			],
-			"perf":"~60 score/min"
-		},
-		"puppeteer":{
-			"label":"Version Puppeteer",
-			"objective":"Maximiser le score: faire tourner plusieurs comptes en parallèle sur une même machine, avec règles simples, priorités et surveillance continue",
-            "tech":[
-				"Node.js",
-				"JavaScript",
-				"Puppeteer"
-			],
-			"advantages":[
-				"Chaque compte isolé, reconnexion automatique",
-				"Fenêtres visibles ou discrètes, lancement planifié, contrôles réguliers",
-				"Gestion fine des ressources : qui prend la caméra, quand redémarrer, éviter les bouchons",
-				"Suivi centralisé avec indicateurs clairs, mis à jour régulièrement",
-				"Peut tourner sur d’autres machines si besoin"
-			],
-			"limits":[
-				"Performances dépendantes du matériel : CPU, RAM, disque, encodage vidéo",
-				"Mémoire qui grimpe avec le nombre d’instances"
-			],
-			"perf":" ~430 score/min sur ma config, meilleur équilibre à 2 comptes principaux + 7 comptes assistants"
-		}
-    },
-	"observation":{
-		"title":"Ce que j’ai appris avant la version finale",
-		"items":[
-			"Un compte Snapchat peut être connecté en deux endroits en même temps",
-			"Laisser une session ouverte trop longtemps finit par ralentir tout le monde",
-			"La caméra ne peut pas être utilisée par deux instances en même temps"
-		],
-		"conclusion":"Ces constats ont guidé les règles: limiter la durée des sessions, séquencer l’accès à la caméra, redémarrer dès que ça dérive"
-	},
-	"management":{
-		"title":"Gestion des instances",
-		"items":[
-			"Un AccountManager supervise les comptes: il connecte, vérifie leur état, et attribue les rôles",
-			"Chaque compte a son propre profil de navigateur avec des cookies enregistrés pour revenir en ligne tout seul",
-			"Les comptes principaux envoient les snaps. Les assistants les ouvrent"
-		]
-	},
-	"monitoring":{
-		"title":"Surveillance en continu",
-		"items":[
-			"Chaque fenêtre surveille sa conversation pour réagir au bon moment (pas de temporisations arbitraires)",
-			"Je rassemble les totaux envoyés/ouverts et des moyennes qui bougent en temps réel",
-			"Ces chiffres sont rafraîchis dans la console toutes les 500 ms pour garder la main sur le système"
-		]
-	},
-	"rules":{
-		"title":"Règles de gestion des ressources",
-		"items":[
-			"Caméra en file d’attente: un seul ouvre la caméra à la fois",
-			"Au-delà de 25 snaps non lus, on met en pause les envois pour résorber la file",
-			"Relance ciblée: si les moyennes d’ouverture ou d’envoi dérapent, on redémarre uniquement l’instance concernée",
-			"Auto-reconnexion: si une fenêtre se ferme ou si les chiffres partent en vrille, on coupe et on repart proprement"
-		]
-	},
-    "code": {
-      "title": "Base de code",
-      "structureTitle": "Structure des dossiers",
-      "structure": "src/\\n|- DOM/\\n|- Snapchat/\\n|- macros/\\n|- scripts/\\n|- utils/\\n\\\\- index.js",
-      "modulesTitle": "Modules clés",
-      "modules": [
-        {
-          "title": "src/index.js",
-          "desc": "Configure les constantes de runtime, instancie AccountManager et lance les boucles de surveillance"
-        },
-        {
-          "title": "src/Snapchat/manager.js",
-          "desc": "Coordonne les comptes, calcule les métriques globales et pilote les redémarrages ciblés"
-        },
-        {
-          "title": "src/Snapchat/account.js",
-          "desc": "Définit la session Puppeteer : profil utilisateur, connexion, injection des scripts et état individuel"
-        },
-        {
-          "title": "src/macros/",
-          "desc": "Scripts côté client pour envoyer ou ouvrir des snaps via l’interface web"
-        },
-        {
-          "title": "src/DOM/",
-          "desc": "Sélecteurs et observateurs pour suivre discussions, messages et déclencheurs"
-        },
-        {
-          "title": "src/scripts/focus.js",
-          "desc": "Désactive quelques protections de focus/screenshot pour stabiliser Snapchat Web"
-        },
-        {
-          "title": "src/utils/cameraMutex.js",
-          "desc": "“Tour de contrôle” de la caméra pour que tout le monde passe à son tour"
-        }
-      ]
-    },
-    "performance": {
-      "title": "Comportement par défaut sur ma machine",
-      "items": [
-        "Le meilleur équilibre s’est trouvé avec 2 comptes principaux et 7 comptes assistants",
-        "Au-delà, les performances se dégradent. Avec ce réglage, j’atteins environ 430 points/min",
-        "Bilan: 10 millions de score en 2 semaines, avec environ 1 million sur chaque compte assistant"
-      ]
-    },
-	"learnings": {
-      "title": "Ce que ça démontre",
-      "items": [
-        "La surveillance continue (métriques, redémarrages, seuils) prime sur la vitesse brute pour rester stable",
-        "Un orchestrateur local bien réglé suffit pour coordonner plusieurs comptes sans infrastructure distante",
-        "Des règles simples comme le verrou caméra, un seuil de backlog, et une latence maximale rendent le système prévisible et facile à corriger"
-      ]
-    },
-    "remark": {
-      "title": "Remarque",
-      "description": "Projet expérimental et personnel. Automatiser l'interface peut aller à l'encontre des conditions d'utilisation de la plateforme. Le code se limite à l'automatisation locale d'une interface publique"
-    }
-  }
-
+      }
     },
     "sections": {
-  		"objective":"Objectif du projet",
-  		"features":"Fonctionnalités principales",
-		"advantages":"Avantages",
-  		"limits":"Limites",
-  		"viewCode":"Voir le code",
-  		"architecture":"🔧 Architecture technique du projet"
+      "objective": "Objectif du projet",
+      "features": "Fonctionnalités principales",
+      "advantages": "Avantages",
+      "limits": "Limites",
+      "viewCode": "Voir le code",
+      "architecture": "🔧 Architecture technique du projet"
     }
   },
   "sidebar": {
@@ -453,8 +598,8 @@
     "translate": "Traduire [EN]",
     "chatbot": "Assistant"
   },
-  "assistant":{
-    "welcome":"Bienvenue sur mon portfolio !",
-	"input":"Ecrivez un message..."
+  "assistant": {
+    "welcome": "Bienvenue sur mon portfolio !",
+    "input": "Ecrivez un message..."
   }
 }

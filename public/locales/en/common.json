@@ -74,22 +74,86 @@
       ]
     },
     "skills": [
-      { "key": "html",        "title": "HTML",         "desc": "Markup language for web pages" },
-      { "key": "css",         "title": "CSS",          "desc": "Style and layout of web pages" },
-      { "key": "javascript",  "title": "JavaScript",   "desc": "Programming language for the Web" },
-      { "key": "reactjs",     "title": "React.js",     "desc": "Library for building web interfaces" },
-      { "key": "nextjs",      "title": "Next.js",      "desc": "Framework for server-rendered React apps" },
-      { "key": "nodejs",      "title": "Node.js",      "desc": "JavaScript runtime for server-side" },
-      { "key": "python",      "title": "Python",       "desc": "High-level, interpreted programming language" },
-      { "key": "csharp",      "title": "C#",            "desc": "Object-oriented programming language" },
-      { "key": "tampermonkey","title": "Tampermonkey", "desc": "User scripts for web automation" },
-      { "key": "vba",         "title": "Excel VBA",    "desc": "Task automation and macros in Excel" },
-      { "key": "powershell",  "title": "PowerShell",   "desc": "Windows administration and automation with PowerShell scripts" },
-      { "key": "dnSpy",       "title": "dnSpy",        "desc": "Debugger and .NET assembly editor for reverse engineering" },
-      { "key": "mongodb",     "title": "MongoDB",      "desc": "NoSQL database for modern applications" },
-      { "key": "postgresql",  "title": "PostgreSQL",   "desc": "Relational database management system" },
-      { "key": "git",         "title": "Git",          "desc": "Distributed version control system" },
-      { "key": "trello",      "title": "Trello",       "desc": "Kanban project management tool" }
+      {
+        "key": "html",
+        "title": "HTML",
+        "desc": "Markup language for web pages"
+      },
+      {
+        "key": "css",
+        "title": "CSS",
+        "desc": "Style and layout of web pages"
+      },
+      {
+        "key": "javascript",
+        "title": "JavaScript",
+        "desc": "Programming language for the Web"
+      },
+      {
+        "key": "reactjs",
+        "title": "React.js",
+        "desc": "Library for building web interfaces"
+      },
+      {
+        "key": "nextjs",
+        "title": "Next.js",
+        "desc": "Framework for server-rendered React apps"
+      },
+      {
+        "key": "nodejs",
+        "title": "Node.js",
+        "desc": "JavaScript runtime for server-side"
+      },
+      {
+        "key": "python",
+        "title": "Python",
+        "desc": "High-level, interpreted programming language"
+      },
+      {
+        "key": "csharp",
+        "title": "C#",
+        "desc": "Object-oriented programming language"
+      },
+      {
+        "key": "tampermonkey",
+        "title": "Tampermonkey",
+        "desc": "User scripts for web automation"
+      },
+      {
+        "key": "vba",
+        "title": "Excel VBA",
+        "desc": "Task automation and macros in Excel"
+      },
+      {
+        "key": "powershell",
+        "title": "PowerShell",
+        "desc": "Windows administration and automation with PowerShell scripts"
+      },
+      {
+        "key": "dnSpy",
+        "title": "dnSpy",
+        "desc": "Debugger and .NET assembly editor for reverse engineering"
+      },
+      {
+        "key": "mongodb",
+        "title": "MongoDB",
+        "desc": "NoSQL database for modern applications"
+      },
+      {
+        "key": "postgresql",
+        "title": "PostgreSQL",
+        "desc": "Relational database management system"
+      },
+      {
+        "key": "git",
+        "title": "Git",
+        "desc": "Distributed version control system"
+      },
+      {
+        "key": "trello",
+        "title": "Trello",
+        "desc": "Kanban project management tool"
+      }
     ],
     "projects": {
       "mayaya": {
@@ -102,10 +166,26 @@
           "title": "Origin of Mayaya",
           "description": "It all started with a simple observation: on BombParty, you couldn’t play solo or practice. No single-player mode, just public matches with random opponents. Frustrated by these limits (and admittedly a bit bored), I launched a little bot for fun",
           "steps": [
-            { "icon": "😂", "title": "A prank",     "desc": "Originally it was just a joke: a bot that replied “feur” whenever someone typed “quoi” in chat" },
-            { "icon": "💾", "title": "The .exe tool", "desc": "The bot gained traction, so I added fun features. When a friend wanted to try it, I packaged everything into a Python app with a simple GUI" },
-            { "icon": "🤖", "title": "Then the 24/7 bot", "desc": "Running the bot locally was nice… but inconvenient. So I migrated to a Node.js bot hosted online around the clock, with over 30 commands and advanced training modes" },
-            { "icon": "🖥️", "title": "Finally, the overlay", "desc": "The last hurdle was switching to chat to see scores and stats. So I added a visual overlay: a clean, responsive, modular interface" }
+            {
+              "icon": "😂",
+              "title": "A prank",
+              "desc": "Originally it was just a joke: a bot that replied “feur” whenever someone typed “quoi” in chat"
+            },
+            {
+              "icon": "💾",
+              "title": "The .exe tool",
+              "desc": "The bot gained traction, so I added fun features. When a friend wanted to try it, I packaged everything into a Python app with a simple GUI"
+            },
+            {
+              "icon": "🤖",
+              "title": "Then the 24/7 bot",
+              "desc": "Running the bot locally was nice… but inconvenient. So I migrated to a Node.js bot hosted online around the clock, with over 30 commands and advanced training modes"
+            },
+            {
+              "icon": "🖥️",
+              "title": "Finally, the overlay",
+              "desc": "The last hurdle was switching to chat to see scores and stats. So I added a visual overlay: a clean, responsive, modular interface"
+            }
           ],
           "conclusion": "This journey—from simple prank to full overlay—inspired the BombParty devs to adopt many of these ideas natively!"
         },
@@ -188,15 +268,33 @@
           "title": "Fun Fact: The war of attrition against Maca",
           "intro": "When I launched Mayaya, Maca—the BombParty staff’s enforcer—became a real blockade:",
           "items": [
-            { "icon": "🔒", "text": "Only one bot was tolerated; all others were wiped out" },
-            { "icon": "🚫", "text": "Every “fun” feature (profile GIFs, birthday alerts…) was removed in a hotfix" },
-            { "icon": "🛡️", "text": "A stealth reCAPTCHA and WebSocket encryption to stifle any initiative" }
+            {
+              "icon": "🔒",
+              "text": "Only one bot was tolerated; all others were wiped out"
+            },
+            {
+              "icon": "🚫",
+              "text": "Every “fun” feature (profile GIFs, birthday alerts…) was removed in a hotfix"
+            },
+            {
+              "icon": "🛡️",
+              "text": "A stealth reCAPTCHA and WebSocket encryption to stifle any initiative"
+            }
           ],
           "war_intro": "Rather than giving up, we launched a real war of attrition:",
           "warSteps": [
-            { "icon": "🤖", "text": "Bypassing the reCAPTCHA by simulating HTTP requests and user interactions" },
-            { "icon": "🔍", "text": "Intensive reverse-engineering of WebSocket traffic at every patch" },
-            { "icon": "🛠️", "text": "Auto-adaptive scripts capable of keeping pace with real-time updates" }
+            {
+              "icon": "🤖",
+              "text": "Bypassing the reCAPTCHA by simulating HTTP requests and user interactions"
+            },
+            {
+              "icon": "🔍",
+              "text": "Intensive reverse-engineering of WebSocket traffic at every patch"
+            },
+            {
+              "icon": "🛠️",
+              "text": "Auto-adaptive scripts capable of keeping pace with real-time updates"
+            }
           ],
           "conclusion": "After a year-long tug-of-war against Maca (already widely despised by the community), he finally gave up. Before disappearing, he lifted all anti-bot protections (reCAPTCHA, obfuscation). A wave of innovative bots and new overlays swept in, and BombParty has never been more alive."
         },
@@ -213,9 +311,21 @@
           "title": "Origin of Arie",
           "description": "Within our Discord server, the proliferation of specialized bots (music, mini-games, GPT, giveaways, etc.) became unmanageable: tedious maintenance, scattered permissions, and frequent outages (e.g., music bots relying on YouTube getting blocked). So we created Arie, guided by three principles:",
           "steps": [
-            { "icon": "🗂️", "title": "Centralization",   "desc": "Gather all truly useful features into a single bot." },
-            { "icon": "🎨", "title": "Customization",    "desc": "Offer a tailor-made experience (GPT personalities, inside-joke commands, etc.)." },
-            { "icon": "🛡️", "title": "Reliability",      "desc": "Ensure 24/7 availability and a polished UX (slash commands + buttons)." }
+            {
+              "icon": "🗂️",
+              "title": "Centralization",
+              "desc": "Gather all truly useful features into a single bot."
+            },
+            {
+              "icon": "🎨",
+              "title": "Customization",
+              "desc": "Offer a tailor-made experience (GPT personalities, inside-joke commands, etc.)."
+            },
+            {
+              "icon": "🛡️",
+              "title": "Reliability",
+              "desc": "Ensure 24/7 availability and a polished UX (slash commands + buttons)."
+            }
           ],
           "conclusion": ""
         },
@@ -254,99 +364,224 @@
         ]
       },
       "snapscore": {
-        "title": "SnapScore Engine — From idea to local orchestration",
-        "description": "Local multi-account Snapchat orchestrator using Puppeteer, designed to increase a specific account’s Snap Score.",
-        "subtitle": "How I turned a curiosity about Snap Scores into a 10M-point orchestration experiment",
+        "title": "SnapScore+ — Local multi-account orchestration",
+        "description": "Local multi-account orchestrator based on Node.js and Puppeteer. It drives multiple Chrome profiles to send and open snaps in loops using dedicated macros.",
+        "subtitle": "Automate the web interface to raise a Snap Score from a single machine",
         "snapchat": {
           "title": "About Snapchat",
-          "description": "Snapchat is a social network built around ephemeral photos and videos. Its Snap Score rewards a handful of simple actions:",
+          "description": "Snapchat is a social network centered on sending ephemeral photos and videos. Snap Score increases by repeating two simple actions:",
           "rules": [
-            "Open a received Snap: +1",
-            "Someone opens one of your Snaps: +1"
+            "Open a received snap: +1",
+            "Someone opens your snap: +1"
           ],
-          "context": "Most long-standing accounts remain in the hundreds or a few thousands of points. Hitting the millions is rare."
+          "context": "With manual use, most accounts stay in the hundreds or a few thousand points. Reaching the millions is rare."
         },
         "origin": {
           "title": "Project origin",
-          "intro": "I wanted to see how far a Snap Score could go by automating the interface like a human would, on a single machine and without servers.",
+          "intro": "I wanted to measure how far a Snap Score could go by automating the interface like a human would, on a single machine and without servers.",
           "steps": [
-            { "icon": "📱", "title": "Mobile prototype", "desc": "Two phones with small macros established a ~30 pts/min baseline. It set expectations and showed that scaling with more devices would not be sustainable." },
-            { "icon": "🌐", "title": "Web userscript", "desc": "A Tampermonkey script clicking through the web interface proved feasibility and doubled throughput to ~60 pts/min, but the computer had to stay focused on the visible windows." },
-            { "icon": "🤖", "title": "Node.js/Puppeteer orchestrator", "desc": "Multi-window driving (dual main instance plus assistants) with locks, short pauses, and restart rules kept the desktop usable while climbing to ≈460 pts/min across nine windows." }
+            {
+              "title": "Mobile prototype",
+              "desc": "Two phones with simple macros establish a baseline of ~30 points/min. Enough to validate the idea and show that multiplying devices doesn’t scale."
+            },
+            {
+              "title": "Web userscript",
+              "desc": "A Tampermonkey script that clicks through the web UI proves feasibility and doubles throughput to ~60 points/min, but the computer must stay focused on visible windows."
+            },
+            {
+              "title": "Node.js/Puppeteer orchestrator",
+              "desc": "Multi-window control (dual main session plus assistants) with locks, short pauses and restart rules: the desktop remains usable while climbing to ~460 points/min across nine windows."
+            }
           ],
-          "focus": "The orchestrator is the differentiator: it coordinates visibility, avoids collisions, and recovers automatically."
+          "focus": "The orchestrator changes everything: it coordinates visibility, prevents collisions and recovers automatically."
         },
         "architecture": {
           "title": "Technical architecture",
-          "objective": "Maximize the main account's score by coordinating assistant accounts locally, keeping throughput stable without any remote infrastructure.",
-          "componentsTitle": "Core components",
+          "objective": "Maximize the main account’s score by coordinating helper accounts locally, keeping steady throughput without remote infrastructure.",
+          "componentsTitle": "Key components",
           "components": [
-            "Local orchestrator (Node.js + Puppeteer) that opens, drives, and supervises every browser window.",
-            "Main account running in two parallel windows to maximize useful sends.",
-            "Assistant accounts dedicated to reading Snaps and feeding the backlog.",
-            "Scheduler assigning roles, pacing sends/reads, and watching session health."
+            "Local orchestrator (Node.js + Puppeteer) that opens, drives and supervises each window.",
+            "Main account split across two parallel windows to maximize useful sends.",
+            "Assistant accounts dedicated to opening snaps and feeding the backlog.",
+            "A scheduler that assigns roles, paces sends/reads and monitors session health."
           ],
           "resourceManagementTitle": "Resource management rules",
           "resourceManagement": [
-            "Camera lock ensuring only one send happens at a time on the main account.",
-            "Controlled backlog: if any window queues more than 25 unread Snaps, the system pauses, catches up, then resumes.",
-            "Threshold-based restarts: windows restart when send/read latency exceeds ~1 s, dropping back to ~500 ms reads and ~700 ms sends after reset.",
-            "Visibility guards: every action waits for the target element to exist and be visible before interacting—faster on average and timer-free."
+            "Camera lock: only one send at a time on the main account.",
+            "Controlled backlog: automatic pause beyond 25 unread snaps to drain the queue.",
+            "Threshold restarts: a window is restarted when send/read latency exceeds ~1 s, which brings reads back to ~500 ms and sends to ~700 ms after reset.",
+            "Visibility guardrails: every action waits for the targeted element to exist and be visible, faster on average and without arbitrary timers."
           ],
-          "observabilityTitle": "Observability & health checks",
+          "observabilityTitle": "Observability and controls",
           "observability": [
-            "Per-window counters for successful sends/reads, queue size, and p50/p95 latencies.",
-            "startCheckingIssues loop aggregating averages, computing points per minute, and triggering targeted restarts (main, assistants, or global).",
-            "Structured console logs (startLog) with session duration, send/read averages, backlog levels, and blocked/healthy account lists.",
-            "Automatic slowdowns or restarts when the p95 drifts upward."
+            "Per-window counters: successful sends/reads, queue size, and p50/p95 latencies.",
+            "startCheckingIssues loop: aggregates averages, computes points/min and triggers targeted restarts (main, assistants or global).",
+            "Structured logs (startLog) with session duration, send/read averages, backlog and blocked/healthy states.",
+            "Automatic slowdowns or restarts as soon as p95 drifts."
           ],
-          "stackTitle": "Stack & tools",
+          "stackTitle": "Stack and tools",
           "stack": [
             "JavaScript",
             "Node.js",
             "Puppeteer",
-            "Initial prototype written as a Tampermonkey userscript"
+            "Initial prototype as a Tampermonkey userscript"
+          ]
+        },
+        "modules": {
+          "mobile": {
+            "label": "Mobile prototype",
+            "objective": "Validate the idea: sync one phone that sends and another that opens to measure the real gain.",
+            "tech": [
+              "MacroDroid"
+            ],
+            "advantages": [
+              "Quick setup with two phones.",
+              "Close to normal app usage, so very low risk."
+            ],
+            "limits": [
+              "Multiple phones plugged in continuously.",
+              "Camera and apps unavailable during the session.",
+              "Finicky macro tuning."
+            ],
+            "perf": "~25 points/min"
+          },
+          "web": {
+            "label": "Web userscript",
+            "objective": "Speed up cleanly: automate through the browser to chain sends/reads while keeping live visibility.",
+            "tech": [
+              "JavaScript",
+              "Tampermonkey"
+            ],
+            "advantages": [
+              "Clear settings, fast tests, easy iterations.",
+              "Browser tools help understand and fix quickly."
+            ],
+            "limits": [
+              "PC monopolized without a second screen.",
+              "Any Snapchat UI change breaks the automation.",
+              "Platform defenses: throttling, dropped sessions.",
+              "Camera and mic monopolized by the browser, possible conflicts.",
+              "On long sessions: slowdowns and growing memory."
+            ],
+            "perf": "~60 points/min"
+          },
+          "puppeteer": {
+            "label": "Puppeteer orchestrator",
+            "objective": "Maximize score: run multiple accounts in parallel on one machine with simple rules, priorities and continuous monitoring.",
+            "tech": [
+              "Node.js",
+              "JavaScript",
+              "Puppeteer"
+            ],
+            "advantages": [
+              "Each account isolated with automatic reconnection.",
+              "Windows visible or hidden, scheduled launches and regular checks.",
+              "Fine-grained resource control: who gets the camera, when to restart, how to avoid bottlenecks.",
+              "Centralized monitoring with clear indicators updated every second.",
+              "Can be deployed on other machines if needed."
+            ],
+            "limits": [
+              "Performance depends on hardware: CPU, RAM, disk, video encoding.",
+              "Memory grows with the number of instances."
+            ],
+            "perf": "~430 points/min on my setup with 2 main accounts and 7 assistants"
+          }
+        },
+        "observation": {
+          "title": "Findings before the final version",
+          "items": [
+            "A Snapchat account can be connected in two places at the same time.",
+            "Leaving a session open too long ends up slowing everyone down.",
+            "The camera can’t be used by two instances simultaneously."
+          ],
+          "conclusion": "These findings guided the rules: limit session duration, queue camera access and restart as soon as metrics drift."
+        },
+        "operating_title": "Operating logic",
+        "management": {
+          "title": "Instance management",
+          "items": [
+            "An AccountManager supervises the accounts: connection, health checks and role assignment.",
+            "Each account has its own browser profile with saved cookies to reconnect automatically.",
+            "Main accounts send snaps, assistants open them."
+          ]
+        },
+        "monitoring": {
+          "title": "Continuous monitoring",
+          "items": [
+            "Each window directly watches its conversation to act at the right moment, without arbitrary timers.",
+            "Aggregated counters track sends, reads, averages and backlog size in real time.",
+            "These metrics refresh in the console every 500 ms to keep tight control of the system."
+          ]
+        },
+        "rules": {
+          "title": "Resource rules",
+          "items": [
+            "Camera lock: only one account has camera access at a time.",
+            "Controlled queue: pause as soon as more than 25 snaps remain unread.",
+            "Targeted restarts when send or open averages drift.",
+            "Auto-reconnect: if a window closes or numbers go off the rails, cut and relaunch cleanly."
           ]
         },
         "code": {
-          "title": "Code base",
-          "structureTitle": "Folder structure",
-          "structure": "src/\n|- DOM/\n|- Snapchat/\n|- macros/\n|- scripts/\n|- utils/\n\\- index.js",
+          "title": "Codebase",
+          "structureTitle": "Directory structure",
+          "structure": "src/\n  DOM/\n    observers.js\n    selectors.js\n  macros/\n    discussion.js\n    openSnaps.js\n    sendSnaps.js\n  scripts/\n    focus.js\n    injection.js\n  Snapchat/\n    account.js\n    manager.js\n  utils/\n    cameraMutex.js\n    index.js",
           "modulesTitle": "Key modules",
           "modules": [
-            { "title": "src/index.js", "desc": "Launches the orchestrator and configures window lifecycles." },
-            { "title": "src/Snapchat/manager.js", "desc": "Coordinates multi-account execution and balances roles." },
-            { "title": "src/Snapchat/account.js", "desc": "Encapsulates the behaviour and metrics of a single account session." },
-            { "title": "src/macros/", "desc": "Reusable automation primitives for opening, sending, and acknowledging Snaps." },
-            { "title": "src/DOM/", "desc": "Helpers to locate and interact with Snapchat Web UI elements." },
-            { "title": "src/scripts/", "desc": "Scripts injected directly into Snapchat Web to observe states and queues." },
-            { "title": "src/utils/cameraMutex.js", "desc": "Camera mutex controlling access to the shared video input." }
+            {
+              "title": "src/index.js",
+              "desc": "Configures runtime constants, instantiates AccountManager and starts the supervision loops."
+            },
+            {
+              "title": "src/Snapchat/manager.js",
+              "desc": "Coordinates accounts, aggregates metrics and drives targeted restarts."
+            },
+            {
+              "title": "src/Snapchat/account.js",
+              "desc": "Defines the Puppeteer session: profile, login, script injection and individual state."
+            },
+            {
+              "title": "src/macros/",
+              "desc": "Client-side scripts to send or open snaps via the web interface."
+            },
+            {
+              "title": "src/DOM/",
+              "desc": "Selectors and observers to track conversations, messages and triggers."
+            },
+            {
+              "title": "src/scripts/focus.js",
+              "desc": "Disables a few focus/screenshot protections to stabilize Snapchat Web."
+            },
+            {
+              "title": "src/utils/cameraMutex.js",
+              "desc": "Camera control tower so everyone takes turns."
+            }
           ],
           "workflowTitle": "Execution loops",
           "workflow": [
-            "Snap reading: loop while unread items remain, measure open time, and enable congestion mode when any queue exceeds 25 Snaps.",
-            "Snap sending: dispatches batches of 50 when the send pipeline is clear.",
-            "Health loop monitors latencies, backlog, and orchestrator decisions (pause, resume, restart)."
+            "Reading snaps: while unread remain, measure open time and enable congestion mode beyond 25 snaps of backlog.",
+            "Sending snaps: batch sends of 50 as soon as the pipeline is free.",
+            "Health loop: monitors latencies, backlog and the orchestrator’s decisions (pause, resume, restart)."
           ]
         },
         "performance": {
-          "title": "Measured performance",
+          "title": "Measured behavior",
           "items": [
-            "Sweet spot: nine windows in total (two for the main account, seven assistants).",
-            "Sustained throughput: ≈460 points per minute with that configuration.",
-            "Experimental run: ~10,000,000 points on the main account in about 14 days; ~1,000,000 per assistant account."
+            "Best balance is with 9 windows (2 main accounts, 7 assistants).",
+            "Sustained throughput: about 460 points/min with this configuration.",
+            "Experience: ~10,000,000 points on the main account in 14 days and ~1,000,000 per assistant account."
           ]
         },
         "remark": {
           "title": "Note",
-          "description": "This is an experimental, personal project. Automating the interface can violate the platform's Terms of Service. I never touched the network layer or private APIs—only scripted UI interactions, locally and reversibly."
+          "description": "Experimental personal project. Automating the interface may go against the terms of service. The code is limited to local automation of a public interface."
         },
         "learnings": {
-          "title": "What it demonstrates",
+          "title": "What this demonstrates",
           "items": [
             "Stability (locks, thresholds, restarts) matters more than raw speed.",
-            "A well-tuned local orchestrator can reach large volumes without servers.",
-            "Simple rules keep the system predictable and easy to fix quickly."
+            "A well-tuned local orchestrator is enough to manage multiple accounts without remote infrastructure.",
+            "Simple rules like the camera lock, backlog limit and latency guard make the system predictable and easy to fix."
           ]
         }
       }
@@ -354,7 +589,7 @@
     "sections": {
       "objective": "Project Objective",
       "features": "Main Features",
-      "advantages":"Advantages",
+      "advantages": "Advantages",
       "limits": "Limitations",
       "viewCode": "View Code",
       "architecture": "🔧 Technical architecture of the project"
@@ -365,8 +600,8 @@
     "translate": "Translate [FR]",
     "chatbot": "Chatbot"
   },
-  "assistant":{
-    "welcome":"Welcome to my portfolio!",
-	  "input":"Write a message..."
+  "assistant": {
+    "welcome": "Welcome to my portfolio!",
+    "input": "Write a message..."
   }
 }
