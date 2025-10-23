@@ -38,6 +38,30 @@ export default function SnapscoreProjectPage() {
               <p><TranslateAnimation text={t("portfolio.projects.snapscore.origin.intro")} /></p>
               <StepsList steps={tList(t, "portfolio.projects.snapscore.origin.steps")}/>
           </Section>
+          <TabsSection
+              title={t("portfolio.sections.architecture")}
+              items={projectTabs}
+              renderContent={({ content: m }) => (
+                  <div className="space-y-6 bg-zinc-800/40 p-6 rounded-lg">
+                      <SectionCard title={t("portfolio.sections.objective")} icon="🎯" borderColor="border-[#9333ea]">
+                          <p><TranslateAnimation text={t(m.objectiveKey)} /></p>
+                      </SectionCard>
+                      <SectionCard title={t("portfolio.sections.advantages")} icon="✔️" borderColor="border-green-500">
+                          <ListSection items={tList(t, m.featuresKey) as string[]} textColor="text-gray-300"/>
+                      </SectionCard>
+                      <SectionCard title={t("portfolio.sections.limits")} icon="❌" borderColor="border-red-500" >
+                          <ListSection items={tList(t, m.limitsKey) as string[]} textColor="text-gray-300"/>
+                      </SectionCard>
+                      <TechPills items={tList(t, m.techKey) as string[]} />
+                      <Caroussel className="mx-auto" images={m.images} />
+                      <div className="flex justify-center">
+                          <a href={m.repoUrl} target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:underline">
+                          <TranslateAnimation text={t("portfolio.sections.viewCode")} />
+                          </a>
+                      </div>
+                  </div>
+              )}
+          />
         
       </PageLayout>
     </>

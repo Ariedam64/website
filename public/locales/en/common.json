@@ -354,6 +354,7 @@
     "sections": {
       "objective": "Project Objective",
       "features": "Main Features",
+      "advantages":"Advantages",
       "limits": "Limitations",
       "viewCode": "View Code",
       "architecture": "🔧 Technical architecture of the project"

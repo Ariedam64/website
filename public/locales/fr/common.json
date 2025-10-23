@@ -291,6 +291,7 @@
 			"label":"Version Mobile",
 			"objective":"Valider l’idée: synchroniser un téléphone qui envoie et un autre qui ouvre, pour mesurer le gain réel",
             "tech":[
+				"MacroDroid"
 			],
 			"advantages":[
 				"Mise en place rapide avec deux téléphones",
@@ -307,6 +308,8 @@
 			"label":"Version Web",
 			"objective":"Accélérer proprement: automatiser via le navigateur pour enchaîner envois/ouvertures et garder une visibilité en direct",
             "tech":[
+				"JavaScript",
+				"Tampermonkey"
 			],
 			"advantages":[
 				"Réglages clairs, tests rapides, itérations faciles",
@@ -325,6 +328,9 @@
 			"label":"Version Puppeteer",
 			"objective":"Maximiser le score: faire tourner plusieurs comptes en parallèle sur une même machine, avec règles simples, priorités et surveillance continue",
             "tech":[
+				"Node.js",
+				"JavaScript",
+				"Puppeteer"
 			],
 			"advantages":[
 				"Chaque compte isolé, reconnexion automatique",
@@ -436,6 +442,7 @@
     "sections": {
   		"objective":"Objectif du projet",
   		"features":"Fonctionnalités principales",
+		"advantages":"Avantages",
   		"limits":"Limites",
   		"viewCode":"Voir le code",
   		"architecture":"🔧 Architecture technique du projet"
