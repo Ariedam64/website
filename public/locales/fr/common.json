@@ -21,8 +21,10 @@
       "name": "MADEIRA Romann",
       "role": "Analyste Développeur",
       "cvLink": "Consulter le CV",
-      "description": "Développeur de 23 ans situé en France, passionné de code depuis 8 ans. Mon kiff ? Automatiser, optimiser, et coder des projets qui me passionnent",
-      "work_title": "Expériences",
+      "description": "Développeur de 23 ans situé en France, passionné de code depuis 8 ans. Mon kiff ? Automatiser, optimiser, et coder des projets qui me passionnent"
+	},
+	"experiences":{
+	  "work_title": "Expériences",
       "work": [
         {
           "date": "2024 - présent",
