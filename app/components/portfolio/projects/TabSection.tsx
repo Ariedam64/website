@@ -29,7 +29,7 @@ export default function TabsSection<T>({
   return (
     <section className={className}>
       {title && (
-        <h2 className="text-3xl font-semibold text-center uppercase text-[#d4d4d4]">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-center uppercase text-[#d4d4d4]">
           <TranslateAnimation text={title} />
         </h2>
       )}
@@ -45,7 +45,7 @@ export default function TabsSection<T>({
             <TabsTrigger
               key={item.key}
               value={item.key}
-              className="text-lg font-semibold py-2 rounded-md hover:text-white data-[state=active]:text-[#a56fd8] data-[state=active]:bg-[#9333ea33] border-none"
+              className="text-base sm:text-lg font-semibold py-2 rounded-md hover:text-white data-[state=active]:text-[#a56fd8] data-[state=active]:bg-[#9333ea33] border-none"
             >
               <TranslateAnimation text={item.label} />
             </TabsTrigger>

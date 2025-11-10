@@ -14,7 +14,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <div className="pt-16">
+      <div className="pt-32 sm:pt-20 md:pt-16">
         <Header/>
         <Background/>
         <section className=" flex flex-col justify-start items-center text-center px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-12 lg:py-20 lg:max-w-6xl lg:mx-auto"

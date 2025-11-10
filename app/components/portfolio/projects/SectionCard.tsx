@@ -16,10 +16,10 @@ export default function SectionCard({
 }: SectionCardProps) {
   return (
     <div className={`bg-[#27272A] border-l-4 ${borderColor} p-4 rounded-md space-y-2`}>
-      <h4 className="text-xl font-semibold text-[#d4d4d4]">
+      <h4 className="text-lg sm:text-xl font-semibold text-[#d4d4d4]">
         {icon} <TranslateAnimation text={title}/>
       </h4>
-      <div className="text-base text-gray-300 p-2">
+      <div className="text-sm sm:text-base text-gray-300 p-2">
         {children}
       </div>
     </div>

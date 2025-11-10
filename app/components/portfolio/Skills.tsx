@@ -9,7 +9,7 @@ export default function Skills() {
 
 return (
   <>
-    <p className="text-5xl font-light text-[#d4d4d4] tracking-widest text-center pb-5">
+    <p className="text-3xl sm:text-4xl md:text-5xl font-light text-[#d4d4d4] tracking-[0.05em] sm:tracking-widest text-center pb-3 sm:pb-4">
       <TranslateAnimation text={t("portfolio.navigation.skills")} />
     </p>
 

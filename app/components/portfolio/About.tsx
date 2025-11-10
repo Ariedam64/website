@@ -5,19 +5,12 @@ import { FiExternalLink } from "react-icons/fi";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import TranslateAnimation from "../TranslateAnimation";
-import Header from "../portfolio/Header";
 
 export default function About() {
   const { t } = useTranslation("common");
 
   return (
     <>
-      <Header />
-
-      <section
-        id="section-about"
-        className="w-full flex flex-col items-center justify-start pt-16 px-4 pb-30"
-      >
         {/* Nom */}
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
           <TranslateAnimation text={t("portfolio.about.name")} />
@@ -103,12 +96,12 @@ export default function About() {
           <FiExternalLink size={20} />
         </a>
 
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        {/* Indicateur scroll: toujours sous le bouton CV */}
+        <div className="mt-2">
             <div className="w-6 h-10 border-2 border-gray-400 rounded-xl flex items-start justify-center p-1 animate-bounce">
               <div className="w-1 h-1 bg-gray-400 rounded-full" />
             </div>
         </div>
-      </section>
     </>
   );
 }

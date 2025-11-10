@@ -8,7 +8,7 @@
 
 .hubContent {
   position: fixed;
-  top: -8;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -38,5 +38,43 @@
   color: #fff;                    /* Texte blanc */
   margin-bottom: 1rem;
   pointer-events: auto;
+}
+
+/* Responsive: tablettes */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 3rem;
+    letter-spacing: 0.08em;
+  }
+  .hubWrapper {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+}
+
+/* Responsive: téléphones */
+@media (max-width: 640px) {
+  .hubContent {
+    align-items: stretch;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .hubWrapper {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(36, 36, 36, 0.92);
+  }
+  .heading {
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+  .cardContainer {
+    gap: 12px;
+    padding: 12px;
+  }
 }
 

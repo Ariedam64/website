@@ -43,25 +43,21 @@ export default function ListSection({
       }, [])
     : [];
 
-  const styleClasses: Record<ListStyle, string> = {
-    disc: "list-disc",
-    decimal: "list-decimal",
-    none: "list-none",
-  };
-
-  const listTypeClass = styleClasses[listStyle];
-  const positionClass = "list-outside";
-
   return (
-    <ul className={`${listTypeClass} ${positionClass} space-y-2 ${textColor} pl-2 sm:pl-4 md:pl-6`}>
+    <ul className={`list-none space-y-2 ${textColor}`}>
       {safeItems.map(({ icon, text }, idx) => (
-        <li key={idx} className="list-item marker:mr-2">
-          <div className="flex items-start gap-x-2">
-            {icon && <span className="flex-shrink-0">{icon}</span>}
-            <span className="flex-1">
-              <TranslateAnimation text={text} />
-            </span>
-          </div>
+        <li key={idx} className="flex items-start gap-x-3">
+          {/* Marqueur personnalisé: icône prioritaire, sinon puce/numéro */}
+          {icon ? (
+            <span className="flex-shrink-0 leading-none mt-1">{icon}</span>
+          ) : listStyle === "decimal" ? (
+            <span className="flex-shrink-0 text-gray-400 w-5 text-right select-none">{idx + 1}.</span>
+          ) : listStyle === "disc" ? (
+            <span className="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-current" />
+          ) : null}
+          <span className="flex-1 min-w-0">
+            <TranslateAnimation text={text} />
+          </span>
         </li>
       ))}
     </ul>

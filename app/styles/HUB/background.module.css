@@ -75,3 +75,16 @@
   opacity: 1;
   transition: opacity 0.15s ease-out;
 }
+
+/* Responsive: téléphones - grille plus dense et effets plus doux */
+@media (max-width: 640px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(24px, 1fr));
+    grid-auto-rows: 24px;
+    gap: 1px;
+  }
+  .gridItem:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

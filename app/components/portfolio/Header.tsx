@@ -45,6 +45,12 @@ export default function Header() {
             <li key={id} className="relative z-10">
               <a
                 href={`#${id}`}
+                onClick={(e) => {
+                  if (id === 'section-about') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
                 className={`block px-4 py-3 text-center rounded-full cursor-pointer transition-colors ${
                   active === id
                     ? "text-purple-400 bg-purple-600/20 font-semibold"
