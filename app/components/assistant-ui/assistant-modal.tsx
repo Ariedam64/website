@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import { BotIcon } from "lucide-react";
-import { type FC, forwardRef } from "react";
+import { type FC, forwardRef, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { AssistantModalPrimitive } from "@assistant-ui/react";
 import TranslateAnimation from "../TranslateAnimation";
 import { useTranslation } from "react-i18next";
@@ -17,18 +18,20 @@ export const AssistantModal: FC = () => {
         <AssistantModalButton tooltip={t("sidebar.chatbot")} />
       </AssistantModalPrimitive.Trigger>
 
-      {/* MOBILE : Anchor centré en haut (le popover se base sur ça, pas sur le bouton) */}
-      <AssistantModalPrimitive.Anchor asChild>
-        <div className="fixed z-[2] sm:hidden" />
-      </AssistantModalPrimitive.Anchor>
+      {/* MOBILE : Anchor monté dans <body> pour ignorer le transform de la sidebar */}
+      <BodyPortal>
+        <AssistantModalPrimitive.Anchor asChild>
+          <div className="fixed sm:hidden z-[60] top-4 left-1/2 -translate-x-1/2 w-px h-px pointer-events-none" />
+        </AssistantModalPrimitive.Anchor>
+      </BodyPortal>
 
-      {/* MOBILE : contenu attaché à l'anchor, centré sous le top */}
+      {/* MOBILE : contenu attaché à l'anchor, centré et stable */}
       <AssistantModalPrimitive.Content
-        side="top"
-        align="start"
-        sideOffset={-200}
+        side="bottom"
+        align="center"
+        sideOffset={10}
         avoidCollisions={false}
-        className="sm:hidden z-[2] bg-transparent p-0"
+        className="sm:hidden z-[60] bg-transparent p-0"
       >
         <div
           className="
@@ -129,3 +132,29 @@ const AssistantModalButton = forwardRef<
 });
 
 AssistantModalButton.displayName = "AssistantModalButton";
+
+// Portal util: monte les enfants dans document.body
+const BodyPortal: FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [mounted, setMounted] = useState(false);
+  const portalEl = useMemo(() => {
+    if (typeof document === "undefined") return null as unknown as HTMLDivElement;
+    const el = document.createElement("div");
+    el.setAttribute("data-assistant-anchor-portal", "");
+    return el;
+  }, []);
+
+  useEffect(() => {
+    if (!portalEl || typeof document === "undefined") return;
+    setMounted(true);
+    document.body.appendChild(portalEl);
+    return () => {
+      try {
+        document.body.removeChild(portalEl);
+      } catch {}
+    };
+  }, [portalEl]);
+
+  if (!mounted || !portalEl) return null;
+  return createPortal(children, portalEl);
+};
+
