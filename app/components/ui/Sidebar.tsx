@@ -66,59 +66,107 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Panneau latéral */}
+      {/* MOBILE: wrapper qui contient panneau + poignée et glisse ensemble */}
       <div
         className={`
-          fixed bottom-6 left-0 sm:left-6
-          sm:top-1/2 sm:bottom-auto sm:right-auto
-          sm:transform sm:-translate-y-1/2
-          z-50
+          sm:hidden fixed left-0 top-1/2 -translate-y-1/2 z-50
+          flex items-center
           bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-lg
-          shadow-2xl shadow-purple-500/10
-          px-5 py-4 rounded-t-full rounded-b-full
+          shadow-2xl shadow-purple-500/10 rounded-full
           transition-transform duration-300 will-change-transform
-          ${open ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0
+          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-2rem)]'}
         `}
       >
-        <div className="flex flex-col space-y-2 sm:space-y-4">
-          <IconButton
-            icon={<HomeIcon className="w-6 h-6" />}
-            href="/"
-            tooltip={t("sidebar.home")}
-          />
+        {/* Contenu (mobile) */}
+        <div className="flex-1 min-w-0 px-4 py-3">
+          <div className="flex flex-col space-y-2">
+            <IconButton
+              icon={<HomeIcon className="w-6 h-6" />}
+              href="/"
+              tooltip={t("sidebar.home")}
+            />
 
-          <IconButton
-            icon={<LanguageIcon className="w-6 h-6" />}
-            onClick={handleSwitch}
-            tooltip={t("sidebar.translate")}
-          />
+            <IconButton
+              icon={<LanguageIcon className="w-6 h-6" />}
+              onClick={handleSwitch}
+              tooltip={t("sidebar.translate")}
+            />
 
-          <Chat />
+            <Chat />
+          </div>
         </div>
+
+        {/* Poignée hamburger intégrée (mobile) */}
+        <button
+          type="button"
+          aria-label={open ? 'Masquer la barre latérale' : 'Afficher la barre latérale'}
+          onClick={() => setOpen(!open)}
+          className="
+            sm:hidden ml-1
+            flex items-center justify-center
+            w-7 h-16
+            text-[#d4d4d4]
+            rounded-r-full
+            transition-transform duration-200 active:scale-[0.98]
+          "
+        >
+          {open ? (
+            <ChevronLeftIcon className="w-5 h-5" />
+          ) : (
+            <ChevronRightIcon className="w-5 h-5" />
+          )}
+        </button>
       </div>
 
-      {/* Poignée hamburger (mobile uniquement) */}
-      <button
-        type="button"
-        aria-label={open ? 'Masquer la barre latérale' : 'Afficher la barre latérale'}
-        onClick={() => setOpen(!open)}
+      {/* DESKTOP: wrapper panneau + poignée ensemble */}
+      <div
         className={`
-          sm:hidden fixed top-1/2 -translate-y-1/2 -left-3 z-50
-          flex items-center justify-center
-          w-7 h-16
-          bg-gradient-to-b from-purple-700/30 to-indigo-700/30
-          text-[#d4d4d4]
-          shadow-lg border border-[#3E304F]
-          rounded-r-full backdrop-blur
-          transition-transform duration-200 active:scale-[0.98] hover:translate-x-1
+          hidden sm:flex fixed left-6 top-1/2 -translate-y-1/2 z-50
+          items-center
+          bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-lg
+          shadow-2xl shadow-purple-500/10 rounded-full
+          transition-transform duration-300 will-change-transform
+          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-0rem)]'}
         `}
       >
-        {open ? (
-          <ChevronLeftIcon className="w-5 h-5" />
-        ) : (
-          <ChevronRightIcon className="w-5 h-5" />
-        )}
-      </button>
+        <div className="flex-1 min-w-0 px-4 py-3">
+          <div className="flex flex-col space-y-4">
+            <IconButton
+              icon={<HomeIcon className="w-6 h-6" />}
+              href="/"
+              tooltip={t("sidebar.home")}
+            />
+
+            <IconButton
+              icon={<LanguageIcon className="w-6 h-6" />}
+              onClick={handleSwitch}
+              tooltip={t("sidebar.translate")}
+            />
+
+            <Chat />
+          </div>
+        </div>
+
+        {/* Poignée desktop intégrée */}
+        <button
+          type="button"
+          aria-label={open ? 'Masquer la barre latérale' : 'Afficher la barre latérale'}
+          onClick={() => setOpen(!open)}
+          className="
+            ml-1 flex items-center justify-center
+            w-7 h-16
+            text-[#d4d4d4]
+            rounded-r-full
+            transition-transform duration-200 active:scale-[0.98]
+          "
+        >
+          {open ? (
+            <ChevronLeftIcon className="w-5 h-5" />
+          ) : (
+            <ChevronRightIcon className="w-5 h-5" />
+          )}
+        </button>
+      </div>
 
       {/* Voile de fond pour fermer en touchant l'extérieur (mobile) */}
       {open && (

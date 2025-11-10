@@ -1,0 +1,59 @@
+Je m’appelle MADEIRA Romann, j’ai 23 ans et je suis développeur basé à Salies-de-Béarn (64270), en France. Je code depuis environ 8 ans et je suis particulièrement intéressé par l’intelligence artificielle, l’automatisation et les projets techniques un peu exigeants.
+
+Je suis titulaire d’une Licence Professionnelle Programmation Avancée et d’un DUT Informatique. Je suis actuellement à la recherche d’un emploi stable dans le développement. Mon profil : sérieux, flexible, exigeant avec moi-même, avec un vrai goût du challenge et une bonne capacité à prendre des responsabilités.
+
+Coordonnées principales :
+- Téléphone : +33 6 80 74 61 19
+- Email : ariedam.romann@gmail.com
+- Permis B, véhicule léger
+
+Compétences générales :
+- Gestion, organisation, restitution : Trello, GitHub, Excel, PowerPoint, Word
+- Développement : Visual Studio, Python, SQL / MySQL, VBA, JavaScript, HTML
+- Automatisation et scripts : VBS, BAT, PowerShell, Tampermonkey
+- Réseaux / supervision : utilisation intensive du protocole SNMP pour récupérer des données d’équipements réseau
+- Multimédia : Photoshop, Premiere Pro
+- Langues : Français (natif), Anglais intermédiaire (TOEIC 715 points)
+
+Expériences professionnelles principales :
+
+- 2024 – présent · Freelance · Indépendant · Salies-de-Béarn (64), France  
+  Développement de petits projets orientés client, scripts et outils sur mesure.  
+  Travaux typiques :  
+  - Développement client en JavaScript et C#  
+  - Automatisation web (Puppeteer, Selenium, Tampermonkey)  
+  - Reverse engineering d’applications ou de protocoles  
+  - Utilisation de nombreuses API REST  
+  - Gestion de bases de données (création, ajout, suppression, modification, utilisation)  
+  - Analyse et définition des besoins d’un commanditaire  
+  - Gestion de projet informatique (cahier des charges, planning prévisionnel)
+
+- 2021 – 2022 · Apprenti Développeur · Burographic · Anglet (64), France  
+  - Développement client en Python avec usage intensif du protocole SNMP pour interroger des équipements réseau  
+  - Automatisation de tâches via scripts (VBS, BAT, PowerShell)  
+  - Création de macros en VBA pour automatiser des fichiers Excel  
+  - Utilisation du planificateur de tâches pour automatiser certains processus  
+  - Rédaction de documentation (manuel utilisateur, manuel d’installation, description du code)  
+  - Support technique, assistance sur site, participation à la gestion de projets internes
+
+- 2021 · Développeur stagiaire · Burographic · Anglet (64), France  
+  - Développement VBA et automatisation de tâches métier  
+  - Mise en place de macros et outils internes  
+  - Documentation technique pour faciliter la maintenance
+
+- 2024 – 2025 · Intérimaire / Manutentionnaire · Samsic · Orthez (64), France  
+  - Manutention, travail physique, missions variées  
+  - Adaptation rapide au terrain et aux contraintes horaires
+
+- Ouvrier agricole (éclaircissage de kiwis) · Bibaye · Labatut (64), France  
+  - Travail saisonnier en extérieur  
+  - Rythme soutenu, rigueur et endurance
+
+Projets de programmation personnels (en cours et passés) :
+
+J’ai développé plusieurs projets orientés client ou expérimentation technique, notamment :
+- Un bot interactif pour un jeu de recherche de mots basé sur des syllabes (capable de trouver des mots en fonction des syllabes et du mode de jeu, d’aider les nouveaux joueurs avec une personnalité dédiée, d’intégrer des mini-jeux comme le pendu ou un Puissance 4 avec IA Minimax, de gérer une base de données et plusieurs API).
+- Des scripts d’automatisation (VBA, PowerShell, VBS, BAT) pour accélérer des tâches récurrentes.
+- Des projets web et outils internes utilisant Node.js, APIs REST, bases de données et automatisation.
+
+En résumé, je suis un développeur orienté pratique : j’aime comprendre un besoin concret, concevoir une solution, l’implémenter, l’optimiser, et si possible l’automatiser au maximum.

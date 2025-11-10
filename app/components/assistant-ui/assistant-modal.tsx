@@ -10,6 +10,27 @@ import { Thread } from "@/app/components/assistant-ui/thread";
 
 export const AssistantModal: FC = () => {
   const { t } = useTranslation("common");
+  const [mobileMaxHeight, setMobileMaxHeight] = useState<number | undefined>();
+
+  useEffect(() => {
+    const compute = () => {
+      if (typeof window === "undefined") return;
+      const header = document.querySelector("header");
+      const headerBottom = header?.getBoundingClientRect()?.bottom ?? 0;
+      const vv = (window as any).visualViewport as VisualViewport | undefined;
+      const viewportHeight = vv?.height ?? window.innerHeight;
+      const topGap = 50; 
+      const maxH = Math.max(240, viewportHeight - headerBottom - topGap);
+      setMobileMaxHeight(maxH);
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    (window as any).visualViewport?.addEventListener?.("resize", compute);
+    return () => {
+      window.removeEventListener("resize", compute);
+      (window as any).visualViewport?.removeEventListener?.("resize", compute);
+    };
+  }, []);
 
   return (
     <AssistantModalPrimitive.Root>
@@ -21,26 +42,27 @@ export const AssistantModal: FC = () => {
       {/* MOBILE : Anchor monté dans <body> pour ignorer le transform de la sidebar */}
       <BodyPortal>
         <AssistantModalPrimitive.Anchor asChild>
-          <div className="fixed sm:hidden z-[2] top-40 left-1/2 -translate-x-1/2 w-px h-px pointer-events-none" />
+          <div className="fixed sm:hidden z-[2] bottom-6 left-1/2 -translate-x-1/2 w-px h-px pointer-events-none" />
         </AssistantModalPrimitive.Anchor>
       </BodyPortal>
 
       {/* MOBILE : contenu attaché à l'anchor, centré et stable */}
       <AssistantModalPrimitive.Content
-        side="bottom"
+        side="top"
         align="center"
-        sideOffset={10}
+        sideOffset={12}
         avoidCollisions={false}
         className="sm:hidden z-[2] bg-transparent p-0"
       >
         <div
           className="
-            w-[92vw] max-w-[480px] h-[78vh]
+            w-[calc(100vw-1.5rem)] max-w-[480px] h-[70dvh]
             bg-[#18181be1] text-[#d4d4d4] text-sm
             rounded-xl border border-[#3E304F]
             p-2 shadow-2xl shadow-purple-500/10 backdrop-blur-lg
-            overflow-y-auto
+            overflow-y-auto mx-3
           "
+          style={{ height: mobileMaxHeight ? `${mobileMaxHeight}px` : undefined }}
         >
           <Thread />
         </div>
@@ -82,11 +104,10 @@ const AssistantModalButton = forwardRef<
   const ariaLabel = state === "open" ? "Close Assistant" : "Open Assistant";
 
   const baseClasses = `
-    p-3 rounded-full shadow-lg inline-flex items-center justify-center cursor-pointer
-    text-[#d4d4d4]
-    bg-gradient-to-b from-purple-700/30 to-indigo-700/30 backdrop-blur
-    border-2 border-[#3E304F]
-    hover:brightness-110 active:scale-[0.98]
+    p-3 bg-gray-800 text-white rounded-full shadow-lg
+    hover:bg-gray-700 border-2 border-purple-500/80
+    inline-flex items-center justify-center
+    cursor-pointer
     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9333ea]
   `;
 
@@ -157,4 +178,3 @@ const BodyPortal: FC<{ children: React.ReactNode }> = ({ children }) => {
   if (!mounted || !portalEl) return null;
   return createPortal(children, portalEl);
 };
-

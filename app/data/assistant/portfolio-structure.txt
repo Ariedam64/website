@@ -1,0 +1,70 @@
+Structure générale du portfolio
+
+Le portfolio de Romann est accessible à l’adresse :
+- https://ariedam.fr/portfolio
+
+Il s’agit d’une page principale avec plusieurs sections ancrées et des pages de détails pour chaque projet important.
+
+Sections principales de la page portfolio :
+
+1) Section “À propos / Parcours”
+- Lien : https://ariedam.fr/portfolio#section-career
+- Contenu : informations sur le parcours de Romann, ses expériences professionnelles et ses formations.
+- Utilité : répondre aux questions du type :
+  - "Quel est ton parcours ?"
+  - "Où as-tu étudié ?"
+  - "Quelles expériences pro tu as eues ?"
+
+2) Section “Compétences”
+- Lien : https://ariedam.fr/portfolio#section-skills
+- Contenu : compétences techniques (langages, frameworks, outils, bases de données, automatisation, etc.).
+- Utilité : répondre aux questions du type :
+  - "Avec quoi tu travailles ?"
+  - "Quels langages tu maîtrises ?"
+  - "Tu utilises quoi pour l’automatisation ou les bases de données ?"
+
+3) Section “Projets”
+- Lien : https://ariedam.fr/portfolio#section-projects
+- Contenu : présentation des principaux projets de Romann, avec un résumé et un lien vers une page détaillée pour chaque projet.
+- Utilité : répondre aux questions du type :
+  - "Quels sont tes projets principaux ?"
+  - "Tu peux me parler de tes projets ?"
+
+Pages de détail des projets :
+
+1) Projet Mayaya (bot pour BombParty)
+- Lien : https://ariedam.fr/portfolio/projects/mayaya
+- Contenu : description détaillée de Mayaya, ses origines, architecture, modules (bot Python, version Node.js, overlay), fonctionnalités, limites, anecdotes (“guerre” contre les protections du jeu).
+- Utilité : répondre aux questions sur :
+  - "C’est quoi Mayaya ?"
+  - "Comment fonctionne ton bot pour BombParty ?"
+  - "Tu peux expliquer l’architecture de Mayaya ?"
+
+2) Projet Arie (bot Discord multifonction)
+- Lien : https://ariedam.fr/portfolio/projects/arie
+- Contenu : description d’Arie, bot Discord multifonction (musique, mini-jeux, IA, utilitaires), contexte du serveur, stack technique, fonctionnalités et pistes d’évolution.
+- Utilité : répondre aux questions sur :
+  - "C’est quoi Arie ?"
+  - "Quelles fonctionnalités a ton bot Discord ?"
+  - "Comment tu gères musique + IA dans un seul bot ?"
+
+3) Projet SnapScore+ (orchestrateur Snapchat)
+- Lien : https://ariedam.fr/portfolio/projects/snapscore
+- Contenu : description de SnapScore+, orchestrateur local multi-compte pour Snapchat, architecture technique (Node.js, Puppeteer), gestion des ressources, performances, limites et conclusions.
+- Utilité : répondre aux questions sur :
+  - "C’est quoi SnapScore+ ?"
+  - "Comment tu as automatisé le Snap Score ?"
+  - "Quelle est l’architecture de ton orchestrateur ?"
+
+Résumé d’usage pour l’assistant :
+
+- Pour orienter un visiteur :
+  - Page globale du portfolio : https://ariedam.fr/portfolio
+  - Parcours / expériences / formations : section #section-career
+  - Compétences techniques : section #section-skills
+  - Liste des projets : section #section-projects
+
+- Pour accéder aux détails d’un projet précis :
+  - Mayaya : /portfolio/projects/mayaya
+  - Arie : /portfolio/projects/arie
+  - SnapScore+ : /portfolio/projects/snapscore
