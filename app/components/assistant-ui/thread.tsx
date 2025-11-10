@@ -29,12 +29,12 @@ import TranslateAnimation from "../TranslateAnimation";
 export const Thread: FC = () => {
   return (
     <ThreadPrimitive.Root
-      className="bg-background box-border flex h-full flex-col overflow-hidden"
+      className="box-border flex h-full flex-col overflow-hidden rounded-xl bg-[#18181be1] text-[#d4d4d4]"
       style={{
         ["--thread-max-width" as string]: "42rem",
       }}
     >
-      <ThreadPrimitive.Viewport className="flex h-full flex-col items-center overflow-y-scroll scroll-smooth bg-inherit px-4 pt-8">
+      <ThreadPrimitive.Viewport className="flex h-full flex-col items-center overflow-y-auto scroll-smooth bg-[#18181be1] px-4 pt-6">
         <ThreadWelcome />
 
         <ThreadPrimitive.Messages
@@ -78,7 +78,7 @@ const ThreadWelcome: FC = () => {
     <ThreadPrimitive.Empty>
       <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
         <div className="flex w-full flex-grow flex-col items-center justify-center">
-          <p className="mt-4 font-medium">
+          <p className="mt-4 font-medium text-[#d4d4d4]">
             <TranslateAnimation text={t("assistant.welcome")} />
           </p>
         </div>
@@ -92,7 +92,7 @@ const ThreadWelcomeSuggestions: FC = () => {
   return (
     <div className="mt-3 flex w-full items-stretch justify-center gap-4">
       <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+        className="flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border-2 border-[#3E304F] bg-[#27272A] hover:bg-[#2e2e31] text-[#d4d4d4] p-3 transition-colors ease-in"
         prompt="What is the weather in Tokyo?"
         method="replace"
         autoSend
@@ -102,7 +102,7 @@ const ThreadWelcomeSuggestions: FC = () => {
         </span>
       </ThreadPrimitive.Suggestion>
       <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+        className="flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border-2 border-[#3E304F] bg-[#27272A] hover:bg-[#2e2e31] text-[#d4d4d4] p-3 transition-colors ease-in"
         prompt="What is assistant-ui?"
         method="replace"
         autoSend
@@ -118,12 +118,12 @@ const ThreadWelcomeSuggestions: FC = () => {
 const Composer: FC = () => {
   const { t } = useTranslation("common");
   return (
-    <ComposerPrimitive.Root className="focus-within:border-ring/20 flex w-full flex-wrap items-end rounded-lg border bg-inherit px-2.5 shadow-sm transition-colors ease-in">
+    <ComposerPrimitive.Root className="flex w-full flex-wrap items-end rounded-2xl border-2 border-[#3E304F] bg-[#27272A] px-2.5 shadow-sm transition-colors ease-in focus-within:outline focus-within:outline-2 focus-within:outline-[#9333ea]">
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
         placeholder={t("assistant.input")}
-        className="placeholder:text-muted-foreground max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed"
+        className="placeholder:text-[#8D8D8E] text-[#d4d4d4] max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed"
       />
       <ComposerAction />
     </ComposerPrimitive.Root>
@@ -138,7 +138,7 @@ const ComposerAction: FC = () => {
           <TooltipIconButton
             tooltip="Send"
             variant="default"
-            className="my-2.5 size-8 p-2 transition-opacity ease-in"
+            className="my-2.5 size-8 p-2 transition-opacity ease-in text-[#d4d4d4] bg-[#9333ea33] hover:brightness-110 rounded-md border border-[#3E304F]"
           >
             <SendHorizontalIcon />
           </TooltipIconButton>
@@ -149,7 +149,7 @@ const ComposerAction: FC = () => {
           <TooltipIconButton
             tooltip="Cancel"
             variant="default"
-            className="my-2.5 size-8 p-2 transition-opacity ease-in"
+            className="my-2.5 size-8 p-2 transition-opacity ease-in text-[#d4d4d4] bg-[#9333ea33] hover:brightness-110 rounded-md border border-[#3E304F]"
           >
             <CircleStopIcon />
           </TooltipIconButton>
@@ -164,7 +164,7 @@ const UserMessage: FC = () => {
     <MessagePrimitive.Root className="grid auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 [&:where(>*)]:col-start-2 w-full max-w-[var(--thread-max-width)] py-4">
       <UserActionBar />
 
-      <div className="bg-muted text-foreground max-w-[calc(var(--thread-max-width)*0.8)] break-words rounded-3xl px-5 py-2.5 col-start-2 row-start-2">
+      <div className="max-w-[calc(var(--thread-max-width)*0.8)] break-words rounded-3xl px-5 py-2.5 col-start-2 row-start-2 bg-[#27272A] text-[#d4d4d4] border-2 border-[#3E304F]">
         <MessagePrimitive.Content />
       </div>
 
@@ -191,8 +191,8 @@ const UserActionBar: FC = () => {
 
 const EditComposer: FC = () => {
   return (
-    <ComposerPrimitive.Root className="bg-muted my-4 flex w-full max-w-[var(--thread-max-width)] flex-col gap-2 rounded-xl">
-      <ComposerPrimitive.Input className="text-foreground flex h-8 w-full resize-none bg-transparent p-4 pb-0 outline-none" />
+    <ComposerPrimitive.Root className="my-4 flex w-full max-w-[var(--thread-max-width)] flex-col gap-2 rounded-2xl border-2 border-[#3E304F] bg-[#27272A]">
+      <ComposerPrimitive.Input className="text-[#d4d4d4] flex h-8 w-full resize-none bg-transparent p-4 pb-0 outline-none placeholder:text-[#8D8D8E]" />
 
       <div className="mx-3 mb-3 flex items-center justify-center gap-2 self-end">
         <ComposerPrimitive.Cancel asChild>
@@ -209,7 +209,7 @@ const EditComposer: FC = () => {
 const AssistantMessage: FC = () => {
   return (
     <MessagePrimitive.Root className="grid grid-cols-[auto_auto_1fr] grid-rows-[auto_1fr] relative w-full max-w-[var(--thread-max-width)] py-4">
-      <div className="text-foreground max-w-[calc(var(--thread-max-width)*0.8)] break-words leading-7 col-span-2 col-start-2 row-start-1 my-1.5">
+      <div className="text-[#d4d4d4] max-w-[calc(var(--thread-max-width)*0.8)] break-words leading-7 col-span-2 col-start-2 row-start-1 my-1.5">
         <MessagePrimitive.Content components={{ Text: MarkdownText }} />
         <MessageError />
       </div>
@@ -224,7 +224,7 @@ const AssistantMessage: FC = () => {
 const MessageError: FC = () => {
   return (
     <MessagePrimitive.Error>
-      <ErrorPrimitive.Root className="border-destructive bg-destructive/10 dark:text-red-200 dark:bg-destructive/5 text-destructive mt-2 rounded-md border p-3 text-sm">
+      <ErrorPrimitive.Root className="mt-2 rounded-md border-2 border-red-500/40 bg-red-500/10 text-red-200 p-3 text-sm">
         <ErrorPrimitive.Message className="line-clamp-2" />
       </ErrorPrimitive.Root>
     </MessagePrimitive.Error>
@@ -237,7 +237,7 @@ const AssistantActionBar: FC = () => {
       hideWhenRunning
       autohide="not-last"
       autohideFloat="single-branch"
-      className="text-muted-foreground flex gap-1 col-start-3 row-start-2 -ml-1 data-[floating]:bg-background data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:p-1 data-[floating]:shadow-sm"
+      className="text-[#a3a3a3] flex gap-1 col-start-3 row-start-2 -ml-1 data-[floating]:bg-[#18181be1] data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border-2 data-[floating]:border-[#3E304F] data-[floating]:p-1 data-[floating]:shadow-sm"
     >
       <ActionBarPrimitive.Copy asChild>
         <TooltipIconButton tooltip="Copy">
@@ -265,7 +265,7 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
   return (
     <BranchPickerPrimitive.Root
       hideWhenSingleBranch
-      className={cn("text-muted-foreground inline-flex items-center text-xs", className)}
+      className={cn("text-[#a3a3a3] inline-flex items-center text-xs", className)}
       {...rest}
     >
       <BranchPickerPrimitive.Previous asChild>

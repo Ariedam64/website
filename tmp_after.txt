@@ -1,3 +1,4 @@
+AssistantModalButton.displayName = "AssistantModalButton";
 "use client";
 
 import { BotIcon } from "lucide-react";
@@ -12,27 +13,45 @@ export const AssistantModal: FC = () => {
 
   return (
     <AssistantModalPrimitive.Root>
-      {/* Bouton */}
       <AssistantModalPrimitive.Trigger asChild>
         <AssistantModalButton tooltip={t("sidebar.chatbot")} />
       </AssistantModalPrimitive.Trigger>
 
-      {/* MOBILE : Anchor centré en haut (le popover se base sur ça, pas sur le bouton) */}
+      {/* MOBILE anchor centered to keep position stable */}
       <AssistantModalPrimitive.Anchor asChild>
-        <div className="fixed z-[2] sm:hidden" />
+        <div className="fixed left-1/2 -translate-x-1/2 top-4 z-[60] sm:hidden" />
       </AssistantModalPrimitive.Anchor>
 
-      {/* MOBILE : contenu attaché à l'anchor, centré sous le top */}
+      {/* MOBILE content positioned on anchor */}
       <AssistantModalPrimitive.Content
-        side="top"
-        align="start"
-        sideOffset={-200}
+        side="bottom"
+        align="center"
         avoidCollisions={false}
-        className="sm:hidden z-[2] bg-transparent p-0"
+        className="hidden sm:hidden bg-transparent p-0"
       >
         <div
           className="
-            w-[92vw] max-w-[480px] h-[78vh]
+            w-[92vw] max-w-[480px] h-[72vh]
+            bg-[#18181be1] text-[#d4d4d4] text-sm
+            rounded-xl border border-[#3E304F]
+            p-2 pl-3 shadow-2xl shadow-purple-500/10 backdrop-blur-lg
+            overflow-y-auto
+          "
+        >
+          <Thread />
+        </div>
+      </AssistantModalPrimitive.Content>
+
+      {/* MOBILE : centré en haut de l'écran */}
+      <AssistantModalPrimitive.Content
+        asChild
+        side="top"
+        align="center"
+        className="z-[2] hidden"
+      >
+        <div
+          className="
+            w-[92vw] max-w-[480px] h-[72vh]
             bg-[#18181be1] text-[#d4d4d4] text-sm
             rounded-xl border border-[#3E304F]
             p-2 shadow-2xl shadow-purple-500/10 backdrop-blur-lg
@@ -43,15 +62,15 @@ export const AssistantModal: FC = () => {
         </div>
       </AssistantModalPrimitive.Content>
 
-      {/* DESKTOP : popover accroché au bouton à droite */}
+      {/* DESKTOP : popover à droite du bouton */}
       <AssistantModalPrimitive.Content
         side="right"
-        sideOffset={150}
-        className="hidden sm:block z-[60] bg-transparent p-0"
+        align="center"
+        sideOffset={50}
+        className="z-[60] bg-transparent p-0 hidden sm:block"
       >
         <div
           className="
-            mt-45
             w-[420px] h-[500px]
             md:w-[560px] md:h-[600px]
             bg-[#18181be1] text-[#d4d4d4]
@@ -77,7 +96,6 @@ const AssistantModalButton = forwardRef<
   AssistantModalButtonProps
 >(({ "data-state": state, tooltip, ...rest }, ref) => {
   const ariaLabel = state === "open" ? "Close Assistant" : "Open Assistant";
-
   const baseClasses = `
     p-3 rounded-full shadow-lg inline-flex items-center justify-center cursor-pointer
     text-[#d4d4d4]

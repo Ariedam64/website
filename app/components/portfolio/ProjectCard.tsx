@@ -27,7 +27,7 @@ export const IconButtonLink: FC<IconButtonLinkProps> = ({ href, label, icon }) =
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="w-full"
+    className="w-full hover:cursor-pointer"
   >
     <button
       type="button"
@@ -40,7 +40,7 @@ export const IconButtonLink: FC<IconButtonLinkProps> = ({ href, label, icon }) =
         w-full
         gap-3
         rounded-[0.7rem]
-        transition-opacity hover:opacity-80 active:opacity-50
+        transition-opacity hover:opacity-80 active:opacity-50 cursor-pointer
         focus:outline-none focus:z-10 focus:outline-2 focus:outline-offset-2 focus:outline-primary
       "
       aria-label={label}

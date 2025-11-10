@@ -19,7 +19,7 @@ const MarkdownTextImpl = () => {
   return (
     <MarkdownTextPrimitive
       remarkPlugins={[remarkGfm]}
-      className="aui-md"
+      className="aui-md text-[#d4d4d4] text-sm sm:text-base"
       components={defaultComponents}
     />
   );
