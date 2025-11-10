@@ -1,8 +1,5 @@
 Structure générale du portfolio
 
-Le portfolio de Romann est accessible à l’adresse :
-- https://ariedam.fr/portfolio
-
 Il s’agit d’une page principale avec plusieurs sections ancrées et des pages de détails pour chaque projet important.
 
 Sections principales de la page portfolio :
