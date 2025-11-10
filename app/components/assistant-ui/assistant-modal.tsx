@@ -21,7 +21,7 @@ export const AssistantModal: FC = () => {
       {/* MOBILE : Anchor monté dans <body> pour ignorer le transform de la sidebar */}
       <BodyPortal>
         <AssistantModalPrimitive.Anchor asChild>
-          <div className="fixed sm:hidden z-[60] top-4 left-1/2 -translate-x-1/2 w-px h-px pointer-events-none" />
+          <div className="fixed sm:hidden z-[2] top-40 left-1/2 -translate-x-1/2 w-px h-px pointer-events-none" />
         </AssistantModalPrimitive.Anchor>
       </BodyPortal>
 
@@ -31,7 +31,7 @@ export const AssistantModal: FC = () => {
         align="center"
         sideOffset={10}
         avoidCollisions={false}
-        className="sm:hidden z-[60] bg-transparent p-0"
+        className="sm:hidden z-[2] bg-transparent p-0"
       >
         <div
           className="
