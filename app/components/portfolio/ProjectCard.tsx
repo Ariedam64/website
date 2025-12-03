@@ -12,8 +12,8 @@ export interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-  detailsUrl: string;
-  sourceUrl: string;
+  detailsUrl?: string;
+  sourceUrl?: string;
 }
 
 interface IconButtonLinkProps {
@@ -131,18 +131,24 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <hr className="border-t border-[#2e2e31] my-0 mx-auto h-px" role="separator" />
       </div>
 
-      <div className="p-3 px-8 h-auto flex w-full items-center text-current subpixel-antialiased rounded-b-lg gap-x-3">
-          <IconButtonLink
-            href={detailsUrl}
-            label="Details"
-            icon={<SquareTerminal className="w-5 h-5 text-[#a56fd8]" />}
-          />
-          <IconButtonLink
-            href={sourceUrl}
-            label="Source"
-            icon={<Github className="w-5 h-5 text-[#a56fd8]" />}
-          />
+      {(detailsUrl || sourceUrl) && (
+        <div className="p-3 px-8 h-auto flex w-full items-center text-current subpixel-antialiased rounded-b-lg gap-x-3">
+          {detailsUrl && (
+            <IconButtonLink
+              href={detailsUrl}
+              label="Details"
+              icon={<SquareTerminal className="w-5 h-5 text-[#a56fd8]" />}
+            />
+          )}
+          {sourceUrl && (
+            <IconButtonLink
+              href={sourceUrl}
+              label="Source"
+              icon={<Github className="w-5 h-5 text-[#a56fd8]" />}
+            />
+          )}
         </div>
+      )}
       </div>
     </>
   );

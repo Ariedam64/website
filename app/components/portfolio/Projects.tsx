@@ -41,27 +41,22 @@ export default function Projects() {
   },
   {
     images: ['https://i.imgur.com/FZFjoxR.jpeg','https://i.imgur.com/lA6ksli.jpeg', 'https://i.imgur.com/a1sAejB.jpeg', 'https://i.imgur.com/2ewg9PU.jpeg','https://i.imgur.com/00zeDe1.jpeg', 'https://i.imgur.com/WeYJQID.jpeg', 'https://i.imgur.com/h20nCh1.jpeg', 'https://i.imgur.com/KkISaCy.jpeg' ],
-    title: 'Snapscore+',
+    title: 'Arie\'s Mod',
     description: t("portfolio_project4_description"),
-    technologies: ['Next.js','Next UI','Tailwind','React Query','TipTap Editor','Prism.js','MongoDB','NextAuth.js'],
-    detailsUrl: 'https://dev-blog-chi.vercel.app/',
-    sourceUrl: 'https://github.com/DeepsEffect/DevBlog'
+    technologies: ['Tampermonkey','TypeScript','JavaScript','HTML','CSS'],
+    sourceUrl: 'https://github.com/Ariedam64/MagicGarden-modMenu'
   },
   {
     images: ['https://i.imgur.com/FZFjoxR.jpeg','https://i.imgur.com/lA6ksli.jpeg', 'https://i.imgur.com/a1sAejB.jpeg', 'https://i.imgur.com/2ewg9PU.jpeg','https://i.imgur.com/00zeDe1.jpeg', 'https://i.imgur.com/WeYJQID.jpeg', 'https://i.imgur.com/h20nCh1.jpeg', 'https://i.imgur.com/KkISaCy.jpeg' ],
     title: 'Albion Tools',
     description: t("portfolio_project5_description"),
     technologies: ['Next.js','Next UI','Tailwind','React Query','TipTap Editor','Prism.js','MongoDB','NextAuth.js'],
-    detailsUrl: 'https://dev-blog-chi.vercel.app/',
-    sourceUrl: 'https://github.com/DeepsEffect/DevBlog'
   },
   {
     images: ['https://i.imgur.com/FZFjoxR.jpeg','https://i.imgur.com/lA6ksli.jpeg', 'https://i.imgur.com/a1sAejB.jpeg', 'https://i.imgur.com/2ewg9PU.jpeg','https://i.imgur.com/00zeDe1.jpeg', 'https://i.imgur.com/WeYJQID.jpeg', 'https://i.imgur.com/h20nCh1.jpeg', 'https://i.imgur.com/KkISaCy.jpeg' ],
     title: 'Portfolio',
     description: t("portfolio_project6_description"),
     technologies: ['Next.js','Next UI','Tailwind','React Query','TipTap Editor','Prism.js','MongoDB','NextAuth.js'],
-    detailsUrl: 'https://dev-blog-chi.vercel.app/',
-    sourceUrl: 'https://github.com/DeepsEffect/DevBlog'
   },
   ];
 
