@@ -10,8 +10,8 @@ export default function About() {
   const { t, i18n } = useTranslation("common");
   const cvHref =
     i18n.language?.startsWith("fr")
-      ? "https://drive.google.com/file/d/1qxNMYfK8RhENv3YhBU2-_nvtqaL0c6X2/view?usp=sharing"
-      : "https://drive.google.com/file/d/1BWgX8JAxSvsBy-iCJjPcyjOu0Ci4uaV7/view?usp=sharing";
+      ? "https://drive.google.com/file/d/1HPRN-nyN2fbhvcFKn_ymBMoy3fLzJDfN/view?usp=sharing"
+      : "https://drive.google.com/file/d/13Oq3eT0oSBXpvcj04OJj7qmDWSOzRvN4/view?usp=sharing";
 
   return (
     <>
