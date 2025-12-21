@@ -89,28 +89,27 @@ const ThreadWelcome: FC = () => {
 };
 
 const ThreadWelcomeSuggestions: FC = () => {
+  const { t } = useTranslation("common");
+  const suggestions =
+    (t("assistant.suggestions", {
+      returnObjects: true,
+    }) as { prompt: string; label: string }[]) ?? [];
+
   return (
     <div className="mt-3 flex w-full items-stretch justify-center gap-4">
-      <ThreadPrimitive.Suggestion
-        className="flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border-2 border-[#3E304F] bg-[#27272A] hover:bg-[#2e2e31] text-[#d4d4d4] p-3 transition-colors ease-in"
-        prompt="What is the weather in Tokyo?"
-        method="replace"
-        autoSend
-      >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is the weather in Tokyo?
-        </span>
-      </ThreadPrimitive.Suggestion>
-      <ThreadPrimitive.Suggestion
-        className="flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border-2 border-[#3E304F] bg-[#27272A] hover:bg-[#2e2e31] text-[#d4d4d4] p-3 transition-colors ease-in"
-        prompt="What is assistant-ui?"
-        method="replace"
-        autoSend
-      >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is assistant-ui?
-        </span>
-      </ThreadPrimitive.Suggestion>
+      {suggestions.slice(0, 2).map((s) => (
+        <ThreadPrimitive.Suggestion
+          key={s.prompt}
+          className="flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border-2 border-[#3E304F] bg-[#27272A] hover:bg-[#2e2e31] text-[#d4d4d4] p-3 transition-colors ease-in"
+          prompt={s.prompt}
+          method="replace"
+          autoSend
+        >
+          <span className="line-clamp-2 text-ellipsis text-sm font-semibold text-center">
+            <TranslateAnimation text={s.label} />
+          </span>
+        </ThreadPrimitive.Suggestion>
+      ))}
     </div>
   );
 };

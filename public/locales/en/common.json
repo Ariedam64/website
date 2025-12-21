@@ -602,6 +602,16 @@
   },
   "assistant": {
     "welcome": "Welcome to my portfolio!",
-    "input": "Write a message..."
+    "input": "Write a message...",
+    "suggestions": [
+      {
+        "prompt": "Tell me about the Mayaya project.",
+        "label": "Tell me about the Mayaya project."
+      },
+      {
+        "prompt": "What stack do you use daily?",
+        "label": "What stack do you use daily?"
+      }
+    ]
   }
 }

@@ -601,7 +601,17 @@
     "chatbot": "Assistant"
   },
   "assistant": {
-    "welcome": "Bienvenue sur mon portfolio !",
-    "input": "Ecrivez un message..."
+      "welcome": "Bienvenue sur mon portfolio !",
+      "input": "Ecrivez un message...",
+      "suggestions": [
+        {
+          "prompt": "Parle-moi du projet Mayaya.",
+          "label": "Parle-moi du projet Mayaya."
+        },
+        {
+          "prompt": "Quel stack utilises-tu au quotidien ?",
+          "label": "Quel stack utilises-tu au quotidien ?"
+        }
+      ]
   }
 }
