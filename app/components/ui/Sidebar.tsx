@@ -70,11 +70,12 @@ export default function Sidebar() {
       <div
         className={`
           sm:hidden fixed left-0 top-1/2 -translate-y-1/2 z-50
-          flex items-center
+          flex items-center py-3
           bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-lg
-          shadow-2xl shadow-purple-500/10 rounded-full
+          shadow-[12px_0_30px_-14px_rgba(147,51,234,0.35)]
+          rounded-r-[36px] rounded-l-none
           transition-transform duration-300 will-change-transform
-          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-2rem)]'}
+          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-2.25rem)]'}
         `}
       >
         {/* Contenu (mobile) */}
@@ -108,6 +109,7 @@ export default function Sidebar() {
             text-[#d4d4d4]
             rounded-r-full
             transition-transform duration-200 active:scale-[0.98]
+            cursor-pointer
           "
         >
           {open ? (
@@ -121,12 +123,13 @@ export default function Sidebar() {
       {/* DESKTOP: wrapper panneau + poignée ensemble */}
       <div
         className={`
-          hidden sm:flex fixed left-6 top-1/2 -translate-y-1/2 z-50
-          items-center
+          hidden sm:flex fixed left-0 top-1/2 -translate-y-1/2 z-50
+          items-center py-3
           bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-lg
-          shadow-2xl shadow-purple-500/10 rounded-full
+          shadow-[12px_0_30px_-14px_rgba(147,51,234,0.35)]
+          rounded-r-[36px] rounded-l-none
           transition-transform duration-300 will-change-transform
-          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-0rem)]'}
+          ${open ? 'translate-x-0' : '-translate-x-[calc(100%-2.25rem)]'}
         `}
       >
         <div className="flex-1 min-w-0 px-4 py-3">
@@ -158,6 +161,7 @@ export default function Sidebar() {
             text-[#d4d4d4]
             rounded-r-full
             transition-transform duration-200 active:scale-[0.98]
+            cursor-pointer
           "
         >
           {open ? (
