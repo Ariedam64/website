@@ -10,7 +10,7 @@ export default function About() {
   const { t, i18n } = useTranslation("common");
   const cvHref =
     i18n.language?.startsWith("fr")
-      ? "https://drive.google.com/file/d/1HPRN-nyN2fbhvcFKn_ymBMoy3fLzJDfN/view?usp=sharing"
+      ? "https://drive.google.com/file/d/1-iOo_3Pnr_nm7uB7mKX1k6T6Aacildlt/view?usp=sharing"
       : "https://drive.google.com/file/d/13Oq3eT0oSBXpvcj04OJj7qmDWSOzRvN4/view?usp=sharing";
 
   return (
@@ -80,7 +80,7 @@ export default function About() {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:ariedam.romann@example.com"
+            href="mailto:ariedam.romann@gmail.com"
             aria-label="Mail"
             className="text-gray-400 hover:text-white transition-colors text-2xl"
           >
