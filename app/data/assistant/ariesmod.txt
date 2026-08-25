@@ -235,13 +235,13 @@ Limites :
 
 Technologies : Kotlin, Jetpack Compose, OkHttp, Coroutines, DataStore, Coil, WorkManager
 
-Module 6 : Gemini (Next-gen)
+Module 6 : Gemini
 
-Objectif : Repartir de zéro en collaboration avec un autre développeur pour créer le mod ultime: future-proof, auto-adaptatif aux mises à jour du jeu, compatible tous navigateurs et mobile, et conçu pour être facilement forkable.
+Objectif : Repartir de zéro avec un autre développeur pour construire le mod définitif : capable d'encaisser les mises à jour du jeu tout seul, compatible tous navigateurs et mobile, et facile à reprendre par quelqu'un d'autre.
 
 Pourquoi Gemini :
 
-Après des mois de développement sur Aries Mod, les limites de l'architecture originale devenaient évidentes. On a décidé avec un autre développeur de tout repartir de zéro.
+Après des mois sur Aries Mod, les limites de l'architecture d'origine devenaient évidentes. On a décidé avec un autre développeur de tout reprendre à zéro. Le mod est aujourd'hui livré et en service.
 
 La collaboration : Un autre développeur utilisait également le jeu et avait son propre mod. On a décidé de fusionner nos deux projets en un seul, en repartant de zéro avec une architecture pensée pour durer.
 
@@ -262,8 +262,8 @@ Fonctionnalités :
 
 Limites :
 
-- Toujours en cours de développement
-- Architecture plus complexe (courbe d'apprentissage pour les contributeurs)
+- Architecture plus exigeante, avec une courbe d'apprentissage pour les contributeurs
+- Dépend toujours du bundle du jeu, qui peut changer de structure en profondeur
 
 Technologies : TypeScript (strict), Vite, Jotai, Pixi.js, Shadow DOM, Vitest, ESLint
 

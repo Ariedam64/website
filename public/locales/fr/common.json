@@ -878,10 +878,10 @@
             ]
           },
           "gemini": {
-            "label": "Gemini (Next-gen)",
-            "objective": "Repartir de zéro en collaboration avec un autre développeur pour créer le mod ultime: future-proof, auto-adaptatif aux mises à jour du jeu, compatible tous navigateurs et mobile, et conçu pour être facilement forkable.",
+            "label": "Gemini",
+            "objective": "Repartir de zéro avec un autre développeur pour construire le mod définitif : capable d'encaisser les mises à jour du jeu tout seul, compatible tous navigateurs et mobile, et facile à reprendre par quelqu'un d'autre.",
             "story_title": "Pourquoi Gemini",
-            "story_intro": "Après des mois de développement sur Aries Mod, les limites de l'architecture originale devenaient évidentes. On a décidé avec un autre développeur de tout repartir de zéro.",
+            "story_intro": "Après des mois sur Aries Mod, les limites de l'architecture d'origine devenaient évidentes. On a décidé avec un autre développeur de tout reprendre à zéro. Le mod est aujourd'hui livré et en service.",
             "story_steps": [
               {
                 "title": "La collaboration",
@@ -920,8 +920,8 @@
               "Système de sprites dynamique via MGSprite et données via MGData"
             ],
             "limits": [
-              "Toujours en cours de développement",
-              "Architecture plus complexe (courbe d'apprentissage pour les contributeurs)"
+              "Architecture plus exigeante, avec une courbe d'apprentissage pour les contributeurs",
+              "Dépend toujours du bundle du jeu, qui peut changer de structure en profondeur"
             ]
           }
         },
