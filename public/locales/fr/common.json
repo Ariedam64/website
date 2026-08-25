@@ -958,6 +958,120 @@
             "Le feedback des utilisateurs est le meilleur carburant pour un développeur"
           ]
         }
+      },
+      "frida": {
+        "title": "Frida IL2CPP Toolkit",
+        "subtitle": "Une boîte à outils pour observer et modifier des jeux Unity pendant qu'ils tournent, pilotable à la main comme par une IA.",
+        "description": "Boîte à outils TypeScript pour instrumenter des jeux Unity compilés. Des outils qui s'enchaînent, un agent qui reste attaché au jeu, et un serveur local qui permet à une IA de conduire l'exploration en temps réel.",
+        "about": {
+          "title": "Le problème",
+          "description": "Unity peut compiler un jeu en code machine, une technique appelée IL2CPP. Le jeu devient alors très difficile à examiner. Les noms disparaissent, la structure aussi, il ne reste qu'un programme qui tourne sans notice. Ce projet est une boîte à outils pour l'ouvrir quand même, pendant qu'il fonctionne."
+        },
+        "origin": {
+          "title": "Origine du projet",
+          "intro": "J'ai toujours eu un pied dans le modding de jeux. Mais il y avait une porte devant laquelle je m'arrêtais à chaque fois.",
+          "steps": [
+            {
+              "title": "La barrière",
+              "desc": "Les jeux Unity compilés en IL2CPP étaient hors de portée. Le code est traduit en langage machine, les noms disparaissent, la structure aussi. On ouvre le fichier et il n'y a rien à lire. Je savais ce que je voulais faire, je ne savais pas par où entrer."
+            },
+            {
+              "title": "Ne dépendre de personne",
+              "desc": "Il existait des frameworks tout faits pour écrire des mods sans se poser de questions. Ça marchait, mais ça voulait dire bâtir sur l'outil d'un autre, avec ses limites et ses angles morts. Et surtout ne jamais comprendre ce qui se passait en dessous. Je voulais exactement l'inverse."
+            },
+            {
+              "title": "La découverte de Frida",
+              "desc": "Frida s'attache à un programme pendant qu'il tourne et permet de l'observer de l'intérieur. Le jeu n'a plus besoin d'être lisible sur le disque, il suffit de le regarder vivre. C'est ce qui a tout débloqué. J'avais enfin de quoi construire mon propre outil, sans rien emprunter à personne."
+            },
+            {
+              "title": "Des scripts jetables à la boîte à outils",
+              "desc": "Les premiers essais étaient des scripts qu'on écrit, qu'on lance une fois et qu'on jette. À chaque nouvelle question, tout était à refaire. J'ai fini par isoler les gestes qui revenaient toujours et les transformer en outils qui s'enchaînent, posés sur une bibliothèque de briques réutilisables."
+            },
+            {
+              "title": "L'agent qui reste attaché",
+              "desc": "Un outil qui se lance, répond et s'arrête oblige à tout reprendre à zéro à chaque question. J'en ai fait un agent qui reste accroché au jeu et qu'on interroge autant qu'on veut. La session ne se referme plus entre deux questions, et le jeu n'a plus besoin d'être relancé."
+            },
+            {
+              "title": "Laisser une IA conduire",
+              "desc": "Il ne manquait plus qu'une porte d'entrée. J'ai ajouté un serveur local qui expose cet agent derrière une seule adresse. On lui envoie le nom d'une opération et ses arguments, il répond, et les événements du jeu remontent en direct. Ce qui vaut pour une interface vaut pour un modèle de langage. Une IA peut maintenant explorer le jeu pendant qu'il tourne, demander une classe, lire un objet, poser une interception, regarder ce qui sort et décider de la suite toute seule. Le reverse cesse d'être une suite de commandes tapées à la main pour devenir une conversation avec le jeu."
+            }
+          ]
+        },
+        "workflow": {
+          "title": "Le workflow en six outils",
+          "intro": "Chaque outil répond à une question, et sa réponse alimente le suivant. C'est ce déroulé qui transforme un binaire opaque en quelque chose de manipulable.",
+          "steps": [
+            {
+              "title": "1. Analyser",
+              "desc": "Qu'est-ce que ce jeu contient ? Inventaire des bibliothèques chargées, des classes disponibles, des composants actifs."
+            },
+            {
+              "title": "2. Trouver une classe",
+              "desc": "Où sont le joueur, l'inventaire, le gestionnaire de partie ? La recherche fonctionne même quand les noms ont été rendus illisibles."
+            },
+            {
+              "title": "3. Capturer un objet vivant",
+              "desc": "Attraper une instance réelle en mémoire et lire tous ses champs. C'est là qu'on découvre ce que le jeu manipule vraiment."
+            },
+            {
+              "title": "4. Suivre les appels",
+              "desc": "Intercepter une méthode et enregistrer ce qui entre et ce qui sort, à chaque appel. C'est ce qui révèle la logique du jeu."
+            },
+            {
+              "title": "5. Modifier",
+              "desc": "Changer une valeur en direct, sans redémarrer le jeu. La boucle de test se compte en secondes."
+            },
+            {
+              "title": "6. Appeler",
+              "desc": "Déclencher une méthode du jeu à la demande, comme si le jeu l'avait fait lui-même."
+            }
+          ]
+        },
+        "structure_title": "Structure du projet",
+        "structure": "src/\n  lib/           # Briques reutilisables importees par les outils\n    search.ts      # Recherche de classe, meme sans nom lisible\n    instances.ts   # Capture d'objets vivants en memoire\n    dump.ts        # Lecture de tous les champs d'un objet\n    hook.ts        # Interception des appels de methode\n    patch.ts       # Modification de valeurs en direct\n    invoke.ts      # Appel d'une methode du jeu a la demande\n  tools/         # Un fichier = un outil autonome\n  presets/       # Configuration par jeu cible\napp/\n  backend/       # Serveur local qui heberge la session Frida\n    routes/        # Une porte d'entree unique, plus les routes metier\n    core/\n      labels/        # Noms donnes aux classes obfusquees\n      annotations/   # Notes attachees aux decouvertes\n      migrations/    # Report des noms d'une version du jeu a l'autre\n  frontend/      # Interface locale pour explorer a la main",
+        "features_title": "Fonctionnalités",
+        "features": [
+          "Analyse d'un jeu en cours d'exécution, sans avoir à le décompiler au préalable",
+          "Recherche de classe par nom, y compris quand le nom a été volontairement rendu illisible",
+          "Capture d'un objet vivant en mémoire et lecture de tous ses champs",
+          "Interception des appels d'une méthode, avec les valeurs entrantes et sortantes",
+          "Modification de valeurs en direct et appel d'une méthode du jeu à la demande",
+          "Agent persistant : la session reste ouverte, le jeu n'est jamais relancé entre deux questions",
+          "Serveur local exposant l'agent derrière une adresse unique, pour qu'une IA puisse le piloter en temps réel",
+          "Flux d'événements en direct, poussés depuis le jeu vers le client au fil de l'exécution",
+          "Noms retrouvés conservés d'une version du jeu à l'autre, avec report automatique après mise à jour",
+          "Interface locale pour explorer à la main quand on préfère garder la main"
+        ],
+        "limits_title": "Limites",
+        "limits": [
+          "Dépend de la structure interne de la cible, qui change à chaque mise à jour du jeu",
+          "Limité aux jeux Unity compilés en IL2CPP",
+          "Le serveur est prévu pour tourner en local uniquement, il n'a aucune protection pour être exposé",
+          "Projet toujours en cours, les outils évoluent au fil des cibles rencontrées"
+        ],
+        "dofus": {
+          "title": "Dofus, le banc d'essai",
+          "description": "Dofus est un jeu protégé, avec de l'obfuscation et des noms rendus illisibles à dessein. C'était le pire cas possible, donc le bon test. Le toolkit s'y est frayé un chemin quand même, et chaque nom retrouvé y est noté puis reporté automatiquement à la version suivante du jeu. C'est ce qui m'a convaincu qu'il tenait la route : si l'outil passe sur une cible qui fait tout pour l'en empêcher, il passera sur le reste."
+        },
+        "learnings": {
+          "title": "Ce que ce projet démontre",
+          "items": [
+            "Refuser la solution toute faite coûte du temps au début, et fait gagner en compréhension pour toujours.",
+            "Un binaire compilé n'est pas une boîte noire, c'est un programme qui tourne et qu'on peut interroger.",
+            "L'obfuscation ralentit, elle n'arrête pas. Chercher par la structure plutôt que par les noms suffit à la contourner.",
+            "Exposer un outil derrière une interface simple et unique le rend pilotable par autre chose que soi, y compris par une IA.",
+            "Découper un savoir-faire en outils composables vaut mieux qu'un gros script : chaque brique resservira sur la cible suivante."
+          ]
+        },
+        "tech": [
+          "TypeScript",
+          "Frida",
+          "frida-il2cpp-bridge",
+          "Node.js",
+          "Express",
+          "WebSocket",
+          "Vite"
+        ]
       }
     },
     "sections": {

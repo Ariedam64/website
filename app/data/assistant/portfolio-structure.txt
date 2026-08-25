@@ -45,6 +45,15 @@ Pages de détail des projets :
   - "Quelles fonctionnalités a ton bot Discord ?"
   - "Comment tu gères musique + IA dans un seul bot ?"
 
+5) Projet Frida IL2CPP Toolkit (boite a outils de retro-ingenierie de jeux Unity)
+- Lien : https://ariedam.fr/portfolio/projects/frida
+- Contenu : boite a outils TypeScript pour instrumenter des jeux Unity compiles en IL2CPP avec Frida. Sept outils qui s'enchainent (analyser, trouver une classe, capturer un objet vivant, suivre les appels, modifier, appeler), une bibliotheque de briques reutilisables, et des presets par jeu cible. Dofus a servi de banc d'essai. Projet toujours en cours.
+- Utilite : repondre aux questions sur :
+  - "C'est quoi le Frida IL2CPP Toolkit ?"
+  - "Romann fait-il de la retro-ingenierie ?"
+  - "Comment modder un jeu Unity IL2CPP ?"
+  - "Quel est le projet le plus technique de Romann ?"
+
 4) Projet Écosystème Magic Garden (anciennement Aries Mod)
 - Lien : https://ariedam.fr/portfolio/projects/ariesmod
 - Contenu : six projets construits autour du jeu Magic Garden, 25 000+ joueurs. Architecture en 6 modules, un onglet chacun : API & Garden Explorer (extraction dynamique des données du jeu, site public), Client (userscript Tampermonkey), Community Hub (hub social autonome, avec jeu d'échecs jouable dans le jardin), Backend (VPS), Application Android (Kotlin, connexion maintenue en arrière-plan), et Gemini (refonte next-gen).
@@ -77,6 +86,7 @@ Résumé d’usage pour l’assistant :
 
 - Pour accéder aux détails d’un projet précis :
   - Écosystème Magic Garden (Aries Mod) : /portfolio/projects/ariesmod
+  - Frida IL2CPP Toolkit : /portfolio/projects/frida
   - Mayaya : /portfolio/projects/mayaya
   - Arie : /portfolio/projects/arie
   - SnapScore+ : /portfolio/projects/snapscore

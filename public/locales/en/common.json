@@ -958,6 +958,120 @@
             "User feedback is the best fuel for a developer"
           ]
         }
+      },
+      "frida": {
+        "title": "Frida IL2CPP Toolkit",
+        "subtitle": "A toolkit to observe and modify Unity games while they run, drivable by hand or by an AI.",
+        "description": "A TypeScript toolkit for instrumenting compiled Unity games. Chained tools, an agent that stays attached to the game, and a local server that lets an AI drive the exploration in real time.",
+        "about": {
+          "title": "The problem",
+          "description": "Unity can compile a game down to machine code, a technique called IL2CPP. The game then becomes very hard to inspect. The names are gone, so is the structure, and all that remains is a program running with no manual. This project is a toolkit to open it up anyway, while it runs."
+        },
+        "origin": {
+          "title": "How it started",
+          "intro": "I have always had a foot in game modding. But there was one door I kept stopping in front of.",
+          "steps": [
+            {
+              "title": "The wall",
+              "desc": "Unity games compiled with IL2CPP were out of reach. The code is turned into machine language, the names are gone, so is the structure. You open the file and there is nothing to read. I knew what I wanted to do, I just had no way in."
+            },
+            {
+              "title": "Depending on no one",
+              "desc": "There were ready-made frameworks for writing mods without asking questions. They worked, but they meant building on someone else's tool, with its limits and its blind spots. And above all, never understanding what happened underneath. I wanted the exact opposite."
+            },
+            {
+              "title": "Finding Frida",
+              "desc": "Frida attaches to a program while it runs and lets you watch it from the inside. The game no longer has to be readable on disk, you only have to watch it live. That is what unlocked everything. I finally had what I needed to build my own tool, borrowing nothing from anyone."
+            },
+            {
+              "title": "From throwaway scripts to a toolkit",
+              "desc": "The first attempts were scripts you write, run once and throw away. Every new question meant starting over. I ended up isolating the moves that kept coming back and turning them into tools that chain together, sitting on a library of reusable pieces."
+            },
+            {
+              "title": "An agent that stays attached",
+              "desc": "A tool that starts, answers and stops forces you back to square one on every question. I turned it into an agent that stays hooked into the game and answers as long as you keep asking. The session no longer closes between two questions, and the game no longer needs restarting."
+            },
+            {
+              "title": "Letting an AI drive",
+              "desc": "All that was missing was a way in. I added a local server that exposes that agent behind a single address. You send it the name of an operation and its arguments, it answers, and the game's events stream back live. What works for an interface works for a language model. An AI can now explore the game while it runs, ask for a class, read an object, install an interception, look at what comes out and decide the next move on its own. Reverse engineering stops being a list of hand-typed commands and becomes a conversation with the game."
+            }
+          ]
+        },
+        "workflow": {
+          "title": "The six-tool workflow",
+          "intro": "Each tool answers one question, and its answer feeds the next. That sequence is what turns an opaque binary into something you can work with.",
+          "steps": [
+            {
+              "title": "1. Analyse",
+              "desc": "What does this game contain? An inventory of the loaded libraries, the available classes, the active components."
+            },
+            {
+              "title": "2. Find a class",
+              "desc": "Where are the player, the inventory, the game manager? The search works even when the names have been made unreadable."
+            },
+            {
+              "title": "3. Catch a live object",
+              "desc": "Grab a real instance in memory and read every one of its fields. This is where you discover what the game actually handles."
+            },
+            {
+              "title": "4. Follow the calls",
+              "desc": "Intercept a method and record what goes in and what comes out, on every call. This is what reveals the game's logic."
+            },
+            {
+              "title": "5. Modify",
+              "desc": "Change a value live, without restarting the game. The test loop is measured in seconds."
+            },
+            {
+              "title": "6. Invoke",
+              "desc": "Trigger one of the game's own methods on demand, as if the game had called it itself."
+            }
+          ]
+        },
+        "structure_title": "Project structure",
+        "structure": "src/\n  lib/           # Briques reutilisables importees par les outils\n    search.ts      # Recherche de classe, meme sans nom lisible\n    instances.ts   # Capture d'objets vivants en memoire\n    dump.ts        # Lecture de tous les champs d'un objet\n    hook.ts        # Interception des appels de methode\n    patch.ts       # Modification de valeurs en direct\n    invoke.ts      # Appel d'une methode du jeu a la demande\n  tools/         # Un fichier = un outil autonome\n  presets/       # Configuration par jeu cible\napp/\n  backend/       # Serveur local qui heberge la session Frida\n    routes/        # Une porte d'entree unique, plus les routes metier\n    core/\n      labels/        # Noms donnes aux classes obfusquees\n      annotations/   # Notes attachees aux decouvertes\n      migrations/    # Report des noms d'une version du jeu a l'autre\n  frontend/      # Interface locale pour explorer a la main",
+        "features_title": "Features",
+        "features": [
+          "Analysis of a running game, with no need to decompile it first",
+          "Class lookup by name, including when the name has been deliberately obscured",
+          "Capture of a live object in memory and a read of all its fields",
+          "Interception of a method's calls, with incoming and outgoing values",
+          "Live value changes and on-demand invocation of the game's own methods",
+          "A persistent agent: the session stays open, the game is never restarted between two questions",
+          "A local server exposing that agent behind a single address, so an AI can drive it in real time",
+          "A live event stream, pushed from the game to the client as execution goes on",
+          "Recovered names kept from one game version to the next, carried over automatically after an update",
+          "A local interface to explore by hand whenever you would rather drive yourself"
+        ],
+        "limits_title": "Limits",
+        "limits": [
+          "Tied to the target's internal structure, which changes with every game update",
+          "Limited to Unity games compiled with IL2CPP",
+          "The server is meant to run locally only, it has no protection for being exposed",
+          "Still an ongoing project, the tools evolve with each new target"
+        ],
+        "dofus": {
+          "title": "Dofus, the proving ground",
+          "description": "Dofus is a protected game, with obfuscation and names deliberately made unreadable. It was the worst possible case, which made it the right test. The toolkit found its way through regardless, and every name recovered there is recorded then carried over automatically to the game's next version. That is what convinced me it held up: if the tool gets through a target built to stop it, it will get through the rest."
+        },
+        "learnings": {
+          "title": "What this project shows",
+          "items": [
+            "Turning down the ready-made solution costs time up front, and pays back in understanding forever.",
+            "A compiled binary is not a black box, it is a running program you can question.",
+            "Obfuscation slows you down, it does not stop you. Searching by structure rather than by name is enough to get around it.",
+            "Putting a tool behind one simple entry point makes it drivable by something other than yourself, an AI included.",
+            "Splitting a skill into composable tools beats one big script: every piece will serve again on the next target."
+          ]
+        },
+        "tech": [
+          "TypeScript",
+          "Frida",
+          "frida-il2cpp-bridge",
+          "Node.js",
+          "Express",
+          "WebSocket",
+          "Vite"
+        ]
       }
     },
     "sections": {

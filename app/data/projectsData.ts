@@ -244,3 +244,15 @@ export const ariesmodModule: ModuleData[] = [
     frameHeight: "wide",
   },
 ];
+
+/** Captures du toolkit Frida. La page n'a pas de modules, donc pas de
+ *  ModuleData : deux simples listes d'images suffisent. */
+export const fridaImages: string[] = [
+  "/img/frida1.png",
+  "/img/frida2.png",
+];
+
+/** Captures de la partie Dofus, montrees dans sa section dediee. */
+export const fridaDofusImages: string[] = [
+  "/img/dofus1.png",
+];

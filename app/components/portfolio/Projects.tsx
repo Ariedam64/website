@@ -19,6 +19,14 @@ export default function Projects() {
     sourceUrl: 'https://github.com/Ariedam64/MG-AriesMod'
   },
   {
+    images: ['/img/frida1.png','/img/frida2.png','/img/dofus1.png'],
+    title: t("portfolio.projects.frida.title"),
+    description: t("portfolio.projects.frida.description"),
+    technologies: ['TypeScript','Frida','frida-il2cpp-bridge','Node.js'],
+    detailsUrl: 'portfolio/projects/frida',
+    sourceUrl: 'https://github.com/Ariedam64/FridaIL2CPPToolkit'
+  },
+  {
     images: ['/img/snapchat2.png','/img/snapchat1.png'],
     title: 'SnapScore+',
     description: t("portfolio.projects.snapscore.description"),
