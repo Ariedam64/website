@@ -555,9 +555,9 @@
         }
       },
       "ariesmod": {
-        "title": "Aries Mod",
-        "description": "Mod communautaire Tampermonkey pour Magic Garden qui a réuni plus de 10 000 joueurs, avec backend dédié et hub communautaire intégré",
-        "subtitle": "Un userscript Tampermonkey pour le jeu Magic Garden qui a réuni plus de 10 000 joueurs",
+        "title": "Écosystème Magic Garden",
+        "description": "Écosystème de six projets autour du jeu Magic Garden : mod Tampermonkey, hub communautaire, API publique qui extrait les données du jeu, backend et application Android. Plus de 25 000 joueurs.",
+        "subtitle": "Six projets construits autour d'un même jeu : un mod, un hub communautaire, une API publique, une application Android. Plus de 25 000 joueurs.",
         "game": {
           "title": "À propos de Magic Garden",
           "description": "Magic Garden est un idle game multijoueur disponible sur Discord et sur magicgarden.gg. Le principe: acheter des graines, faire pousser des plantes, les vendre et devenir riche petit à petit. Des mécaniques comme les animaux de compagnie (qui offrent des bonus), la météo (qui influence les prix) et le multijoueur (jusqu'à 6 joueurs, avec des bonus de vente selon le nombre de joueurs dans le salon) ajoutent de la profondeur à un jeu qui semble enfantin au premier abord.",
@@ -591,6 +591,69 @@
           "conclusion": "Cette approche transparente a construit une relation de confiance avec les développeurs qui a permis au projet de grandir pendant des mois."
         },
         "modules": {
+          "api": {
+            "label": "API & Garden Explorer",
+            "objective": "Le jeu garde pour lui la liste de ses plantes, de ses animaux et de leurs prix. Ce projet va la récupérer tout seul et la met à disposition de n'importe qui.",
+            "story_title": "L'histoire de l'API",
+            "story_intro": "Au début, je recopiais cette liste à la main dans le mod. Tant que le jeu changeait peu, ça tenait.",
+            "story_steps": [
+              {
+                "title": "La corvée",
+                "desc": "À chaque mise à jour du jeu, un prix changeait ou une plante apparaissait, et il fallait tout reprendre à la main. Je passais plus de temps à recopier qu'à créer."
+              },
+              {
+                "title": "Le déclic",
+                "desc": "Le jeu connaît forcément ses propres plantes et ses propres prix, sinon il ne pourrait pas les afficher à l'écran. Plutôt que de recopier cette liste, autant apprendre au programme à aller la lire tout seul."
+              },
+              {
+                "title": "Le pari",
+                "desc": "Le problème, c'est que le jeu ne range pas ces informations pour qu'on les retrouve facilement, et qu'il les déplace à chaque nouvelle version. Le pari, c'était que la lecture automatique s'y retrouve quand même. Depuis, elle a encaissé plus de 300 versions du jeu sans que j'aie eu à y toucher."
+              },
+              {
+                "title": "Garden Explorer",
+                "desc": "Une fois toutes ces informations disponibles, il ne manquait qu'une vitrine. Le Garden Explorer est né de là : un site où n'importe quel joueur vient consulter les plantes, les animaux et leurs prix, sans rien installer."
+              }
+            ],
+            "structure_title": "Structure du projet",
+            "structure": "src/\n  api/\n    middleware/    # Rate limiting, cache HTTP\n    routes/        # Endpoints REST et flux SSE\n  core/\n    game/          # Extraction depuis le bundle du jeu\n    extractors/    # Lecture des données par catégorie\n    platform/      # Boutiques et météo en direct\n  assets/\n    sprites/       # Découpe et composition des images\n    wasm/          # Décodage des textures du jeu\n    cosmetics/\n    audios/\n  services/        # Historique, agrégation, poller\n  config/          # Configuration et variables d'environnement\n  docs/            # Documentation Swagger\n  utils/           # Cache, ETag, utilitaires\n  logger/",
+            "optimization_title": "Stratégies d optimisation",
+            "optimization_rules": [
+              "Cache invalidé par changement de version du jeu, pas par minuterie",
+              "Requêtes concurrentes sur un cache vide dédupliquées : une seule fait le travail",
+              "ETag et réponses 304 pour les clients déjà à jour",
+              "Données périmées servies immédiatement, recalcul en arrière plan",
+              "Sprites et fichiers statiques servis par Nginx, sans réveiller Node",
+              "Poller recalé sur les échéances du jeu plutôt qu'à intervalle fixe",
+              "Cache d'images composées plafonné, avec éviction des plus anciennes",
+              "Tests de charge k6 : paliers, seuils de latence, tenue des flux SSE"
+            ],
+            "tech": [
+              "Node.js",
+              "Express",
+              "SQLite",
+              "SSE",
+              "REST",
+              "Nginx",
+              "Sharp",
+              "Swagger",
+              "k6"
+            ],
+            "features": [
+              "Toutes les données du jeu en REST : plantes, graines, récoltes, animaux, œufs, objets, décors, mutations, capacités et météo",
+              "Boutiques et météo en direct, alimentées par une connexion permanente au serveur du jeu",
+              "Images composées à la demande : un animal avec sa variation et sa mutation, généré puis mis en cache",
+              "Statistiques historiques : fréquence d'apparition des items en boutique, historique de la météo",
+              "Documentation Swagger interactive, testable directement depuis le navigateur",
+              "Garden Explorer : un site public pour parcourir les données et utiliser les calculateurs sans rien installer",
+              "Adaptation automatique aux mises à jour du jeu, sans intervention manuelle"
+            ],
+            "limits": [
+              "Dépendante de la structure interne du jeu : si le format des données change en profondeur, l'extraction doit être adaptée à la main",
+              "Un seul serveur, sans redondance ni bascule automatique",
+              "L'historique présente des trous si le service s'arrête, puisque rien ne rattrape les données manquées",
+              "API non officielle : aucun accord avec les développeurs du jeu, elle peut cesser de fonctionner du jour au lendemain"
+            ]
+          },
           "client": {
             "label": "Client (Userscript)",
             "objective": "Créer un mod Tampermonkey qui enrichit l'expérience Magic Garden sans casser le jeu, en ajoutant des fonctionnalités communautaires et des améliorations de qualité de vie que les joueurs réclament.",
@@ -643,41 +706,86 @@
               "Systèmes core refondus plusieurs fois (sprites, données du jeu)"
             ]
           },
-          "backend": {
-            "label": "Backend (VPS)",
-            "objective": "Fournir une infrastructure légère et économique capable de supporter plus de 10 000 utilisateurs pour alimenter les fonctionnalités communautaires du mod: salons, chat en temps réel, amis, groupes et leaderboard.",
-            "story_title": "L'histoire du backend",
-            "story_intro": "Le backend est né d'une nécessité. Quand l'API des salons publics du jeu a été retirée suite à des abus, j'ai décidé de recréer cette fonctionnalité moi-même. Les joueurs du mod deviendraient eux-mêmes les fournisseurs de données.",
+          "hub": {
+            "label": "Community Hub",
+            "objective": "Le hub social du jeu, sorti d'Aries Mod pour vivre seul : amis, messages, groupes, salons publics, classements, et une partie d'échecs jouable dans le jardin.",
+            "story_title": "L'histoire du hub",
+            "story_intro": "Le hub est né à l'intérieur d'Aries Mod, comme une fonctionnalité parmi d'autres. Sauf qu'il a grossi plus vite que tout le reste, et que beaucoup de joueurs installaient un overlay de jeu complet uniquement pour lui.",
             "story_steps": [
               {
-                "icon": "☁️",
+                "title": "Un produit dans le produit",
+                "desc": "Le hub avait ses propres écrans, son propre serveur, ses propres réglages, et des utilisateurs qui ne voulaient rien du reste du mod. Il fallait installer un overlay de jeu complet pour envoyer un message à un ami. La fonctionnalité était devenue plus grosse que sa boîte."
+              },
+              {
+                "title": "L'extraction",
+                "desc": "Le hub est donc sorti seul, installable de son côté. Pour ceux qui l'utilisaient déjà dans Aries Mod, il n'y a rien eu à refaire, il récupère tout seul leur connexion et leurs réglages."
+              }
+            ],
+            "structure_title": "Structure du projet",
+            "structure": "src/\n  api/\n    auth/          # Connexion Discord\n    cache/         # Amis, conversations, demandes\n    client/        # Appels HTTP et flux d'évènements\n    endpoints/     # Amis, groupes, messages, profils\n    streams/       # SSE et long polling\n  game/\n    chess/         # Moteur d'échecs et rendu sur le jardin\n  data/dynamic/    # Données extraites du jeu\n  platform/        # Compatibilité navigateur et Discord\n  storage/         # Réglages et migration depuis Aries Mod\n  store/           # Accès à l'état du jeu\n  ui/hub/          # Interface du hub et ses onglets",
+            "chess_title": "Un jeu d'échecs dans le jardin",
+            "chess_intro": "L'idée est venue d'un constat bête : les joueurs passaient déjà des heures à s'attendre dans le jardin sans rien à faire ensemble. Il manquait un jeu dans le jeu, quelque chose qui occupe deux personnes au même endroit sans dépendre du jeu lui même.",
+            "chess_points": [
+              "Le moteur gère toutes les règles : coups légaux, roque, prise en passant, promotion, échec, mat et pat. Il est vérifié par un perft, la méthode standard pour valider un générateur de coups, qui compte toutes les positions atteignables jusqu'à une profondeur donnée et les compare aux totaux publiés. 33 cas de test, dont un comptage de 4 865 609 positions à la profondeur 5 : un seul coup mal généré et le total ne tombe plus juste",
+              "Le rendu n'est pas un plateau posé par dessus le jeu. Ce sont les vraies tuiles du jardin, les vrais sprites et les vrais sons : l'échiquier est construit dans le monde du jeu, et les pièces se déplacent au clic ou au glisser déposer"
+            ],
+            "chess_outro": "Une partie d'échecs dans un jeu de jardinage, jouée sur de vraies tuiles de potager. C'est la chose la plus inutile que j'ai codée, et de loin celle qui m'a demandé le plus de précision.",
+            "tech": [
+              "TypeScript",
+              "esbuild",
+              "Tampermonkey",
+              "Pixi.js",
+              "SSE",
+              "Long polling",
+              "Discord OAuth"
+            ],
+            "features": [
+              "Amis et statut en ligne, avec consultation du jardin et de l'inventaire d'un ami même hors de son salon",
+              "Messagerie privée et de groupe",
+              "Groupes jusqu'à 100 membres, avec outils de modération",
+              "Salons publics : plus de 150 salons listés et alimentés par la communauté",
+              "Classements et badges",
+              "Profils avec sept réglages de confidentialité indépendants",
+              "Échecs multijoueur jouables directement dans le jardin",
+              "Fonctionne dans le navigateur et dans l'Activité Discord",
+              "Installable seul ou aux côtés d'Aries Mod, sans conflit entre les deux"
+            ],
+            "limits": [
+              "Dépendant du backend et de Discord : sans l'un ou l'autre, les fonctions sociales sont hors service",
+              "Deux transports à maintenir en parallèle : SSE sur le web, long polling dans l'Activité Discord",
+              "Deux mods à faire vivre en même temps, chaque changement partagé devant être testé des deux côtés",
+              "Compte obligatoire pour tout ce qui est social, ce qui écarte les joueurs qui ne veulent pas lier leur Discord"
+            ]
+          },
+          "backend": {
+            "label": "Backend (VPS)",
+            "objective": "Fournir une infrastructure légère et économique capable de supporter plus de 25 000 utilisateurs pour alimenter les fonctionnalités communautaires du mod: salons, chat en temps réel, amis, groupes et leaderboard.",
+            "story_title": "L'histoire du backend",
+            "story_intro": "Le backend est né d'une nécessité. Quand l'API des salons publics du jeu a été retirée suite à des abus, j'ai recréé la fonctionnalité moi-même, avec les joueurs du mod comme fournisseurs de données.",
+            "story_steps": [
+              {
                 "title": "Phase Supabase",
-                "desc": "J'avais prévu 50 utilisateurs maximum, le quota gratuit de 500K requêtes/mois devait suffire. En 1 heure après le déploiement: déjà 50 utilisateurs. En 24 heures: 400. En moins d'une semaine: le quota était atteint."
+                "desc": "J'avais prévu 50 utilisateurs maximum, et le quota gratuit de 500 000 requêtes par mois devait largement suffire. Une heure après le déploiement, j'avais déjà mes 50 utilisateurs. En 24 heures ils étaient 400. En moins d'une semaine le quota était épuisé."
               },
               {
-                "icon": "🖥️",
                 "title": "Migration VPS",
-                "desc": "Migration sur un VPS Hetzner en 2 jours à 3,6€/mois. Capacité théorique: 20 millions de requêtes/jour. Une optimisation complètement disproportionnée par rapport à Supabase."
+                "desc": "Migration sur un VPS Hetzner en deux jours, à 3,6€ par mois, pour une capacité théorique de 20 millions de requêtes par jour. Complètement disproportionné, et c'est exactement ce qu'il fallait."
               },
               {
-                "icon": "💬",
                 "title": "Le Community Hub",
-                "desc": "Avec plus de 1 000 utilisateurs, j'ai décidé de construire ce qui manquait réellement au jeu: un vrai système communautaire. Chat en temps réel, système d'amis, groupes, leaderboard, profils personnalisables avec 7 contrôles de confidentialité."
+                "desc": "Avec plus de 1 000 utilisateurs, le manque le plus criant était social. J'ai construit le Community Hub sur ce backend, et il a fini par devenir un projet à part entière. Il a son propre onglet."
               },
               {
-                "icon": "🔐",
                 "title": "Sécurité et compatibilité",
-                "desc": "Ajout de Discord OAuth pour sécuriser l'authentification. Les événements SSE ne fonctionnaient pas sur Discord, j'ai mis en place un long polling avec système d'événements. Codé pendant une semaine non-stop pour rendre le tout compatible."
+                "desc": "Discord OAuth pour sécuriser l'authentification. Les événements en temps réel ne passaient pas dans Discord, j'ai donc doublé le système d'un second mode de transmission. Une semaine de code non-stop pour que tout fonctionne partout."
               },
               {
-                "icon": "⚡",
                 "title": "L'optimisation",
-                "desc": "Avec 10 000 joueurs enregistrés et 500 connectés simultanément, le VPS était à 200% de ses capacités avec 5 millions de requêtes/jour. Refactoring massif: requêtes intelligentes, déduplication, polling optimisé. Résultat: 900K requêtes/jour, VPS stable à 25%. Tout ça sur un serveur à 3,6€/mois."
+                "desc": "Avec 10 000 joueurs inscrits et 500 connectés en même temps, le VPS tournait à 200% de ses capacités pour 5 millions de requêtes par jour. Après un gros travail de refonte, il est redescendu à 900 000 requêtes par jour et 25% de charge. Toujours sur le même serveur à 3,6€."
               },
               {
-                "icon": "☕",
                 "title": "Ko-fi et les supporters",
-                "desc": "J'ai ajouté une page Ko-fi sans trop m'attendre à des résultats. En une semaine, j'avais récolté suffisamment pour couvrir plus d'un an et demi d'hébergement. J'ai décidé d'intégrer des badges Supporter dans le Community Hub pour remercier les contributeurs."
+                "desc": "J'ai ajouté une page Ko-fi sans trop m'attendre à des résultats. 50€ la première semaine, et plus d'une centaine d'euros sur le premier mois, de quoi couvrir plus de deux ans d'hébergement. J'ai intégré des badges Supporter dans le Community Hub pour remercier les contributeurs."
               }
             ],
             "tech": [
@@ -698,7 +806,7 @@
               "Optimisation massive: de 5M à 900K requêtes/jour, VPS à 25% de capacité"
             ],
             "limits": [
-              "Architecture polling uniquement (pas de SSE à cause des restrictions Discord)",
+              "Deux transports à maintenir en parallèle : SSE sur le web, long polling dans l'Activité Discord où les flux d'évènements ne passent pas",
               "Single VPS sans redondance",
               "Dépendance à Discord OAuth pour l'authentification"
             ],
@@ -718,6 +826,57 @@
               "Nettoyage lazy des salons expirés (cleanup-on-read, pas de cron)"
             ]
           },
+          "android": {
+            "label": "Application Android",
+            "objective": "Dans Magic Garden, il faut laisser le jeu ouvert pour continuer à recevoir ses bonus. Cette application prend le relais depuis le téléphone, sans presque rien consommer, à n'importe quelle heure et où que tu sois.",
+            "story_title": "L'histoire de l'application",
+            "story_intro": "Magic Garden récompense ceux qui restent connectés. Sauf que rester connecté, concrètement, ça veut dire laisser tourner son ordinateur.",
+            "story_steps": [
+              {
+                "title": "L'ordinateur allumé pour rien",
+                "desc": "Pour ne pas perdre ses bonus, il fallait garder le jeu ouvert en permanence. La nuit pendant qu'on dort, la journée pendant qu'on est en cours ou au travail. Un ordinateur qui tourne des heures juste pour que le jardin continue d'avancer."
+              },
+              {
+                "title": "Le téléphone prend le relais",
+                "desc": "L'idée tenait en une phrase. Que ce soit le téléphone qui garde la place, et plus l'ordinateur. Mais pour qu'on accepte de la laisser tourner jour et nuit, il fallait que l'application ne coûte presque rien. Pas de jeu qui tourne en fond, pas d'images à recharger sans arrêt, juste un fil ouvert en permanence avec le serveur du jeu. Le strict minimum pour continuer à recevoir les bonus."
+              },
+              {
+                "title": "Le téléphone qui coupe tout",
+                "desc": "Sauf qu'un téléphone passe son temps à économiser sa batterie. Écran éteint, l'application se coupait. Téléphone en veille, elle disparaissait. Chassée de la liste des applications récentes, elle ne revenait pas. Il a fallu lui apprendre à tenir malgré le système. Aujourd'hui elle ne lâche plus."
+              },
+              {
+                "title": "Jouer sans ouvrir le jeu",
+                "desc": "Une fois la connexion tenue, autant en profiter. Planter, arroser, récolter, acheter, nourrir ses animaux, vendre ses récoltes. Presque tout ce qu'on fait dans Magic Garden se fait depuis l'application, et quand on veut vraiment jouer, un bouton ouvre le vrai jeu avec le mod déjà en place."
+              }
+            ],
+            "structure_title": "Structure du projet",
+            "structure": "app/src/main/java/com/mgafk/app/\n  auth/                # Connexion Discord\n  data/\n    websocket/         # Connexion au jeu et protocole\n    websocket/state/   # Modèles de l'état du jeu\n    repository/        # Sessions et remontée d'état\n    model/\n  service/             # Service en arrière-plan et surveillance\n  play/                # Ouverture du jeu dans l'application\n  ui/screens/          # Jardin, animaux, boutiques, alertes, social\n  ui/components/",
+            "tech": [
+              "Kotlin",
+              "Jetpack Compose",
+              "OkHttp",
+              "Coroutines",
+              "DataStore",
+              "Coil",
+              "WorkManager"
+            ],
+            "features": [
+              "Connexion maintenue en arrière plan, écran éteint et application fermée",
+              "Suivi en direct des animaux, du jardin, des boutiques et de la météo",
+              "Alertes configurables par section ou par objet, avec un mode réveil sonore",
+              "Actions à distance : planter, arroser, récolter, acheter, nourrir, vendre",
+              "Jusqu'à 30 équipes d'animaux enregistrées",
+              "Plusieurs comptes en parallèle, gérés par onglets",
+              "Bouton pour ouvrir le vrai jeu dans l'application, avec le mod déjà injecté",
+              "Cache d'images local pour éviter de retélécharger les sprites à chaque écran"
+            ],
+            "limits": [
+              "Les contournements dépendent des politiques Android : une nouvelle version du système peut casser ce qui tient l'application en vie",
+              "Pas de renouvellement automatique de la connexion, il faut se reconnecter à la main quand le jeton expire",
+              "Android uniquement, aucune version iOS",
+              "Certains constructeurs sont plus agressifs que d'autres sur la mise en veille, le comportement varie d'un téléphone à l'autre"
+            ]
+          },
           "gemini": {
             "label": "Gemini (Next-gen)",
             "objective": "Repartir de zéro en collaboration avec un autre développeur pour créer le mod ultime: future-proof, auto-adaptatif aux mises à jour du jeu, compatible tous navigateurs et mobile, et conçu pour être facilement forkable.",
@@ -725,22 +884,18 @@
             "story_intro": "Après des mois de développement sur Aries Mod, les limites de l'architecture originale devenaient évidentes. On a décidé avec un autre développeur de tout repartir de zéro.",
             "story_steps": [
               {
-                "icon": "🤝",
                 "title": "La collaboration",
                 "desc": "Un autre développeur utilisait également le jeu et avait son propre mod. On a décidé de fusionner nos deux projets en un seul, en repartant de zéro avec une architecture pensée pour durer."
               },
               {
-                "icon": "🏗️",
                 "title": "L'architecture",
                 "desc": "Des règles strictes documentées, une architecture modulaire avec des couches claires (atoms, globals, modules, features, UI), et une séparation nette des responsabilités. Plus de hardcode de données du jeu, tout est extrait dynamiquement."
               },
               {
-                "icon": "📱",
                 "title": "La compatibilité",
                 "desc": "Compatible tous navigateurs dès le départ, optimisé mobile, et conçu pour que n'importe quel développeur puisse fork et ajouter ses propres sections facilement."
               },
               {
-                "icon": "🤖",
                 "title": "Claude comme copilote",
                 "desc": "L'architecture du projet est en grande partie gérée grâce à Claude. Des workflows, rules et skills sont définis dans le dossier .claude du projet, ce qui permet de coder de manière beaucoup plus intelligente et propre. Chaque contribution passe par ces guidelines automatiquement."
               }
@@ -774,7 +929,7 @@
           "title": "L'impact en chiffres",
           "items": [
             {
-              "text": "10 000+ joueurs enregistrés sur le mod"
+              "text": "25 000+ joueurs enregistrés sur le mod"
             },
             {
               "text": "500 joueurs connectés simultanément en moyenne"
@@ -783,7 +938,7 @@
               "text": "2 000 utilisateurs réguliers par jour"
             },
             {
-              "text": "50€ récoltés sur Ko-fi en une semaine, de quoi couvrir 1 an et demi d'hébergement"
+              "text": "Plus de 100€ récoltés sur Ko-fi en un mois, de quoi couvrir plus de deux ans d'hébergement"
             },
             {
               "text": "Un VPS à 3,6€/mois qui gère tout l'écosystème"
@@ -802,10 +957,6 @@
             "La confiance de la communauté se construit avec de la transparence et en demandant la permission plutôt que le pardon",
             "Le feedback des utilisateurs est le meilleur carburant pour un développeur"
           ]
-        },
-        "remark": {
-          "title": "La suite",
-          "description": "Ce projet a représenté plusieurs mois de développement intensif, a rassemblé une communauté de plus de 10 000 joueurs et a généré suffisamment de soutien pour couvrir plus d'un an et demi d'hébergement. Il évolue aujourd'hui vers Gemini, un projet collaboratif de réécriture complète. L'objectif: un mod future-proof, auto-adaptatif, compatible tous navigateurs, optimisé mobile, et conçu pour être facilement forkable par d'autres développeurs. La fin d'un chapitre, le début d'un autre."
         }
       }
     },
@@ -815,7 +966,8 @@
       "advantages": "Avantages",
       "limits": "Limites",
       "viewCode": "Voir le code",
-      "architecture": "🔧 Architecture technique du projet"
+      "architecture": "🔧 Architecture technique du projet",
+      "viewSite": "Voir le site"
     }
   },
   "sidebar": {

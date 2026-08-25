@@ -1,3 +1,5 @@
+import type { FrameHeight } from "@/app/components/portfolio/Caroussel";
+
 export interface ModuleData {
   key: string;
   labelKey: string;
@@ -7,6 +9,10 @@ export interface ModuleData {
   limitsKey: string;
   images?: string[];
   repoUrl?: string;
+  /** Lien vers une démo publique, affiché à côté du lien du repo. */
+  siteUrl?: string;
+  /** Les captures d'écran de téléphone ont besoin d'un cadre plus haut. */
+  frameHeight?: FrameHeight;
 }
 
 export const mayayaModule: ModuleData[] = [
@@ -114,6 +120,32 @@ export const snapscoreModule: ModuleData[] = [
 
 export const ariesmodModule: ModuleData[] = [
   {
+    key: "api",
+    labelKey: "portfolio.projects.ariesmod.modules.api.label",
+    objectiveKey: "portfolio.projects.ariesmod.modules.api.objective",
+    techKey: "portfolio.projects.ariesmod.modules.api.tech",
+    featuresKey: "portfolio.projects.ariesmod.modules.api.features",
+    limitsKey: "portfolio.projects.ariesmod.modules.api.limits",
+    images: [
+      "/img/api1.png",
+      "/img/api2.png",
+      "/img/api3.png",
+      "/img/api4.png",
+      "/img/api5.png",
+      "/img/api6.png",
+      "/img/api7.png",
+      "/img/api8.png",
+      "/img/api9.png",
+      "/img/api10.png",
+      "/img/api11.png",
+      "/img/api12.png",
+      "/img/api13.png",
+    ],
+    repoUrl: "https://github.com/Ariedam64/Magic-Garden-API",
+    siteUrl: "https://ariesmod-api.ariedam.fr/explorer",
+    frameHeight: "wide",
+  },
+  {
     key: "client",
     labelKey: "portfolio.projects.ariesmod.modules.client.label",
     objectiveKey: "portfolio.projects.ariesmod.modules.client.objective",
@@ -126,16 +158,30 @@ export const ariesmodModule: ModuleData[] = [
       "/img/ariesmod3.png",
       "/img/ariesmod4.png",
       "/img/ariesmod5.png",
-      "/img/ariesmod6.png",
-      "/img/ariesmod7.png",
-      "/img/ariesmod8.png",
-      "/img/ariesmod9.png",
-      "/img/ariesmod10.png",
-      "/img/ariesmod11.png",
-      "/img/ariesmod12.png",
-      "/img/ariesmod13.png",
     ],
     repoUrl: "https://github.com/Ariedam64/MG-AriesMod",
+    frameHeight: "wide",
+  },
+  {
+    key: "hub",
+    labelKey: "portfolio.projects.ariesmod.modules.hub.label",
+    objectiveKey: "portfolio.projects.ariesmod.modules.hub.objective",
+    techKey: "portfolio.projects.ariesmod.modules.hub.tech",
+    featuresKey: "portfolio.projects.ariesmod.modules.hub.features",
+    limitsKey: "portfolio.projects.ariesmod.modules.hub.limits",
+    images: [
+      "/img/hub1.png",
+      "/img/hub2.png",
+      "/img/hub3.png",
+      "/img/hub4.png",
+      "/img/hub5.png",
+      "/img/hub6.png",
+      "/img/hub7.png",
+      "/img/hub8.png",
+      "/img/hub9.png",
+      "/img/hub10.png",
+    ],
+    repoUrl: "https://github.com/Ariedam64/MG-CommunityHub",
   },
   {
     key: "backend",
@@ -154,7 +200,31 @@ export const ariesmodModule: ModuleData[] = [
       "/img/backend7.png",
       "/img/backend8.png",
     ],
-    repoUrl: "https://github.com/Ariedam64/Ariesmod-API",
+    repoUrl: "https://github.com/Ariedam64/Magic-Garden-API",
+  },
+  {
+    key: "android",
+    labelKey: "portfolio.projects.ariesmod.modules.android.label",
+    objectiveKey: "portfolio.projects.ariesmod.modules.android.objective",
+    techKey: "portfolio.projects.ariesmod.modules.android.tech",
+    featuresKey: "portfolio.projects.ariesmod.modules.android.features",
+    limitsKey: "portfolio.projects.ariesmod.modules.android.limits",
+    images: [
+      "/img/android1.jpg",
+      "/img/android2.jpg",
+      "/img/android3.jpg",
+      "/img/android4.jpg",
+      "/img/android5.jpg",
+      "/img/android6.jpg",
+      "/img/android7.jpg",
+      "/img/android8.jpg",
+      "/img/android9.jpg",
+      "/img/android10.jpg",
+      "/img/android11.jpg",
+      "/img/android12.jpg",
+    ],
+    repoUrl: "https://github.com/Ariedam64/mg-afk-android",
+    frameHeight: "portrait",
   },
   {
     key: "gemini",
@@ -168,7 +238,9 @@ export const ariesmodModule: ModuleData[] = [
       "/img/gemini2.png",
       "/img/gemini3.png",
       "/img/gemini4.png",
+      "/img/gemini5.png",
     ],
     repoUrl: "https://github.com/Ariedam64/Gemini",
+    frameHeight: "wide",
   },
 ];

@@ -75,6 +75,10 @@ export default function AriesModProjectPage() {
             const optimizationTitle = t(optimizationTitleKey);
             const hasOptimization = optimizationTitle !== optimizationTitleKey;
 
+            const chessTitleKey = `${base}.chess_title`;
+            const chessTitle = t(chessTitleKey);
+            const hasChess = chessTitle !== chessTitleKey;
+
             return (
               <div className="space-y-6 bg-zinc-800/40 p-6 rounded-lg">
                 <SectionCard title={t("portfolio.sections.objective")} icon="🎯" borderColor="border-[#9333ea]">
@@ -108,18 +112,42 @@ export default function AriesModProjectPage() {
                   <ListSection items={tList(t, module.limitsKey)} textColor="text-gray-300" />
                 </SectionCard>
 
+                {hasChess && (
+                  <SectionCard title={chessTitle} icon="♟️" borderColor="border-cyan-500">
+                    <div className="space-y-4">
+                      <TranslateAnimation text={t(`${base}.chess_intro`)} />
+                      <ListSection items={tList(t, `${base}.chess_points`)} textColor="text-gray-300" />
+                      <p className="text-cyan-200 italic">
+                        <TranslateAnimation text={t(`${base}.chess_outro`)} />
+                      </p>
+                    </div>
+                  </SectionCard>
+                )}
+
                 <TechPills items={tList(t, module.techKey)} />
-                <Caroussel className="mx-auto" images={module.images} />
-                {module.repoUrl && (
-                  <div className="flex justify-center">
-                    <a
-                      href={module.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-purple-300 hover:underline"
-                    >
-                      <TranslateAnimation text={t("portfolio.sections.viewCode")} />
-                    </a>
+                <Caroussel className="mx-auto" images={module.images} frameHeight={module.frameHeight} />
+                {(module.repoUrl || module.siteUrl) && (
+                  <div className="flex justify-center gap-6">
+                    {module.repoUrl && (
+                      <a
+                        href={module.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-purple-300 hover:underline"
+                      >
+                        <TranslateAnimation text={t("portfolio.sections.viewCode")} />
+                      </a>
+                    )}
+                    {module.siteUrl && (
+                      <a
+                        href={module.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-cyan-300 hover:underline"
+                      >
+                        <TranslateAnimation text={t("portfolio.sections.viewSite")} />
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
@@ -133,10 +161,6 @@ export default function AriesModProjectPage() {
 
         <Section emoji="📝" title={t("portfolio.projects.ariesmod.learnings.title")}>
           <ListSection items={learningsItems} textColor="text-gray-300" />
-        </Section>
-
-        <Section emoji="💡" title={t("portfolio.projects.ariesmod.remark.title")} titleColor="text-purple-300" borderColor="border-purple-500">
-          <TranslateAnimation text={t("portfolio.projects.ariesmod.remark.description")} />
         </Section>
       </PageLayout>
     </>

@@ -45,14 +45,19 @@ Pages de détail des projets :
   - "Quelles fonctionnalités a ton bot Discord ?"
   - "Comment tu gères musique + IA dans un seul bot ?"
 
-4) Projet Aries Mod (userscript Tampermonkey pour Magic Garden)
+4) Projet Écosystème Magic Garden (anciennement Aries Mod)
 - Lien : https://ariedam.fr/portfolio/projects/ariesmod
-- Contenu : description d'Aries Mod, userscript communautaire pour le jeu Magic Garden, avec backend VPS, hub communautaire, 10 000+ joueurs. Architecture en 3 modules : client (Tampermonkey), backend (Node.js/PostgreSQL/VPS), et Gemini (refonte next-gen).
+- Contenu : six projets construits autour du jeu Magic Garden, 25 000+ joueurs. Architecture en 6 modules, un onglet chacun : API & Garden Explorer (extraction dynamique des données du jeu, site public), Client (userscript Tampermonkey), Community Hub (hub social autonome, avec jeu d'échecs jouable dans le jardin), Backend (VPS), Application Android (Kotlin, connexion maintenue en arrière-plan), et Gemini (refonte next-gen).
 - Utilité : répondre aux questions sur :
   - "C'est quoi Aries Mod ?"
   - "Comment fonctionne le backend d'Aries Mod ?"
   - "C'est quoi Gemini ?"
-  - "Comment Romann a géré 10 000 utilisateurs sur un VPS à 3,6€/mois ?"
+  - "C'est quoi l'API Magic Garden / le Garden Explorer ?"
+  - "Comment l'API survit aux mises à jour du jeu ?"
+  - "C'est quoi le Community Hub ?"
+  - "Il y a un jeu d'échecs dans le mod ?"
+  - "Il existe une application Android ?"
+  - "Comment Romann a géré 25 000 utilisateurs sur un VPS à 3,6€/mois ?"
 
 3) Projet SnapScore+ (orchestrateur Snapchat)
 - Lien : https://ariedam.fr/portfolio/projects/snapscore
@@ -71,7 +76,7 @@ Résumé d’usage pour l’assistant :
   - Liste des projets : section #section-projects
 
 - Pour accéder aux détails d’un projet précis :
-  - Aries Mod : /portfolio/projects/ariesmod
+  - Écosystème Magic Garden (Aries Mod) : /portfolio/projects/ariesmod
   - Mayaya : /portfolio/projects/mayaya
   - Arie : /portfolio/projects/arie
   - SnapScore+ : /portfolio/projects/snapscore

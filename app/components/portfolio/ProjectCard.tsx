@@ -122,7 +122,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
       </div>
 
       <h2 className="text-3xl font-extrabold mb-1 text-left text-[#d4d4d4] pl-8">{title}</h2>
-      <p className="text-secondaryText pl-8 pr-8 pt-2 mb-1 text-[#8D8D8E] text-justify">
+      <p className="text-secondaryText pl-8 pr-8 pt-2 mb-1 text-[#8D8D8E] text-left">
         <TranslateAnimation text={t(description)} />
       </p>
       <TechPills items={technologies} />

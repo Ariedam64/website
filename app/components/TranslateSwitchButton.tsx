@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { HiArrowPath } from "react-icons/hi2";
 
@@ -13,6 +13,12 @@ export default function TranslateSwitchButton() {
   const [currentLang, setCurrentLang] = useState(i18n.language || 'fr');
   const [labelAnimating, setLabelAnimating] = useState(false);
   const [rotating, setRotating] = useState(false);
+
+  // La langue du visiteur est appliquée après montage par I18nProvider, donc
+  // l'état initial peut être dépassé : on se recale sur i18n.
+  useEffect(() => {
+    setCurrentLang(i18n.language);
+  }, [i18n.language]);
 
   const alternateLang = currentLang === 'fr' ? 'en' : 'fr';
 

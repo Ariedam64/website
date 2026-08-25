@@ -12,7 +12,7 @@ export default function Projects() {
   const projects = [
   {
     images: ['/img/ariesmod1.png','/img/ariesmod2.png','/img/ariesmod3.png','/img/ariesmod4.png','/img/ariesmod5.png'],
-    title: 'Arie\'s Mod',
+    title: t("portfolio.projects.ariesmod.title"),
     description: t("portfolio.projects.ariesmod.description"),
     technologies: ['Tampermonkey','TypeScript','JavaScript','HTML','CSS'],
     detailsUrl: 'portfolio/projects/ariesmod',

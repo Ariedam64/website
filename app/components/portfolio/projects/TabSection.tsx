@@ -35,17 +35,15 @@ export default function TabsSection<T>({
       )}
 
       <Tabs defaultValue={items[0].key} className="w-full">
-        <TabsList
-          className="grid bg-[#9233ea1e] text-[#a3a3a3] rounded-lg mb-4 border-none"
-          style={{
-            gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,
-          }}
-        >
+        {/* Pastilles a largeur naturelle : un libelle n'est jamais coupe en plein
+            mot, et si la rangee est pleine ce sont des onglets entiers qui
+            passent a la ligne. Tient aussi bien pour 2 onglets que pour 10. */}
+        <TabsList className="flex flex-wrap justify-center gap-2 p-2 bg-[#9233ea1e] text-[#a3a3a3] rounded-lg mb-4 border-none">
           {items.map((item) => (
             <TabsTrigger
               key={item.key}
               value={item.key}
-              className="text-base sm:text-lg font-semibold py-2 rounded-md hover:text-white data-[state=active]:text-[#a56fd8] data-[state=active]:bg-[#9333ea33] border-none"
+              className="text-base sm:text-lg font-semibold whitespace-nowrap px-4 py-2 rounded-md hover:text-white data-[state=active]:text-[#a56fd8] data-[state=active]:bg-[#9333ea33] border-none"
             >
               <TranslateAnimation text={item.label} />
             </TabsTrigger>
