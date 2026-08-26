@@ -35,8 +35,15 @@ export default function FridaToolkitProjectPage() {
           subtitle={t(`${BASE}.subtitle`)}
         />
 
-        <Section emoji="🧩" title={t(`${BASE}.about.title`)}>
-          <TranslateAnimation text={t(`${BASE}.about.description`)} />
+        <Section emoji="🎮" title={t(`${BASE}.about.title`)}>
+          <div className="space-y-4">
+            <p>
+              <TranslateAnimation text={t(`${BASE}.about.description`)} />
+            </p>
+            <p>
+              <TranslateAnimation text={t(`${BASE}.about.frida`)} />
+            </p>
+          </div>
         </Section>
 
         <Section emoji="🚀" title={t(`${BASE}.origin.title`)}>

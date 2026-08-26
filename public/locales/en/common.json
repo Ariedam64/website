@@ -21,7 +21,7 @@
       "name": "MADEIRA Romann",
       "role": "Developer Analyst",
       "cvLink": "View Resume",
-      "description": "24-year-old developer based in France, passionate about coding for 8 years. What I love most? Automating, optimizing, and building projects that excite me."
+      "description": "25-year-old developer based in France, passionate about coding for 8 years. What I love most? Automating, optimizing, and building projects that excite me."
     },
     "experiences": {
       "work_title": "Experiences",
@@ -964,8 +964,9 @@
         "subtitle": "A toolkit to observe and modify Unity games while they run, drivable by hand or by an AI.",
         "description": "A TypeScript toolkit for instrumenting compiled Unity games. Chained tools, an agent that stays attached to the game, and a local server that lets an AI drive the exploration in real time.",
         "about": {
-          "title": "The problem",
-          "description": "Unity can compile a game down to machine code, a technique called IL2CPP. The game then becomes very hard to inspect. The names are gone, so is the structure, and all that remains is a program running with no manual. This project is a toolkit to open it up anyway, while it runs."
+          "title": "About Unity",
+          "description": "Unity is the engine a large share of games are built with, from small mobile titles to major releases. When a studio ships one, it can compile it using a technique called IL2CPP: the code is translated into machine language, the kind a processor runs directly. The game gets faster, but it becomes unreadable. Class and function names are gone, so is the structure, and all that remains is a program running with no manual.",
+          "frida": "Frida is the tool that hands control back. It attaches to an already running program, reads its memory and intercepts its functions while it works. The game no longer has to be readable on disk, you only have to watch it live. Everything in this project rests on that."
         },
         "origin": {
           "title": "How it started",
@@ -973,27 +974,19 @@
           "steps": [
             {
               "title": "The wall",
-              "desc": "Unity games compiled with IL2CPP were out of reach. The code is turned into machine language, the names are gone, so is the structure. You open the file and there is nothing to read. I knew what I wanted to do, I just had no way in."
+              "desc": "Games compiled with IL2CPP were out of reach. You open the file and there is nothing to read. I knew what I wanted to do, I just had no way in."
             },
             {
               "title": "Depending on no one",
-              "desc": "There were ready-made frameworks for writing mods without asking questions. They worked, but they meant building on someone else's tool, with its limits and its blind spots. And above all, never understanding what happened underneath. I wanted the exact opposite."
+              "desc": "There were ready-made frameworks for writing mods. They worked, but they meant building on someone else's tool and never understanding what happened underneath. I wanted the opposite."
             },
             {
-              "title": "Finding Frida",
-              "desc": "Frida attaches to a program while it runs and lets you watch it from the inside. The game no longer has to be readable on disk, you only have to watch it live. That is what unlocked everything. I finally had what I needed to build my own tool, borrowing nothing from anyone."
-            },
-            {
-              "title": "From throwaway scripts to a toolkit",
-              "desc": "The first attempts were scripts you write, run once and throw away. Every new question meant starting over. I ended up isolating the moves that kept coming back and turning them into tools that chain together, sitting on a library of reusable pieces."
-            },
-            {
-              "title": "An agent that stays attached",
-              "desc": "A tool that starts, answers and stops forces you back to square one on every question. I turned it into an agent that stays hooked into the game and answers as long as you keep asking. The session no longer closes between two questions, and the game no longer needs restarting."
+              "title": "The toolkit",
+              "desc": "Frida broke the deadlock. My first attempts were throwaway scripts, and every new question meant starting over. I ended up gathering the moves that kept coming back into tools that chain together, sitting on an agent that stays attached to the game."
             },
             {
               "title": "Letting an AI drive",
-              "desc": "All that was missing was a way in. I added a local server that exposes that agent behind a single address. You send it the name of an operation and its arguments, it answers, and the game's events stream back live. What works for an interface works for a language model. An AI can now explore the game while it runs, ask for a class, read an object, install an interception, look at what comes out and decide the next move on its own. Reverse engineering stops being a list of hand-typed commands and becomes a conversation with the game."
+              "desc": "What was left was opening the tool to something other than a keyboard. I added a local server that exposes that agent behind a single address. An AI can now explore the game while it runs, ask for a class, install an interception, read what comes out and decide the next move on its own. Reverse engineering becomes a conversation with the game."
             }
           ]
         },

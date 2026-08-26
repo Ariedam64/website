@@ -10,7 +10,7 @@ export default function About() {
   const { t, i18n } = useTranslation("common");
   const cvHref =
     i18n.language?.startsWith("fr")
-      ? "https://drive.google.com/file/d/1FghnWYWUc9MMw7RnRcA3kyjfD558YtP0/view?usp=sharing"
+      ? "https://drive.google.com/file/d/1KR3GVRGmUCH37WHmdCveIKzYkLiTLrRZ/view?usp=sharing"
       : "https://drive.google.com/file/d/15KAJVvx4hJSfPVHfQGfiX6qLlzDN8odQ/view?usp=sharing";
 
   return (

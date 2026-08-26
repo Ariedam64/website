@@ -21,7 +21,7 @@
       "name": "MADEIRA Romann",
       "role": "Analyste Développeur",
       "cvLink": "Consulter le CV",
-      "description": "Développeur de 24 ans situé en France, passionné de code depuis 8 ans. Ce que j'adore ? Automatiser, optimiser, et coder des projets qui me passionnent"
+      "description": "Développeur de 25 ans situé en France, passionné de code depuis 8 ans. Ce que j'adore ? Automatiser, optimiser, et coder des projets qui me passionnent"
     },
     "experiences": {
       "work_title": "Expériences",
@@ -964,8 +964,9 @@
         "subtitle": "Une boîte à outils pour observer et modifier des jeux Unity pendant qu'ils tournent, pilotable à la main comme par une IA.",
         "description": "Boîte à outils TypeScript pour instrumenter des jeux Unity compilés. Des outils qui s'enchaînent, un agent qui reste attaché au jeu, et un serveur local qui permet à une IA de conduire l'exploration en temps réel.",
         "about": {
-          "title": "Le problème",
-          "description": "Unity peut compiler un jeu en code machine, une technique appelée IL2CPP. Le jeu devient alors très difficile à examiner. Les noms disparaissent, la structure aussi, il ne reste qu'un programme qui tourne sans notice. Ce projet est une boîte à outils pour l'ouvrir quand même, pendant qu'il fonctionne."
+          "title": "À propos de Unity",
+          "description": "Unity est le moteur avec lequel une grande partie des jeux sont fabriqués, du petit jeu mobile au gros titre. Quand un studio publie le sien, il peut le compiler avec une technique appelée IL2CPP : le code est traduit en langage machine, celui que le processeur exécute directement. Le jeu gagne en vitesse, mais il devient illisible. Les noms des classes et des fonctions disparaissent, la structure aussi, et il ne reste qu'un programme qui tourne sans notice.",
+          "frida": "Frida est l'outil qui permet de reprendre la main. Il s'attache à un programme déjà lancé, lit sa mémoire et intercepte ses fonctions pendant qu'il fonctionne. Le jeu n'a plus besoin d'être lisible sur le disque, il suffit de le regarder vivre. C'est là-dessus que repose tout ce projet."
         },
         "origin": {
           "title": "Origine du projet",
@@ -973,27 +974,19 @@
           "steps": [
             {
               "title": "La barrière",
-              "desc": "Les jeux Unity compilés en IL2CPP étaient hors de portée. Le code est traduit en langage machine, les noms disparaissent, la structure aussi. On ouvre le fichier et il n'y a rien à lire. Je savais ce que je voulais faire, je ne savais pas par où entrer."
+              "desc": "Les jeux compilés en IL2CPP étaient hors de portée. On ouvre le fichier et il n'y a rien à lire. Je savais ce que je voulais faire, je ne savais pas par où entrer."
             },
             {
               "title": "Ne dépendre de personne",
-              "desc": "Il existait des frameworks tout faits pour écrire des mods sans se poser de questions. Ça marchait, mais ça voulait dire bâtir sur l'outil d'un autre, avec ses limites et ses angles morts. Et surtout ne jamais comprendre ce qui se passait en dessous. Je voulais exactement l'inverse."
+              "desc": "Il existait des frameworks tout faits pour écrire des mods. Ça marchait, mais ça voulait dire bâtir sur l'outil d'un autre et ne jamais comprendre ce qui se passait dessous. Je voulais l'inverse."
             },
             {
-              "title": "La découverte de Frida",
-              "desc": "Frida s'attache à un programme pendant qu'il tourne et permet de l'observer de l'intérieur. Le jeu n'a plus besoin d'être lisible sur le disque, il suffit de le regarder vivre. C'est ce qui a tout débloqué. J'avais enfin de quoi construire mon propre outil, sans rien emprunter à personne."
-            },
-            {
-              "title": "Des scripts jetables à la boîte à outils",
-              "desc": "Les premiers essais étaient des scripts qu'on écrit, qu'on lance une fois et qu'on jette. À chaque nouvelle question, tout était à refaire. J'ai fini par isoler les gestes qui revenaient toujours et les transformer en outils qui s'enchaînent, posés sur une bibliothèque de briques réutilisables."
-            },
-            {
-              "title": "L'agent qui reste attaché",
-              "desc": "Un outil qui se lance, répond et s'arrête oblige à tout reprendre à zéro à chaque question. J'en ai fait un agent qui reste accroché au jeu et qu'on interroge autant qu'on veut. La session ne se referme plus entre deux questions, et le jeu n'a plus besoin d'être relancé."
+              "title": "La boîte à outils",
+              "desc": "Frida a débloqué la situation. Mes premiers essais étaient des scripts jetables, tout était à refaire à chaque question. J'ai fini par rassembler les gestes qui revenaient toujours en outils qui s'enchaînent, posés sur un agent qui reste attaché au jeu."
             },
             {
               "title": "Laisser une IA conduire",
-              "desc": "Il ne manquait plus qu'une porte d'entrée. J'ai ajouté un serveur local qui expose cet agent derrière une seule adresse. On lui envoie le nom d'une opération et ses arguments, il répond, et les événements du jeu remontent en direct. Ce qui vaut pour une interface vaut pour un modèle de langage. Une IA peut maintenant explorer le jeu pendant qu'il tourne, demander une classe, lire un objet, poser une interception, regarder ce qui sort et décider de la suite toute seule. Le reverse cesse d'être une suite de commandes tapées à la main pour devenir une conversation avec le jeu."
+              "desc": "Restait à ouvrir l'outil à autre chose qu'un clavier. J'ai ajouté un serveur local qui expose cet agent derrière une seule adresse. Une IA peut maintenant explorer le jeu pendant qu'il tourne, demander une classe, poser une interception, lire ce qui sort et décider de la suite toute seule. Le reverse devient une conversation avec le jeu."
             }
           ]
         },
